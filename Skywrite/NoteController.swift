@@ -220,6 +220,7 @@ final class NoteController: NSObject, NSWindowDelegate, NSTextViewDelegate {
 
     private func configure() {
         textView.controller = self
+        textView.setAccessibilityIdentifier("note-text")
         textView.delegate = self
         textView.drawsBackground = false
         textView.isRichText = false

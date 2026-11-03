@@ -3,6 +3,8 @@ import Carbon.HIToolbox
 import SkywriteCore
 
 final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuItemValidation {
+    static let isUITesting = CommandLine.arguments.contains("--ui-testing")
+
     private var noteManager: NoteManager?
     private var placementController: PlacementController?
     private var tapMonitor: ModifierTapMonitor?
@@ -10,13 +12,24 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuItemValidation {
     private let accessibility = AccessibilityPermission()
 
     func applicationDidFinishLaunching(_ notification: Notification) {
-        let store = NoteStore.standard(bundleIdentifier: Bundle.main.bundleIdentifier ?? "io.github.goozhenjie.skywrite")
-        let manager = NoteManager(store: store)
+        let manager = NoteManager(store: Self.isUITesting ? Self.uiTestingStore() : NoteStore.standard(bundleIdentifier: Bundle.main.bundleIdentifier ?? "io.github.goozhenjie.skywrite"))
         noteManager = manager
         placementController = PlacementController { [weak manager] placement in
             manager?.createNote(from: placement)
         }
         NSApp.mainMenu = MainMenu.build(appDelegate: self)
+        if !Self.isUITesting {
+            startGlobalInput()
+        }
+        manager.restoreNotes()
+    }
+
+    private static func uiTestingStore() -> NoteStore {
+        let folder = FileManager.default.temporaryDirectory.appending(path: "Skywrite-UITests-\(UUID().uuidString)")
+        return NoteStore(notesFolder: folder.appending(path: "notes"), recordURL: folder.appending(path: "notes.json"))
+    }
+
+    private func startGlobalInput() {
         hotkeys.register(keyCode: UInt32(kVK_ANSI_N), modifiers: UInt32(controlKey | optionKey)) { [weak self] in
             self?.newNote(nil)
         }
@@ -31,7 +44,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuItemValidation {
         accessibility.requestIfNeeded { [weak monitor] in
             monitor?.restart()
         }
-        manager.restoreNotes()
     }
 
     func applicationWillTerminate(_ notification: Notification) {

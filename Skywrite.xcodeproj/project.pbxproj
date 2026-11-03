@@ -13,12 +13,18 @@
 /* Begin PBXFileReference section */
 		5A0F00000000000000000001 /* Skywrite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Skywrite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A0F00000000000000000030 /* Signing.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Signing.xcconfig; sourceTree = "<group>"; };
+		5A0F00000000000000000040 /* SkywriteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SkywriteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		5A0F00000000000000000002 /* Skywrite */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Skywrite;
+			sourceTree = "<group>";
+		};
+		5A0F00000000000000000041 /* SkywriteUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SkywriteUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -32,6 +38,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5A0F00000000000000000042 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -40,6 +53,7 @@
 			children = (
 				5A0F00000000000000000030 /* Signing.xcconfig */,
 				5A0F00000000000000000002 /* Skywrite */,
+				5A0F00000000000000000041 /* SkywriteUITests */,
 				5A0F00000000000000000005 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				5A0F00000000000000000001 /* Skywrite.app */,
+				5A0F00000000000000000040 /* SkywriteUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -78,7 +93,46 @@
 			productReference = 5A0F00000000000000000001 /* Skywrite.app */;
 			productType = "com.apple.product-type.application";
 		};
+		5A0F00000000000000000043 /* SkywriteUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A0F00000000000000000044 /* Build configuration list for PBXNativeTarget "SkywriteUITests" */;
+			buildPhases = (
+				5A0F00000000000000000045 /* Sources */,
+				5A0F00000000000000000042 /* Frameworks */,
+				5A0F00000000000000000046 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5A0F00000000000000000047 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				5A0F00000000000000000041 /* SkywriteUITests */,
+			);
+			name = SkywriteUITests;
+			productName = SkywriteUITests;
+			productReference = 5A0F00000000000000000040 /* SkywriteUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
+
+/* Begin PBXContainerItemProxy section */
+		5A0F00000000000000000048 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A0F0000000000000000000A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5A0F00000000000000000006;
+			remoteInfo = Skywrite;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXTargetDependency section */
+		5A0F00000000000000000047 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5A0F00000000000000000006 /* Skywrite */;
+			targetProxy = 5A0F00000000000000000048 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXProject section */
 		5A0F0000000000000000000A /* Project object */ = {
@@ -90,6 +144,10 @@
 				TargetAttributes = {
 					5A0F00000000000000000006 = {
 						CreatedOnToolsVersion = 27.2;
+					};
+					5A0F00000000000000000043 = {
+						CreatedOnToolsVersion = 27.2;
+						TestTargetID = 5A0F00000000000000000006;
 					};
 				};
 			};
@@ -112,6 +170,7 @@
 			projectRoot = "";
 			targets = (
 				5A0F00000000000000000006 /* Skywrite */,
+				5A0F00000000000000000043 /* SkywriteUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -124,10 +183,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5A0F00000000000000000046 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5A0F00000000000000000008 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A0F00000000000000000045 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -230,6 +303,36 @@
 			};
 			name = Release;
 		};
+		5A0F00000000000000000049 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A0F00000000000000000030 /* Signing.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.goozhenjie.skywrite.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 6.0;
+				TEST_TARGET_NAME = Skywrite;
+			};
+			name = Debug;
+		};
+		5A0F0000000000000000004A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A0F00000000000000000030 /* Signing.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.goozhenjie.skywrite.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 6.0;
+				TEST_TARGET_NAME = Skywrite;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -247,6 +350,15 @@
 			buildConfigurations = (
 				5A0F0000000000000000000C /* Debug */,
 				5A0F0000000000000000000D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5A0F00000000000000000044 /* Build configuration list for PBXNativeTarget "SkywriteUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A0F00000000000000000049 /* Debug */,
+				5A0F0000000000000000004A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -27,6 +27,15 @@ xcodebuild -project Skywrite.xcodeproj -scheme Skywrite -configuration Debug bui
 swift test --package-path Packages/SkywriteCore
 ```
 
+UI tests in `SkywriteUITests/` click, type and scroll on your real screen, so leave the Mac alone while they run (about a minute). They need Automation Mode, which asks for an administrator password unless you turn the prompt off once:
+
+```bash
+sudo automationmodetool enable-automationmode-without-authentication
+xcodebuild -project Skywrite.xcodeproj -scheme Skywrite test
+```
+
+The tests launch Skywrite with `--ui-testing`, which keeps notes in a temporary folder and skips the global shortcuts, so your own notes are not touched.
+
 Builds are ad-hoc signed by default, so macOS asks for Accessibility access again after every rebuild. To keep the permission, sign with your own development certificate: create `Signing.local.xcconfig` next to `Signing.xcconfig` (it is ignored by git) with
 
 ```

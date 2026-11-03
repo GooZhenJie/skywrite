@@ -77,6 +77,7 @@ final class PlacementPanel: NSPanel {
         acceptsMouseMovedEvents = true
         animationBehavior = .none
         collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary, .stationary]
+        setAccessibilityIdentifier("placement")
         contentView = placementView
         setFrame(screen.frame, display: false)
         makeFirstResponder(placementView)
