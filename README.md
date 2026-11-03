@@ -47,6 +47,10 @@ and add `-allowProvisioningUpdates` to the first `xcodebuild` run.
 
 The app target lives in `Skywrite/`. Logic that does not need AppKit (double-tap detection, resize and zoom math, note files) lives in the `SkywriteCore` package under `Packages/` and has its own tests.
 
+## Contributing
+
+Bug reports, ideas and pull requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## License
 
 Skywrite is released under the [MIT License](LICENSE).
