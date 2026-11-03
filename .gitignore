@@ -1,0 +1,8 @@
+.DS_Store
+
+# DOCS
+/docs/
+
+# AGENTS
+.claude
+CLAUDE.md
