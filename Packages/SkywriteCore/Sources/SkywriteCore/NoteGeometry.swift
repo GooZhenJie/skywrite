@@ -39,12 +39,12 @@ public enum NoteGeometry {
         CGPoint(x: clickPoint.x, y: clickPoint.y + lineHeight / 2 + NoteMetrics.textVerticalPadding)
     }
 
-    public static func draggedBox(from start: CGPoint, to end: CGPoint, lineHeight: CGFloat) -> (topLeft: CGPoint, fixedWidth: CGFloat?, minimumHeight: CGFloat?) {
+    public static func draggedBox(from start: CGPoint, to end: CGPoint, lineHeight: CGFloat) -> NotePlacement {
         let width = abs(end.x - start.x)
         let height = abs(end.y - start.y)
         let fixedWidth = width > NoteMetrics.dragThreshold ? max(NoteMetrics.minimumFixedWidth, width) : nil
         let minimumHeight = height > lineHeight + NoteMetrics.textVerticalPadding * 2 ? height : nil
-        return (CGPoint(x: min(start.x, end.x), y: max(start.y, end.y)), fixedWidth, minimumHeight)
+        return NotePlacement(topLeft: CGPoint(x: min(start.x, end.x), y: max(start.y, end.y)), fixedWidth: fixedWidth, minimumHeight: minimumHeight)
     }
 
     public static func isDrag(from start: CGPoint, to end: CGPoint) -> Bool {

@@ -1,17 +1,11 @@
 import AppKit
 import SkywriteCore
 
-struct PlacementResult {
-    var topLeft: CGPoint
-    var fixedWidth: CGFloat?
-    var minimumHeight: CGFloat?
-}
-
 final class PlacementController {
     private var panels: [PlacementPanel] = []
-    private let onPlace: (PlacementResult) -> Void
+    private let onPlace: (NotePlacement) -> Void
 
-    init(onPlace: @escaping (PlacementResult) -> Void) {
+    init(onPlace: @escaping (NotePlacement) -> Void) {
         self.onPlace = onPlace
     }
 
@@ -49,10 +43,9 @@ final class PlacementController {
         cancel()
         let lineHeight = NoteController.lineHeight(zoom: 1)
         if NoteGeometry.isDrag(from: start, to: end) {
-            let box = NoteGeometry.draggedBox(from: start, to: end, lineHeight: lineHeight)
-            onPlace(PlacementResult(topLeft: box.topLeft, fixedWidth: box.fixedWidth, minimumHeight: box.minimumHeight))
+            onPlace(NoteGeometry.draggedBox(from: start, to: end, lineHeight: lineHeight))
         } else {
-            onPlace(PlacementResult(topLeft: NoteGeometry.placedBox(clickPoint: start, lineHeight: lineHeight)))
+            onPlace(NotePlacement(topLeft: NoteGeometry.placedBox(clickPoint: start, lineHeight: lineHeight)))
         }
     }
 

@@ -40,7 +40,7 @@ final class NoteManager {
         }
     }
 
-    func createNote(from placement: PlacementResult) {
+    func createNote(from placement: NotePlacement) {
         lockAll()
         let record = NoteRecord(
             topLeftX: placement.topLeft.x,

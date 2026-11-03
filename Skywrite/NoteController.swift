@@ -172,33 +172,6 @@ final class NoteController: NSObject, NSWindowDelegate, NSTextViewDelegate {
         manager?.layoutDidChange(self)
     }
 
-    @objc func resetZoom(_ sender: Any?) {
-        record.zoom = 1
-        relayoutKeepingTopLeft()
-        manager?.layoutDidChange(self)
-    }
-
-    @objc func fitSizeToText(_ sender: Any?) {
-        record.fixedWidth = nil
-        record.minimumHeight = nil
-        relayoutKeepingTopLeft()
-        manager?.layoutDidChange(self)
-    }
-
-    @objc func closeNote(_ sender: Any?) {
-        close()
-    }
-
-    func noteMenuItems() -> [NSMenuItem] {
-        var items = [NSMenuItem(title: String(localized: "Reset Zoom"), action: #selector(resetZoom(_:)), keyEquivalent: "")]
-        if record.fixedWidth != nil || record.minimumHeight != nil {
-            items.append(NSMenuItem(title: String(localized: "Fit Size to Text"), action: #selector(fitSizeToText(_:)), keyEquivalent: ""))
-        }
-        items.append(NSMenuItem(title: String(localized: "Close Note"), action: #selector(closeNote(_:)), keyEquivalent: ""))
-        items.forEach { $0.target = self }
-        return items
-    }
-
     func updateClickThrough(mouseLocation: CGPoint) {
         guard !isEditing else {
             panel.ignoresMouseEvents = false
@@ -293,5 +266,34 @@ final class NoteController: NSObject, NSWindowDelegate, NSTextViewDelegate {
         record.topLeftX = box.minX
         record.topLeftY = box.maxY
         noteView.needsDisplay = true
+    }
+}
+
+extension NoteController {
+    @objc func resetZoom(_ sender: Any?) {
+        record.zoom = 1
+        relayoutKeepingTopLeft()
+        manager?.layoutDidChange(self)
+    }
+
+    @objc func fitSizeToText(_ sender: Any?) {
+        record.fixedWidth = nil
+        record.minimumHeight = nil
+        relayoutKeepingTopLeft()
+        manager?.layoutDidChange(self)
+    }
+
+    @objc func closeNote(_ sender: Any?) {
+        close()
+    }
+
+    func noteMenuItems() -> [NSMenuItem] {
+        var items = [NSMenuItem(title: String(localized: "Reset Zoom"), action: #selector(resetZoom(_:)), keyEquivalent: "")]
+        if record.fixedWidth != nil || record.minimumHeight != nil {
+            items.append(NSMenuItem(title: String(localized: "Fit Size to Text"), action: #selector(fitSizeToText(_:)), keyEquivalent: ""))
+        }
+        items.append(NSMenuItem(title: String(localized: "Close Note"), action: #selector(closeNote(_:)), keyEquivalent: ""))
+        items.forEach { $0.target = self }
+        return items
     }
 }
