@@ -46,3 +46,7 @@ CODE_SIGN_IDENTITY = Apple Development
 and add `-allowProvisioningUpdates` to the first `xcodebuild` run.
 
 The app target lives in `Skywrite/`. Logic that does not need AppKit (double-tap detection, resize and zoom math, note files) lives in the `SkywriteCore` package under `Packages/` and has its own tests.
+
+## License
+
+Skywrite is released under the [MIT License](LICENSE).
