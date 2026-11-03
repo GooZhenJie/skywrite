@@ -1,0 +1,14 @@
+included:
+  - Skywrite
+  - SkywriteUITests
+  - Packages/SkywriteCore/Sources
+  - Packages/SkywriteCore/Tests
+
+excluded:
+  - Packages/SkywriteCore/.build
+
+disabled_rules:
+  - line_length
+
+identifier_name:
+  min_length: 1
