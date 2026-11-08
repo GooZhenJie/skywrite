@@ -1,0 +1,24 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>Skywrite</title>
+        <item>
+            <title>0.1.0</title>
+            <pubDate>Sun, 08 Nov 2026 19:35:40 +0800</pubDate>
+            <link>https://github.com/GooZhenJie/skywrite/releases</link>
+            <sparkle:version>1</sparkle:version>
+            <sparkle:shortVersionString>0.1.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[First release.
+
+Skywrite keeps short notes on your screen, above other windows, with no background or window frame. Each note is a Markdown file in a folder you choose. Notes can be moved, resized, zoomed and pinned, and ⌃⌥H hides or shows all of them. Settings › Appearance adds Soft Edge or Liquid Glass backgrounds.
+
+Skywrite can check for updates and asks before doing so automatically.
+
+Requires macOS 26 or later. The first time you open Skywrite, macOS may refuse to open it; [First launch](https://github.com/GooZhenJie/skywrite#first-launch) explains what to do.
+]]></description>
+            <enclosure url="https://github.com/GooZhenJie/skywrite/releases/download/v0.1.0/Skywrite-0.1.0.zip" length="3332724" type="application/octet-stream" sparkle:edSignature="qroSThIvKIcmN/Et08yya4lPnhe40vF1YGv/9yL1bjwIGBj7brgs6+myX88EVHA5UnXHcze3HYG4Gad9zeN5Ag=="/>
+        </item>
+    </channel>
+</rss>
