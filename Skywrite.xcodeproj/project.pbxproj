@@ -1,0 +1,420 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5A0F00000000000000000010 /* SkywriteCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5A0F00000000000000000020 /* SkywriteCore */; };
+		5A0F00000000000000000052 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 5A0F00000000000000000050 /* Sparkle */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5A0F00000000000000000001 /* Skywrite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Skywrite.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A0F00000000000000000030 /* Signing.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Signing.xcconfig; sourceTree = "<group>"; };
+		5A0F00000000000000000040 /* SkywriteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SkywriteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		5A0F00000000000000000060 /* Exceptions for "Skywrite" folder in "Skywrite" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 5A0F00000000000000000006 /* Skywrite */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		5A0F00000000000000000002 /* Skywrite */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5A0F00000000000000000060 /* Exceptions for "Skywrite" folder in "Skywrite" target */,
+			);
+			path = Skywrite;
+			sourceTree = "<group>";
+		};
+		5A0F00000000000000000041 /* SkywriteUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SkywriteUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5A0F00000000000000000003 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A0F00000000000000000010 /* SkywriteCore in Frameworks */,
+				5A0F00000000000000000052 /* Sparkle in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A0F00000000000000000042 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5A0F00000000000000000004 = {
+			isa = PBXGroup;
+			children = (
+				5A0F00000000000000000030 /* Signing.xcconfig */,
+				5A0F00000000000000000002 /* Skywrite */,
+				5A0F00000000000000000041 /* SkywriteUITests */,
+				5A0F00000000000000000005 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5A0F00000000000000000005 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5A0F00000000000000000001 /* Skywrite.app */,
+				5A0F00000000000000000040 /* SkywriteUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5A0F00000000000000000006 /* Skywrite */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A0F00000000000000000007 /* Build configuration list for PBXNativeTarget "Skywrite" */;
+			buildPhases = (
+				5A0F00000000000000000008 /* Sources */,
+				5A0F00000000000000000003 /* Frameworks */,
+				5A0F00000000000000000009 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				5A0F00000000000000000002 /* Skywrite */,
+			);
+			name = Skywrite;
+			packageProductDependencies = (
+				5A0F00000000000000000020 /* SkywriteCore */,
+				5A0F00000000000000000050 /* Sparkle */,
+			);
+			productName = Skywrite;
+			productReference = 5A0F00000000000000000001 /* Skywrite.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5A0F00000000000000000043 /* SkywriteUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A0F00000000000000000044 /* Build configuration list for PBXNativeTarget "SkywriteUITests" */;
+			buildPhases = (
+				5A0F00000000000000000045 /* Sources */,
+				5A0F00000000000000000042 /* Frameworks */,
+				5A0F00000000000000000046 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5A0F00000000000000000047 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				5A0F00000000000000000041 /* SkywriteUITests */,
+			);
+			name = SkywriteUITests;
+			productName = SkywriteUITests;
+			productReference = 5A0F00000000000000000040 /* SkywriteUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXContainerItemProxy section */
+		5A0F00000000000000000048 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A0F0000000000000000000A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5A0F00000000000000000006;
+			remoteInfo = Skywrite;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXTargetDependency section */
+		5A0F00000000000000000047 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5A0F00000000000000000006 /* Skywrite */;
+			targetProxy = 5A0F00000000000000000048 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXProject section */
+		5A0F0000000000000000000A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2720;
+				LastUpgradeCheck = 2720;
+				TargetAttributes = {
+					5A0F00000000000000000006 = {
+						CreatedOnToolsVersion = 27.2;
+					};
+					5A0F00000000000000000043 = {
+						CreatedOnToolsVersion = 27.2;
+						TestTargetID = 5A0F00000000000000000006;
+					};
+				};
+			};
+			buildConfigurationList = 5A0F0000000000000000000B /* Build configuration list for PBXProject "Skywrite" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"zh-Hans",
+			);
+			mainGroup = 5A0F00000000000000000004;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				5A0F00000000000000000021 /* XCLocalSwiftPackageReference "Packages/SkywriteCore" */,
+				5A0F00000000000000000051 /* XCRemoteSwiftPackageReference "Sparkle" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 5A0F00000000000000000005 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5A0F00000000000000000006 /* Skywrite */,
+				5A0F00000000000000000043 /* SkywriteUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5A0F00000000000000000009 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A0F00000000000000000046 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5A0F00000000000000000008 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A0F00000000000000000045 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5A0F0000000000000000000C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5A0F0000000000000000000D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		5A0F0000000000000000000E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A0F00000000000000000030 /* Signing.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Skywrite/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Skywrite;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.goozhenjie.skywrite;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKYWRITE_FEED_URL = "https://raw.githubusercontent.com/GooZhenJie/skywrite/main/appcast.xml";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		5A0F0000000000000000000F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A0F00000000000000000030 /* Signing.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Skywrite/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Skywrite;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.goozhenjie.skywrite;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKYWRITE_FEED_URL = "https://raw.githubusercontent.com/GooZhenJie/skywrite/main/appcast.xml";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		5A0F00000000000000000049 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A0F00000000000000000030 /* Signing.xcconfig */;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.goozhenjie.skywrite.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 6.0;
+				TEST_TARGET_NAME = Skywrite;
+			};
+			name = Debug;
+		};
+		5A0F0000000000000000004A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A0F00000000000000000030 /* Signing.xcconfig */;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.goozhenjie.skywrite.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 6.0;
+				TEST_TARGET_NAME = Skywrite;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5A0F00000000000000000007 /* Build configuration list for PBXNativeTarget "Skywrite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A0F0000000000000000000E /* Debug */,
+				5A0F0000000000000000000F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5A0F0000000000000000000B /* Build configuration list for PBXProject "Skywrite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A0F0000000000000000000C /* Debug */,
+				5A0F0000000000000000000D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5A0F00000000000000000044 /* Build configuration list for PBXNativeTarget "SkywriteUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A0F00000000000000000049 /* Debug */,
+				5A0F0000000000000000004A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		5A0F00000000000000000021 /* XCLocalSwiftPackageReference "Packages/SkywriteCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/SkywriteCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5A0F00000000000000000051 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.10.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5A0F00000000000000000020 /* SkywriteCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SkywriteCore;
+		};
+		5A0F00000000000000000050 /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A0F00000000000000000051 /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 5A0F0000000000000000000A /* Project object */;
+}

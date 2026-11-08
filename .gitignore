@@ -1,0 +1,14 @@
+.DS_Store
+
+# XCODE
+xcuserdata/
+.build/
+.swiftpm/
+Signing.local.xcconfig
+
+# DOCS
+/docs/
+
+# AGENTS
+.claude
+CLAUDE.md

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+<defs>
+<linearGradient id="trail" gradientUnits="userSpaceOnUse" x1="116" y1="0" x2="768" y2="0"><stop offset="0" stop-color="#2f74ec" stop-opacity="0.85"/><stop offset="1" stop-color="#2f74ec"/></linearGradient>
+</defs>
+<g transform="translate(100 210) scale(40)" fill="none" stroke="url(#trail)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+<path d="M1.5 11.5c2.2-4.6 3.4-7.9 4.4-7.9 1.3 0-1.1 6.9.3 6.9 1.2 0 2-4.4 3.3-4.4 1.1 0 .2 3.7 1.4 3.7.9 0 1.6-1.5 2.6-1.5.8 0 1.3.7 2.1.7"/>
+</g>
+<circle cx="865" cy="570" r="40" fill="#2f74ec"/>
+</svg>

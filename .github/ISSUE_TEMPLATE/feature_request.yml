@@ -1,0 +1,21 @@
+name: Feature request
+description: An idea that would make Skywrite better.
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do?
+      description: Describe the situation, not the solution. For example, "I keep a list of today's tasks and lose track of which notes are done."
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would help?
+      description: How you imagine it working in Skywrite.
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: What do you do today instead?
+      description: Optional. Other apps or workarounds you use.
