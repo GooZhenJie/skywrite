@@ -3,6 +3,18 @@
     <channel>
         <title>Skywrite</title>
         <item>
+            <title>0.1.1</title>
+            <pubDate>Sun, 08 Nov 2026 20:08:19 +0800</pubDate>
+            <link>https://github.com/GooZhenJie/skywrite/releases</link>
+            <sparkle:version>2</sparkle:version>
+            <sparkle:shortVersionString>0.1.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[Tests the update process. No changes since 0.1.0.
+]]></description>
+            <enclosure url="https://github.com/GooZhenJie/skywrite/releases/download/v0.1.1/Skywrite-0.1.1.zip" length="3332724" type="application/octet-stream" sparkle:edSignature="xTFKWsjzdPuYuWOXkCI7ucM2kE/PN2SEwuZ+L7XYGinv88068D/mFOdn6Q+qbbA7TD7H9DMypGepeYLeS04LDQ=="/>
+        </item>
+        <item>
             <title>0.1.0</title>
             <pubDate>Sun, 08 Nov 2026 19:35:40 +0800</pubDate>
             <link>https://github.com/GooZhenJie/skywrite/releases</link>
