@@ -23,7 +23,7 @@ Download and unzip `Skywrite-<version>.zip` from the [latest release](https://gi
 
 ### First launch
 
-The first time you open Skywrite, macOS may refuse to open it, saying it can't check the app for malware. When that happens, open **System Settings › Privacy & Security**, click **Open** under **Security**, then click **Open Anyway** and enter your password. See [Apple’s instructions](https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unknown-developer-mh40616/mac).
+The first time you open Skywrite, macOS may refuse to open it, saying it can't check the app for malware. When that happens, open **System Settings › Privacy & Security**, click **Open Anyway** under **Security**, click **Open Anyway** again when macOS asks, then use Touch ID or enter your password. See [Apple’s instructions](https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unknown-developer-mh40616/mac).
 
 ### Install from source
 
