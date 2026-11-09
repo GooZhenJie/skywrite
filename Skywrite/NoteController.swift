@@ -60,6 +60,8 @@ final class NoteController: NSObject, NSWindowDelegate, NSTextViewDelegate {
         if editing {
             beginEditing(caretAt: nil)
         } else {
+            // Notes saved before widths were kept on locking come back with no fixed width; they've all been locked already.
+            keepWidthAfterLocking()
             updateClickThrough(mouseLocation: NSEvent.mouseLocation)
         }
     }
@@ -126,6 +128,9 @@ final class NoteController: NSObject, NSWindowDelegate, NSTextViewDelegate {
         textView.isSelectable = false
         noteView.showsHandles = false
         panel.makeFirstResponder(nil)
+        if !isBlank {
+            keepWidthAfterLocking()
+        }
         manager?.didLock(self)
         updateClickThrough(mouseLocation: NSEvent.mouseLocation)
     }
@@ -325,6 +330,13 @@ extension NoteController {
         return NSImage(cgImage: image, size: size)
     }
 
+    /// Once a note has been locked, only the user changes its width (by resizing it); see `NoteGeometry.widthAfterLocking`.
+    private func keepWidthAfterLocking() {
+        guard record.fixedWidth == nil else { return }
+        record.fixedWidth = NoteGeometry.widthAfterLocking(fixedWidth: nil, boxWidth: boxInScreen.width, zoom: zoom)
+        manager?.layoutDidChange(self)
+    }
+
     @objc func resetZoom(_ sender: Any?) {
         record.zoom = 1
         relayoutKeepingTopLeft()
@@ -335,6 +347,9 @@ extension NoteController {
         record.fixedWidth = nil
         record.minimumHeight = nil
         relayoutKeepingTopLeft()
+        if !isEditing {
+            keepWidthAfterLocking()
+        }
         manager?.layoutDidChange(self)
     }
 

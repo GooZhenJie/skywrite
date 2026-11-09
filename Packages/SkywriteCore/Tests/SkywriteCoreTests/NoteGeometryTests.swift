@@ -68,6 +68,11 @@ struct NoteGeometryTests {
         #expect(NoteGeometry.autoWidthLimit(boxMinX: 1430, screenMaxX: 1440) == NoteMetrics.minimumFixedWidth)
     }
 
+    @Test func lockingKeepsTheWidthTheNoteHasNow() {
+        #expect(NoteGeometry.widthAfterLocking(fixedWidth: nil, boxWidth: 300, zoom: 1.5) == 200)
+        #expect(NoteGeometry.widthAfterLocking(fixedWidth: 120, boxWidth: 300, zoom: 1.5) == 120)
+    }
+
     @Test func clickPutsFirstLineOnThePointer() {
         let topLeft = NoteGeometry.placedBox(clickPoint: CGPoint(x: 300, y: 500), lineHeight: 24)
         #expect(topLeft == CGPoint(x: 300, y: 500 + 12 + NoteMetrics.textVerticalPadding))

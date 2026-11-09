@@ -35,6 +35,13 @@ public enum NoteGeometry {
         max(NoteMetrics.minimumFixedWidth, screenMaxX - boxMinX - NoteMetrics.screenEdgeMargin)
     }
 
+    /// A note created with a click grows with its text only until it's locked for the first time. From then on its width
+    /// stays put, wherever it's dragged and whatever is typed into it, until the user resizes it; its height still follows
+    /// the text. Returns the width to keep, in unzoomed points, or the note's own fixed width if it already has one.
+    public static func widthAfterLocking(fixedWidth: Double?, boxWidth: CGFloat, zoom: CGFloat) -> Double {
+        fixedWidth ?? Double(boxWidth / zoom)
+    }
+
     /// The first line is centred on the click and the text starts at the same spot whatever the padding, so a roomier
     /// background grows out around the text instead of pushing it away from where you clicked.
     public static func placedBox(clickPoint: CGPoint, lineHeight: CGFloat, padding: CGSize = CGSize(width: NoteMetrics.textHorizontalPadding, height: NoteMetrics.textVerticalPadding)) -> CGPoint {
