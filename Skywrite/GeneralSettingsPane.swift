@@ -9,21 +9,20 @@ struct GeneralSettingsPane: View {
     var body: some View {
         Form {
             Section {
+                // No second line under these two, as on Rectangle's and Ice's menu bar icon switches: they only say how
+                // to get back once the icon is gone, which the footer below does.
                 Toggle(isOn: $preferences.showsInDock) {
                     Text(verbatim: "Dock")
-                    Text("Right-click the Dock icon for recent notes").font(.callout)
                 }
                 .accessibilityIdentifier("show-in-dock")
-                Toggle(isOn: $preferences.showsInMenuBar) {
-                    Text("Menu bar")
-                    Text("Click the icon for new note, recent notes and settings").font(.callout)
-                }
-                .accessibilityIdentifier("show-in-menu-bar")
+                Toggle("Menu bar", isOn: $preferences.showsInMenuBar)
+                    .accessibilityIdentifier("show-in-menu-bar")
             } header: {
                 Text("Show Skywrite In")
             } footer: {
                 if !preferences.showsInDock && !preferences.showsInMenuBar {
-                    Text("Skywrite won’t appear in the Dock or the menu bar. To get back here, open Skywrite again from Finder or Spotlight.")
+                    // Only how to get back, like Rectangle's "When the menu bar icon is hidden, relaunch Rectangle from Finder to open".
+                    Text("To get back here, open Skywrite again from Finder or Spotlight.")
                         .font(.callout)
                         .foregroundStyle(.orange)
                 }
@@ -33,11 +32,8 @@ struct GeneralSettingsPane: View {
             }
             // Laid out like Maccy's and Rectangle's update settings: a switch for automatic checks and a button to check now.
             Section("Updates") {
-                Toggle(isOn: Binding(get: { updater.automaticallyChecksForUpdates }, set: { updater.setAutomaticallyChecksForUpdates($0) })) {
-                    Text("Check for updates automatically")
-                    Text("Once a day, Skywrite asks GitHub whether there’s a newer version. Your notes never leave your Mac.").font(.callout)
-                }
-                .accessibilityIdentifier("check-for-updates-automatically")
+                Toggle("Check for updates automatically", isOn: Binding(get: { updater.automaticallyChecksForUpdates }, set: { updater.setAutomaticallyChecksForUpdates($0) }))
+                    .accessibilityIdentifier("check-for-updates-automatically")
                 LabeledContent {
                     CheckForUpdatesButton(updater: updater)
                 } label: {
@@ -47,7 +43,9 @@ struct GeneralSettingsPane: View {
             Section("Settings Window") {
                 Toggle(isOn: $preferences.closesSettingsWhenInactive) {
                     Text("Close this window when you switch to another app")
-                    Text("Only the window closes. Skywrite and your notes keep running, and your changes are already saved.").font(.callout)
+                    // Says what the switch prevents, the way macOS words "Close windows when quitting an application":
+                    // "When enabled, open documents and windows will not be restored when you re-open an application."
+                    Text("When enabled, this window won’t come to the front when you create or close a note.").font(.callout)
                 }
                 .accessibilityIdentifier("close-settings-when-inactive")
             }

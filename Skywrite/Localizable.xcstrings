@@ -199,6 +199,22 @@
         }
       }
     },
+    "Also changes when you press ⌘+ or ⌘− in a note": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在便签里按 ⌘+ / ⌘− 也会改这里"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在便條裡按 ⌘+ / ⌘− 也會改這裡"
+          }
+        }
+      }
+    },
     "Also move the %lld notes in %@ to the Trash": {
       "localizations": {
         "en": {
@@ -393,44 +409,6 @@
         }
       }
     },
-    "Choose a key, then press it twice to make a note. (macOS 26)": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Choose a key, then press it twice to make a note. Skywrite will ask for Accessibility permission so it can notice the key in other apps."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "选一个键，按两下就能新建便签。选好后 Skywrite 会请求辅助功能权限，这样在别的 App 里也能察觉到这个键。"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "選一個鍵，按兩下就能新增便條。選好後 Skywrite 會要求輔助使用權限，這樣在別的 App 裡也能察覺到這個鍵。"
-          }
-        }
-      }
-    },
-    "Choose a key, then press it twice to make a note. Skywrite will ask for Accessibility permission so it can notice the key in other apps.": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "选一个键，按两下就能新建便签。选好后 Skywrite 会请求无障碍权限，这样在别的 App 里也能察觉到这个键。"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "選一個鍵，按兩下就能新增便條。選好後 Skywrite 會要求輔助使用權限，這樣在別的 App 裡也能察覺到這個鍵。"
-          }
-        }
-      }
-    },
     "City": {
       "localizations": {
         "zh-Hans": {
@@ -459,22 +437,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "清除快速鍵"
-          }
-        }
-      }
-    },
-    "Click the icon for new note, recent notes and settings": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "点图标：新建、最近的便签、设置"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "按一下圖像：新增、最近的便條、設定"
           }
         }
       }
@@ -539,22 +501,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "關掉的便條"
-          }
-        }
-      }
-    },
-    "Closing a note doesn’t delete its file; deleting moves the file to the Trash.": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "关闭便签不会删文件；删除会把文件移到废纸篓。"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "關閉便條不會刪除檔案；刪除會把檔案丟到垃圾桶。"
           }
         }
       }
@@ -843,22 +789,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "如果「聽寫」也設成「按兩下右 ⌘」，兩個會一起啟動。"
-          }
-        }
-      }
-    },
-    "If Skywrite misbehaves, export this file and send it to the developer.": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Skywrite 出问题时，导出这个文件发给开发者。"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Skywrite 出問題時，輸出這個檔案傳給開發者。"
           }
         }
       }
@@ -1329,38 +1259,6 @@
         }
       }
     },
-    "Once a day, Skywrite asks GitHub whether there’s a newer version. Your notes never leave your Mac.": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Skywrite 每天问一次 GitHub 有没有新版本。你的便签不会离开这台 Mac。"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Skywrite 每天問一次 GitHub 有沒有新版本。你的便條不會離開這台 Mac。"
-          }
-        }
-      }
-    },
-    "Only the window closes. Skywrite and your notes keep running, and your changes are already saved.": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "只关窗口，Skywrite 和便签照常运行，改过的设置也已经存好。"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "只關視窗，Skywrite 和便條照常執行，改過的設定也已經儲存。"
-          }
-        }
-      }
-    },
     "Open Notes Folder": {
       "localizations": {
         "zh-Hans": {
@@ -1453,6 +1351,44 @@
           "stringUnit": {
             "state": "translated",
             "value": "貼上"
+          }
+        }
+      }
+    },
+    "Pick a key, then press it twice in any app to make a note. (macOS 26)": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "选一个键，在任何 App 里按两下就能新建便签。需要辅助功能权限。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "選一個鍵，在任何 App 裡按兩下就能新增便條。需要輔助使用權限。"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pick a key, then press it twice in any app to make a note. Needs Accessibility permission."
+          }
+        }
+      }
+    },
+    "Pick a key, then press it twice in any app to make a note. Needs Accessibility permission.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "选一个键，在任何 App 里按两下就能新建便签。需要无障碍权限。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "選一個鍵，在任何 App 裡按兩下就能新增便條。需要輔助使用權限。"
           }
         }
       }
@@ -1713,22 +1649,6 @@
         }
       }
     },
-    "Right-click the Dock icon for recent notes": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "右键 Dock 图标可以看最近的便签"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "在 Dock 圖像上按右鍵，可以看最近的便條"
-          }
-        }
-      }
-    },
     "Sea": {
       "localizations": {
         "zh-Hans": {
@@ -1953,22 +1873,6 @@
         }
       }
     },
-    "Skywrite won’t appear in the Dock or the menu bar. To get back here, open Skywrite again from Finder or Spotlight.": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Skywrite 不会出现在 Dock 和菜单栏。要回到这里，在访达或聚焦搜索里再打开一次 Skywrite。"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Skywrite 不會出現在 Dock 和選單列。要回到這裡，請在 Finder 或 Spotlight 裡再打開一次 Skywrite。"
-          }
-        }
-      }
-    },
     "Smaller Text": {
       "localizations": {
         "zh-Hans": {
@@ -2145,34 +2049,18 @@
         }
       }
     },
-    "The file lists what Skywrite did, such as notes opening and closing, and which app was in front (for example com.google.Chrome). It never includes what you wrote in a note, and your home folder and user name are hidden.": {
+    "The photos for previewing note backgrounds are by these photographers on Unsplash.": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "文件里记的是 Skywrite 做了什么，例如便签打开、关闭，以及当时在最前面的是哪个 App（例如 com.google.Chrome）。不会包含便签里写的内容，主文件夹和用户名也已隐去。"
+            "value": "预览便签背景用的照片，来自 Unsplash 上的这些摄影师。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "檔案裡記的是 Skywrite 做了什麼，例如便條打開、關閉，以及當時在最前面的是哪個 App（例如 com.google.Chrome）。不會包含便條裡寫的內容，個人專屬檔案夾和使用者名稱也已隱去。"
-          }
-        }
-      }
-    },
-    "The photos you preview note backgrounds on come from these photographers on Unsplash. Thank you!": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "外观页里用来预览便签背景的照片，来自 Unsplash 上的这些摄影师。谢谢他们！"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "外觀頁裡用來預覽便條背景的照片，來自 Unsplash 上的這些攝影師。謝謝他們！"
+            "value": "預覽便條背景用的照片，來自 Unsplash 上的這些攝影師。"
           }
         }
       }
@@ -2237,6 +2125,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "這會從這台 Mac 上移除 Skywrite 和所有相關資料。"
+          }
+        }
+      }
+    },
+    "To get back here, open Skywrite again from Finder or Spotlight.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "要回到这里，在访达或聚焦搜索里再打开一次 Skywrite。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "要回到這裡，請在 Finder 或 Spotlight 裡再打開一次 Skywrite。"
           }
         }
       }
@@ -2525,34 +2429,50 @@
         }
       }
     },
-    "macOS normally dims glass in windows you aren’t using.": {
+    "When enabled, this window won’t come to the front when you create or close a note.": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "macOS 平时会把没在用的窗口里的玻璃调暗。"
+            "value": "启用后，新建或关闭便签时，这个窗口不会跳到最前面。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "macOS 平時會把沒在用的視窗裡的玻璃調暗。"
+            "value": "若啟用此選項，新增或關閉便條時，這個視窗不會跳到最前面。"
           }
         }
       }
     },
-    "⌘+ / ⌘− changes this for every note": {
+    "When you create an issue on GitHub, you can attach these logs to help us troubleshoot.": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "⌘+ / ⌘− 改的也是这里，所有便签一起变"
+            "value": "在 GitHub 上提 issue 时，可以附上这些日志，帮助我们排查问题。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "⌘+ / ⌘− 改的也是這裡，所有便條一起變"
+            "value": "在 GitHub 上提出 issue 時，可以附上這些記錄，協助我們排解問題。"
+          }
+        }
+      }
+    },
+    "Your notes aren’t included in the logs.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "日志里不会包含你的便签内容。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "記錄裡不會包含你的便條內容。"
           }
         }
       }

@@ -50,9 +50,9 @@ enum AccessibilityPermissionText {
 
     static var pressTwiceNeedsPermission: String {
         isMacOS26
-            ? String(localized: "Choose a key, then press it twice to make a note. (macOS 26)",
-                     defaultValue: "Choose a key, then press it twice to make a note. Skywrite will ask for Accessibility permission so it can notice the key in other apps.")
-            : String(localized: "Choose a key, then press it twice to make a note. Skywrite will ask for Accessibility permission so it can notice the key in other apps.")
+            ? String(localized: "Pick a key, then press it twice in any app to make a note. (macOS 26)",
+                     defaultValue: "Pick a key, then press it twice in any app to make a note. Needs Accessibility permission.")
+            : String(localized: "Pick a key, then press it twice in any app to make a note. Needs Accessibility permission.")
     }
 
     static var whereToRemove: String {

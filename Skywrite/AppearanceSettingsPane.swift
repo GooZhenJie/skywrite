@@ -44,11 +44,8 @@ struct AppearanceSettingsPane: View {
                         }
                     }
                 } else {
-                    Toggle(isOn: $preferences.liquidGlassStaysClear) {
-                        Text("Stay clear when you’re not using the note")
-                        Text("macOS normally dims glass in windows you aren’t using.").font(.callout)
-                    }
-                    .accessibilityIdentifier("liquid-glass-stays-clear")
+                    Toggle("Stay clear when you’re not using the note", isOn: $preferences.liquidGlassStaysClear)
+                        .accessibilityIdentifier("liquid-glass-stays-clear")
                     Text("Follows Liquid Glass in System Settings › Appearance.")
                         .font(.callout)
                         .foregroundStyle(.secondary)
@@ -71,7 +68,7 @@ struct AppearanceSettingsPane: View {
                     }
                 } label: {
                     Text("Text size")
-                    Text("⌘+ / ⌘− changes this for every note").font(.callout)
+                    Text("Also changes when you press ⌘+ or ⌘− in a note").font(.callout)
                 }
             }
         }

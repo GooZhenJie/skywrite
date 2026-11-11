@@ -19,9 +19,6 @@ struct StorageSettingsPane: View {
                 }
             } header: {
                 Text("Notes Folder")
-            } footer: {
-                Text("Closing a note doesn’t delete its file; deleting moves the file to the Trash.").font(.callout)
-                    .foregroundStyle(.secondary)
             }
             Section {
                 Picker(selection: retention) {

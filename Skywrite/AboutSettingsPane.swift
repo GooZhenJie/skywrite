@@ -31,7 +31,7 @@ struct AboutSettingsPane: View {
                 .padding(.vertical, 6)
             }
             Section {
-                Text("The photos you preview note backgrounds on come from these photographers on Unsplash. Thank you!")
+                Text("The photos for previewing note backgrounds are by these photographers on Unsplash.")
                     .font(.callout)
                     .foregroundStyle(.secondary)
                 ForEach(PreviewBackdrop.allCases) { backdrop in

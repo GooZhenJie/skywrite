@@ -21,11 +21,16 @@ struct TroubleshootingSettingsPane: View {
                         .disabled(model.isCollectingLogs)
                     }
                 } label: {
+                    // Logs are for GitHub issues the developer can't reproduce, so the line says when to attach the file
+                    // (user's wording, 2026-11-11).
                     Text("Logs")
-                    Text("If Skywrite misbehaves, export this file and send it to the developer.").font(.callout)
+                    Text("When you create an issue on GitHub, you can attach these logs to help us troubleshoot.").font(.callout)
                 }
             } footer: {
-                Text("The file lists what Skywrite did, such as notes opening and closing, and which app was in front (for example com.google.Chrome). It never includes what you wrote in a note, and your home folder and user name are hidden.")
+                // The one thing that stays out, like 1Password's "Your secrets are not included in diagnostics
+                // information" (support.1password.com/diagnostics-privacy, read 2026-11-11). Wording is the user's.
+                // See LogReport for what else is hidden.
+                Text("Your notes aren’t included in the logs.")
                     .font(.callout)
                     .foregroundStyle(.secondary)
             }

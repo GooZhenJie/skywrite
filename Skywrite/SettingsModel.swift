@@ -56,7 +56,7 @@ final class SettingsModel: ObservableObject {
         var searchNames: [String] {
             let keys: [String] = switch self {
             case .general:
-                ["General", "Show Skywrite In", "Dock", "Menu bar", "Right-click the Dock icon for recent notes", "Startup", "Open at login",
+                ["General", "Show Skywrite In", "Dock", "Menu bar", "Startup", "Open at login",
                  "Updates", "Check for updates automatically", "Check for Updates…", "Settings Window", "Close this window when you switch to another app"]
             case .appearance:
                 ["Appearance", "Theme", "In Dark Mode", "In Light Mode", "Note Background", "Soft Edge", "Liquid Glass", "Strength",
