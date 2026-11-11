@@ -2,15 +2,13 @@
 
 English · [简体中文](README.zh-Hans.md) · [繁體中文](README.zh-Hant.md)
 
-Skywrite puts notes on your screen, above your other windows. A note has no background or window frame, so it takes up little more space than its text.
+Skywrite puts notes on your screen, above your other windows. A note has no window frame, so it takes up little more space than its text.
 
-![Text notes floating over a dusk sky](.github/screenshots/notes.jpg)
+![A note placed with ⌃⌥N over VS Code, typed, then dragged under another note](.github/screenshots/demo.gif)
 
 Each note is saved as a Markdown file in a folder you choose. You can move, resize, zoom and pin notes, or hide them all with ⌃⌥H. The menu bar and Dock menus list your pinned notes and the ones you edited most recently, closed or not.
 
-Notes have no background by default. Settings › Appearance offers Soft Edge and Liquid Glass backgrounds.
-
-![Notes with Liquid Glass backgrounds](.github/screenshots/notes-liquid-glass.jpg)
+Notes have no background by default. Settings › Appearance offers Soft Edge and Liquid Glass backgrounds; the notes above use Liquid Glass.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset=".github/screenshots/settings-dark.png">

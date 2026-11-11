@@ -2,15 +2,13 @@
 
 [English](README.md) · [简体中文](README.zh-Hans.md) · 繁體中文
 
-Skywrite 把便條放在螢幕上，浮在其他視窗之上。便條沒有背景，也沒有視窗邊框，佔的地方和文字本身差不多大。
+Skywrite 把便條放在螢幕上，浮在其他視窗之上。便條沒有視窗邊框，佔的地方和文字本身差不多大。
 
-![浮在黃昏天空上的文字便條](.github/screenshots/notes.jpg)
+![在 VS Code 上按 ⌃⌥N 放一張便條，打字，再拖到另一張下面](.github/screenshots/demo.gif)
 
 每張便條都存成一個 Markdown 檔案，放在你選的檔案夾裡。便條可以移動、調整大小、縮放和釘選，也可以用 ⌃⌥H 一次隱藏全部便條。選單列和 Dock 的選單會列出釘選的便條和最近編輯過的便條，關掉的也在裡面。
 
-便條預設沒有背景。設定 › 外觀裡可以選柔邊或液態玻璃背景。
-
-![帶液態玻璃背景的便條](.github/screenshots/notes-liquid-glass.jpg)
+便條預設沒有背景。設定 › 外觀裡可以選柔邊或液態玻璃背景，上面動圖裡用的是液態玻璃。
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset=".github/screenshots/settings-dark.png">

@@ -2,15 +2,13 @@
 
 [English](README.md) · 简体中文 · [繁體中文](README.zh-Hant.md)
 
-Skywrite 把便签放在屏幕上，浮在其他窗口之上。便签没有背景，也没有窗口边框，占的地方和文字本身差不多大。
+Skywrite 把便签放在屏幕上，浮在其他窗口之上。便签没有窗口边框，占的地方和文字本身差不多大。
 
-![浮在黄昏天空上的文字便签](.github/screenshots/notes.jpg)
+![在 VS Code 上按 ⌃⌥N 放一张便签，打字，再拖到另一张下面](.github/screenshots/demo.gif)
 
 每张便签都存成一个 Markdown 文件，放在你选的文件夹里。便签可以移动、调整大小、缩放和置顶，也可以用 ⌃⌥H 一次隐藏全部便签。菜单栏和 Dock 的菜单会列出置顶的便签和最近编辑过的便签，关掉的也在里面。
 
-便签默认没有背景。设置 › 外观里可以选柔边或液态玻璃背景。
-
-![带液态玻璃背景的便签](.github/screenshots/notes-liquid-glass.jpg)
+便签默认没有背景。设置 › 外观里可以选柔边或液态玻璃背景，上面动图里用的是液态玻璃。
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset=".github/screenshots/settings-dark.png">
