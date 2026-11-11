@@ -37,7 +37,9 @@ final class Preferences: ObservableObject {
         defaults.set(glass.style.rawValue, forKey: Key.glassStyle)
         defaults.set(glass.strength, forKey: Key.glassStrength)
         liquidGlassStaysClear = defaults.object(forKey: Key.liquidGlassStaysClear) as? Bool ?? true
-        darkTheme = Theme.stored(defaults.string(forKey: Key.darkTheme)) ?? .skywriteDark
+        // Starts on Ocean in Dark Mode (user decision 2026-11-11). Nothing is stored until a theme is picked, so a Mac
+        // that never picked one moves from Skywrite to Ocean too.
+        darkTheme = Theme.stored(defaults.string(forKey: Key.darkTheme)) ?? .ocean
         let light = Theme.stored(defaults.string(forKey: Key.lightTheme)) ?? .skywriteLight
         lightTheme = light
         defaults.set(light.rawValue, forKey: Key.lightTheme)
