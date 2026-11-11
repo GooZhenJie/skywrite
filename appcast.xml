@@ -3,6 +3,34 @@
     <channel>
         <title>Skywrite</title>
         <item>
+            <title>0.1.3</title>
+            <pubDate>Wed, 11 Nov 2026 23:59:41 +0800</pubDate>
+            <link>https://github.com/GooZhenJie/skywrite/releases</link>
+            <sparkle:version>4</sparkle:version>
+            <sparkle:shortVersionString>0.1.3</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description xml:lang="en" sparkle:format="markdown"><![CDATA[- Added Traditional Chinese.
+- Improved the Simplified Chinese translation.
+- Changed the default Dark Mode theme to Ocean. A theme you already picked stays.
+- Moved Export Logs and Uninstall Skywrite from General to their own pages in Settings: Troubleshooting and Uninstall.
+- Shortened the descriptions in Settings.
+]]></description>
+            <description xml:lang="zh-Hans" sparkle:format="markdown"><![CDATA[- 新增繁体中文。
+- 改进了简体中文的翻译。
+- 深色模式的默认主题改成「海洋」；已经选过的主题不变。
+- 「导出日志」和「卸载 Skywrite」从「通用」移到设置里新的两页：「排查问题」和「卸载」。
+- 精简了设置里的说明文字。
+]]></description>
+            <description xml:lang="zh-Hant" sparkle:format="markdown"><![CDATA[- 新增繁體中文。
+- 改進了簡體中文的翻譯。
+- 深色模式的預設主題改成「海洋」；已經選過的主題不變。
+- 「輸出記錄」和「解除安裝 Skywrite」從「一般」移到設定裡新的兩頁：「疑難排解」和「解除安裝」。
+- 精簡了設定裡的說明文字。
+]]></description>
+            <enclosure url="https://github.com/GooZhenJie/skywrite/releases/download/v0.1.3/Skywrite-0.1.3.zip" length="3363353" type="application/octet-stream" sparkle:edSignature="8CX5ewZ/OPhSZz/hS+SI4J5YYlIaNEgPsFsL8XPZEC9LgnO6LJZ7TnLz6qWGA2bTmi7YrgEjrAVdqStVO5moDQ=="/>
+        </item>
+        <item>
             <title>0.1.2</title>
             <pubDate>Wed, 11 Nov 2026 17:51:35 +0800</pubDate>
             <link>https://github.com/GooZhenJie/skywrite/releases</link>
