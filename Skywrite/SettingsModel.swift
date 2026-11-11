@@ -47,7 +47,7 @@ final class SettingsModel: ObservableObject {
             let keys: [String] = switch self {
             case .general:
                 ["General", "Show Skywrite In", "Dock", "Menu bar", "Right-click the Dock icon for recent notes", "Startup", "Open at login",
-                 "Updates", "Check for updates automatically", "Check for Updates…", "Settings Window", "Close this window when you switch to another app", "Troubleshooting", "Logs", "Export Logs…"]
+                 "Updates", "Check for updates automatically", "Check for Updates…", "Settings Window", "Close this window when you switch to another app", "Troubleshooting", "Logs", "Export Logs…", "Uninstall Skywrite", "Uninstall…"]
             case .appearance:
                 ["Appearance", "Theme", "In Dark Mode", "In Light Mode", "Note Background", "Soft Edge", "Liquid Glass", "Strength",
                  "Stay clear when you’re not using the note", "Preview on", "Text", "Text size"]
@@ -95,6 +95,8 @@ final class SettingsModel: ObservableObject {
     @Published private(set) var isCollectingLogs = false
 
     let changeNotesFolder: (URL) throws -> Void
+    /// Set by the app delegate; see `AppUninstaller`.
+    var uninstall: (() -> Void)?
     let expiredNoteCount: (NoteRetention) -> Int
 
     init(notesFolder: URL, changeNotesFolder: @escaping (URL) throws -> Void, expiredNoteCount: @escaping (NoteRetention) -> Int) {

@@ -51,6 +51,16 @@
         }
       }
     },
+    "Accessibility: remove Skywrite in System Settings › Privacy & Security › Accessibility.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "辅助功能：到「系统设置 › 隐私与安全性 › 辅助功能」里移除 Skywrite。"
+          }
+        }
+      }
+    },
     "After one day": {
       "localizations": {
         "zh-Hans": {
@@ -97,6 +107,34 @@
           "stringUnit": {
             "state": "translated",
             "value": "两周后"
+          }
+        }
+      }
+    },
+    "Also move the %lld notes in %@ to the Trash": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Also move the %lld note in %@ to the Trash"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Also move the %lld notes in %@ to the Trash"
+                }
+              }
+            }
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "把 %2$@ 里的 %1$lld 张便签也移到废纸篓"
           }
         }
       }
@@ -829,6 +867,16 @@
         }
       }
     },
+    "Open at login: turn Skywrite off in System Settings › General › Login Items & Extensions.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "登录时打开：到「系统设置 › 通用 › 登录项与扩展」里关掉 Skywrite。"
+          }
+        }
+      }
+    },
     "Paper": {
       "localizations": {
         "zh-Hans": {
@@ -935,6 +983,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "重做"
+          }
+        }
+      }
+    },
+    "Removes Skywrite and all associated data from this Mac.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "从这台 Mac 上移除 Skywrite 和所有相关数据。"
           }
         }
       }
@@ -1049,6 +1107,16 @@
         }
       }
     },
+    "Settings: run “defaults delete %@” in Terminal.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "设置：在终端里运行「defaults delete %@」。"
+          }
+        }
+      }
+    },
     "Settings…": {
       "localizations": {
         "zh-Hans": {
@@ -1119,6 +1187,16 @@
         }
       }
     },
+    "Skywrite has been removed": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Skywrite 已移除"
+          }
+        }
+      }
+    },
     "Skywrite will move all %lld notes into the new folder and save new notes there.": {
       "localizations": {
         "zh-Hans": {
@@ -1155,6 +1233,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "柔边"
+          }
+        }
+      }
+    },
+    "Some items couldn’t be removed. You can remove them yourself:": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "有些东西没能移除，你可以自己移除："
           }
         }
       }
@@ -1289,6 +1377,16 @@
         }
       }
     },
+    "This removes Skywrite and all associated data from this Mac.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "这会从这台 Mac 上移除 Skywrite 和所有相关数据。"
+          }
+        }
+      }
+    },
     "Troubleshooting": {
       "localizations": {
         "zh-Hans": {
@@ -1325,6 +1423,46 @@
           "stringUnit": {
             "state": "translated",
             "value": "撤销"
+          }
+        }
+      }
+    },
+    "Uninstall": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "卸载"
+          }
+        }
+      }
+    },
+    "Uninstall Skywrite": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "卸载 Skywrite"
+          }
+        }
+      }
+    },
+    "Uninstall Skywrite?": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "卸载 Skywrite？"
+          }
+        }
+      }
+    },
+    "Uninstall…": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "卸载…"
           }
         }
       }

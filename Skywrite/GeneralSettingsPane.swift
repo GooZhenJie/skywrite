@@ -75,6 +75,22 @@ struct GeneralSettingsPane: View {
                     .font(.callout)
                     .foregroundStyle(.secondary)
             }
+            // Worded and coloured like Docker Desktop's Troubleshoot pane: "Uninstall Docker Desktop", one sentence, a red button.
+            Section {
+                LabeledContent {
+                    // The pane's .tint(theme.accent) colours every button's text while the window is in front, so this one
+                    // needs a red tint of its own; .foregroundStyle keeps it red while the window is in the background.
+                    Button("Uninstall…", role: .destructive) {
+                        model.uninstall?()
+                    }
+                    .foregroundStyle(.red)
+                    .tint(.red)
+                    .accessibilityIdentifier("uninstall-skywrite")
+                } label: {
+                    Text("Uninstall Skywrite")
+                    Text("Removes Skywrite and all associated data from this Mac.").font(.callout)
+                }
+            }
         }
         .formStyle(.grouped)
     }

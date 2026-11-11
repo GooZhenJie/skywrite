@@ -16,6 +16,8 @@ final class NoteManager {
     private var pendingSave: Task<Void, Never>?
     private var mouseMonitors: [Any] = []
     private var hasReportedError = false
+    /// Set while Skywrite uninstalls itself, so nothing writes notes.json back after it went to the Trash.
+    private var isSavingStopped = false
 
     init(store: NoteStore, style: NoteStyle) {
         self.store = store
@@ -187,6 +189,7 @@ final class NoteManager {
     func saveNow() {
         pendingSave?.cancel()
         pendingSave = nil
+        guard !isSavingStopped else { return }
         records = records.updating(with: controllers.values.map(\.record))
         do {
             try store.saveRecords(records)
@@ -311,6 +314,18 @@ extension NoteManager {
         closedNotes.removeAll { removed.contains($0) }
         EventLog.notes.notice("moved expired notes to trash count=\(result.movedCount, privacy: .public) retentionDays=\(retention.rawValue, privacy: .public)")
         scheduleSave()
+    }
+
+    /// The files of every note Skywrite knows about, on screen or closed.
+    var noteFileNames: [String] {
+        records.updating(with: controllers.values.map(\.record)).compactMap(\.fileName)
+    }
+
+    /// Saves one last time, then hides every note and stops saving, for uninstalling.
+    func stopSavingAndHideNotes() {
+        saveNow()
+        isSavingStopped = true
+        controllers.values.forEach { $0.panel.orderOut(nil) }
     }
 
     func changeNotesFolder(to folder: URL) throws {

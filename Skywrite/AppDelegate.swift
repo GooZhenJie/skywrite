@@ -353,6 +353,10 @@ extension AppDelegate {
         }, expiredNoteCount: { [weak manager] retention in
             manager?.expiredNotes(for: retention).count ?? 0
         })
+        model.uninstall = { [weak self, weak manager] in
+            guard let manager else { return }
+            AppUninstaller(noteManager: manager) { self?.settingsWindow?.close() }.run()
+        }
         model.$recordingAction.dropFirst().removeDuplicates().sink { [weak self] _ in
             DispatchQueue.main.async {
                 self?.registerHotkeys()
