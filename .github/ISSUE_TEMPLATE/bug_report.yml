@@ -6,13 +6,7 @@ body:
     id: what-happened
     attributes:
       label: What happened?
-      description: What did you see, and what did you expect to see instead?
-    validations:
-      required: true
-  - type: textarea
-    id: steps
-    attributes:
-      label: Steps to reproduce
+      description: What did you see, and what did you expect to see instead? Include the steps if you can.
       placeholder: |
         1. Press ⌃⌥N
         2. Click on the screen and type a note
@@ -25,17 +19,13 @@ body:
       label: macOS version
       description: Apple menu → About This Mac.
       placeholder: macOS 26.1
-    validations:
-      required: true
   - type: input
     id: skywrite-version
     attributes:
       label: Skywrite version
       description: Skywrite menu → About Skywrite, or the commit you built from.
-    validations:
-      required: true
   - type: textarea
     id: screenshots
     attributes:
       label: Screenshots, screen recording or logs
-      description: Optional. Drag files here. To export logs, open Settings › General and click Export Logs…. They never include what you wrote in your notes.
+      description: Optional. Drag files here. To export logs, open Settings › Troubleshooting and click Export Logs…. They never include what you wrote in your notes.
