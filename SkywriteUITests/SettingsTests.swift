@@ -25,7 +25,7 @@ final class SettingsTests: XCTestCase {
         launch()
         let window = app.windows["settings"]
         XCTAssertTrue(window.waitForExistence(timeout: 5))
-        for pane in ["General", "Appearance", "Shortcuts", "Storage"] {
+        for pane in ["General", "Appearance", "Shortcuts", "Storage", "Troubleshooting", "Uninstall"] {
             window.outlines.staticTexts[pane].click()
             XCTAssertTrue(window.staticTexts[pane].firstMatch.waitForExistence(timeout: 2))
             attach(window.screenshot(), name: "settings-\(pane)-light")

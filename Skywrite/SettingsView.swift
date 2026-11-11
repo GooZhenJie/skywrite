@@ -133,6 +133,8 @@ struct SettingsView: View {
         case .appearance: AppearanceSettingsPane()
         case .shortcuts: ShortcutsSettingsPane()
         case .storage: StorageSettingsPane()
+        case .troubleshooting: TroubleshootingSettingsPane()
+        case .uninstall: UninstallSettingsPane()
         case .about: AboutSettingsPane()
         }
     }

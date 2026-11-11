@@ -51,46 +51,6 @@ struct GeneralSettingsPane: View {
                 }
                 .accessibilityIdentifier("close-settings-when-inactive")
             }
-            Section {
-                LabeledContent {
-                    HStack(spacing: 8) {
-                        if model.isCollectingLogs {
-                            ProgressView()
-                                .controlSize(.small)
-                            Text("Collecting logs…").font(.callout).foregroundStyle(.secondary)
-                        }
-                        Button("Export Logs…") {
-                            model.exportLogs()
-                        }
-                        .disabled(model.isCollectingLogs)
-                    }
-                } label: {
-                    Text("Logs")
-                    Text("If Skywrite misbehaves, export this file and send it to the developer.").font(.callout)
-                }
-            } header: {
-                Text("Troubleshooting")
-            } footer: {
-                Text("The file lists what Skywrite did, such as notes opening and closing, and which app was in front (for example com.google.Chrome). It never includes what you wrote in a note, and your home folder and user name are hidden.")
-                    .font(.callout)
-                    .foregroundStyle(.secondary)
-            }
-            // Worded and coloured like Docker Desktop's Troubleshoot pane: "Uninstall Docker Desktop", one sentence, a red button.
-            Section {
-                LabeledContent {
-                    // The pane's .tint(theme.accent) colours every button's text while the window is in front, so this one
-                    // needs a red tint of its own; .foregroundStyle keeps it red while the window is in the background.
-                    Button("Uninstall…", role: .destructive) {
-                        model.uninstall?()
-                    }
-                    .foregroundStyle(.red)
-                    .tint(.red)
-                    .accessibilityIdentifier("uninstall-skywrite")
-                } label: {
-                    Text("Uninstall Skywrite")
-                    Text("Removes Skywrite and all associated data from this Mac.").font(.callout)
-                }
-            }
         }
         .formStyle(.grouped)
     }

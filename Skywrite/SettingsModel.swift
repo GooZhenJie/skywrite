@@ -8,6 +8,8 @@ final class SettingsModel: ObservableObject {
         case appearance
         case shortcuts
         case storage
+        case troubleshooting
+        case uninstall
         case about
 
         var id: String { rawValue }
@@ -18,6 +20,8 @@ final class SettingsModel: ObservableObject {
             case .appearance: String(localized: "Appearance")
             case .shortcuts: String(localized: "Shortcuts")
             case .storage: String(localized: "Storage")
+            case .troubleshooting: String(localized: "Troubleshooting")
+            case .uninstall: String(localized: "Uninstall")
             case .about: String(localized: "About")
             }
         }
@@ -29,6 +33,12 @@ final class SettingsModel: ObservableObject {
             case .appearance: "paintpalette.fill"
             case .shortcuts: "keyboard"
             case .storage: "folder"
+            // A question mark, as Docker Desktop opens its Troubleshoot screen from a question mark icon
+            // (docs.docker.com/desktop/troubleshoot-and-support/troubleshoot, read 2026-11-11).
+            case .troubleshooting: "questionmark"
+            // A page of its own with a trash can, as Karabiner-Elements' settings have an Uninstall page with the trash
+            // symbol (SidebarItem.uninstall in src/apps/SettingsWindow/src/View/ContentMainView.swift, read 2026-11-11).
+            case .uninstall: "trash"
             // Not shown: About uses Skywrite's own pen trail instead (see `showsAppMark`).
             case .about: "info"
             }
@@ -47,7 +57,7 @@ final class SettingsModel: ObservableObject {
             let keys: [String] = switch self {
             case .general:
                 ["General", "Show Skywrite In", "Dock", "Menu bar", "Right-click the Dock icon for recent notes", "Startup", "Open at login",
-                 "Updates", "Check for updates automatically", "Check for Updates…", "Settings Window", "Close this window when you switch to another app", "Troubleshooting", "Logs", "Export Logs…", "Uninstall Skywrite", "Uninstall…"]
+                 "Updates", "Check for updates automatically", "Check for Updates…", "Settings Window", "Close this window when you switch to another app"]
             case .appearance:
                 ["Appearance", "Theme", "In Dark Mode", "In Light Mode", "Note Background", "Soft Edge", "Liquid Glass", "Strength",
                  "Stay clear when you’re not using the note", "Preview on", "Text", "Text size"]
@@ -55,6 +65,10 @@ final class SettingsModel: ObservableObject {
                 ["Shortcuts", "Global Shortcuts", "New note: press twice", "Restore Defaults"]
             case .storage:
                 ["Storage", "Notes Folder", "Show in Finder", "Closed Notes", "Move to the Trash"]
+            case .troubleshooting:
+                ["Troubleshooting", "Logs", "Export Logs…"]
+            case .uninstall:
+                ["Uninstall", "Uninstall Skywrite", "Uninstall…"]
             case .about:
                 ["About", "Check for Updates…", "Special Thanks", "Unsplash", "Canyon", "Dunes", "Mountains", "Sea", "City"]
             }
@@ -73,6 +87,9 @@ final class SettingsModel: ObservableObject {
             case .appearance: .systemOrange
             case .shortcuts: .systemIndigo
             case .storage: .systemTeal
+            case .troubleshooting: .systemGray
+            // Red, like the Uninstall… button on the page.
+            case .uninstall: .systemRed
             // The blue of the trail in the app icon (#2f74ec in AppIcon.icon/Assets/Trail.svg).
             case .about: NSColor(srgbRed: 0x2F / 255, green: 0x74 / 255, blue: 0xEC / 255, alpha: 1)
             }
