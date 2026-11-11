@@ -10,8 +10,14 @@
             <sparkle:shortVersionString>0.1.2</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description sparkle:format="markdown"><![CDATA[- Added Uninstall Skywrite to Settings › General. It also removes Skywrite's settings and data; your notes go only if you choose.
+            <description xml:lang="en" sparkle:format="markdown"><![CDATA[- Added Uninstall Skywrite to Settings › General. It also removes Skywrite's settings and data; your notes go only if you choose.
 - Fixed locked notes changing width when dragged near the edge of the screen or typed into.
+]]></description>
+            <description xml:lang="zh-Hans" sparkle:format="markdown"><![CDATA[- 新增「设置 › 通用 › 卸载 Skywrite」，会一起移除 Skywrite 的设置和数据；便签只在你勾选时才移到废纸篓。
+- 修复了锁定的便签拖到屏幕边缘或继续打字时宽度会变的问题。
+]]></description>
+            <description xml:lang="zh-Hant" sparkle:format="markdown"><![CDATA[- 新增「設定 › 一般 › 解除安裝 Skywrite」，會一起移除 Skywrite 的設定和資料；便條只在你勾選時才丟到垃圾桶。
+- 修正了鎖定的便條拖到螢幕邊緣或繼續打字時寬度會變的問題。
 ]]></description>
             <enclosure url="https://github.com/GooZhenJie/skywrite/releases/download/v0.1.2/Skywrite-0.1.2.zip" length="3354750" type="application/octet-stream" sparkle:edSignature="y721of+wJ8Hp6MxRTb7asdCRJFS6P78q8LBb3zz8xctn6P54P0Zp1y6DCtQbIBn31Ici0GrnF3fKZUixTGy+Cw=="/>
         </item>

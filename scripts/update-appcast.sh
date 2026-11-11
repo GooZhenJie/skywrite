@@ -7,7 +7,8 @@
 # Run it after scripts/build-release.sh "Skywrite Code Signing", once per release. It signs
 # .build/release/Skywrite-<version>.zip with the EdDSA private key in your login keychain, made once with Sparkle's
 # generate_keys, and adds an item whose download is that zip attached to the GitHub release v<version>. The release
-# notes are Markdown; Sparkle shows them in its update window.
+# notes are Markdown; Sparkle shows them in its update window. Translations of the notes sit next to them, named
+# <version>.zh-Hans.md and <version>.zh-Hant.md, and are added by scripts/add-translated-release-notes.py.
 #
 # Publish the GitHub release with the zip before pushing the new appcast.xml to main: as soon as main has the new item,
 # Skywrite offers the update to everyone who checks.
@@ -63,4 +64,5 @@ fi
     --maximum-versions 0 \
     --maximum-deltas 0
 cp "$staging/appcast.xml" "$appcast"
+python3 scripts/add-translated-release-notes.py "$appcast" "$version" "$notes"
 echo "Added Skywrite $version to $appcast, downloading from $prefix"

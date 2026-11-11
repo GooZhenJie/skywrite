@@ -23,8 +23,8 @@ struct ShortcutsSettingsPane: View {
                     LabeledContent {
                         Button("Open System Settings", action: openAccessibilitySettings)
                     } label: {
-                        Text("Waiting for Accessibility permission")
-                        Text("Turn on Skywrite in Privacy & Security > Accessibility.")
+                        Text(AccessibilityPermissionText.waiting)
+                        Text(AccessibilityPermissionText.whereToTurnOn)
                             .font(.callout)
                     }
                 }
@@ -57,7 +57,7 @@ struct ShortcutsSettingsPane: View {
 
     private var tapKeyNote: String {
         switch preferences.tapKey {
-        case .off: String(localized: "Choose a key, then press it twice to make a note. Skywrite will ask for Accessibility permission so it can notice the key in other apps.")
+        case .off: AccessibilityPermissionText.pressTwiceNeedsPermission
         case .rightCommand: String(localized: "If Dictation is also set to Press Right Command Key Twice, both will start.")
         case .eitherOption, .rightOption: String(localized: "Then click where the note should go.")
         }

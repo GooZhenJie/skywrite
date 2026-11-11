@@ -1,5 +1,7 @@
 # Skywrite
 
+English · [简体中文](README.zh-Hans.md) · [繁體中文](README.zh-Hant.md)
+
 Skywrite puts notes on your screen, above your other windows. A note has no background or window frame, so it takes up little more space than its text.
 
 ![Text notes floating over a dusk sky](.github/screenshots/notes.jpg)

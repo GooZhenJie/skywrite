@@ -33,7 +33,7 @@ struct AppUninstaller {
             leftBehind.append(String(localized: "Open at login: turn Skywrite off in System Settings › General › Login Items & Extensions."))
         }
         if !resetAccessibility() {
-            leftBehind.append(String(localized: "Accessibility: remove Skywrite in System Settings › Privacy & Security › Accessibility."))
+            leftBehind.append(AccessibilityPermissionText.whereToRemove)
         }
         if includesNotes {
             leftBehind += uninstaller.moveNotesToTrash(fileNames: noteFiles, in: notesFolder).map(\.displayPath)

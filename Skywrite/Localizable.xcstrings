@@ -8,6 +8,12 @@
             "state": "translated",
             "value": "%1$@——照片作者 %2$@，来自 Unsplash"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@——照片作者 %2$@，來自 Unsplash"
+          }
         }
       }
     },
@@ -16,7 +22,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "共 %lld 条笔记"
+            "value": "共 %lld 张便签"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "共 %lld 張便條"
           }
         }
       }
@@ -24,6 +36,12 @@
     "%lld pt": {
       "localizations": {
         "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld pt"
+          }
+        },
+        "zh-Hant": {
           "stringUnit": {
             "state": "translated",
             "value": "%lld pt"
@@ -38,6 +56,12 @@
             "state": "translated",
             "value": "关于"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "關於"
+          }
         }
       }
     },
@@ -48,6 +72,12 @@
             "state": "translated",
             "value": "关于 Skywrite"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "關於 Skywrite"
+          }
         }
       }
     },
@@ -56,7 +86,35 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
+            "value": "无障碍：到「系统设置 › 隐私与安全 › 无障碍」里移除 Skywrite。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "輔助使用：到「系統設定 › 隱私權與安全性 › 輔助使用」裡移除 Skywrite。"
+          }
+        }
+      }
+    },
+    "Accessibility: remove Skywrite in System Settings. (macOS 26)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Accessibility: remove Skywrite in System Settings › Privacy & Security › Accessibility."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
             "value": "辅助功能：到「系统设置 › 隐私与安全性 › 辅助功能」里移除 Skywrite。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "輔助使用：到「系統設定 › 隱私權與安全性 › 輔助使用」裡移除 Skywrite。"
           }
         }
       }
@@ -68,6 +126,12 @@
             "state": "translated",
             "value": "一天后"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "一天後"
+          }
         }
       }
     },
@@ -77,6 +141,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "一个月后"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "一個月後"
           }
         }
       }
@@ -88,6 +158,12 @@
             "state": "translated",
             "value": "一周后"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "一週後"
+          }
         }
       }
     },
@@ -98,6 +174,12 @@
             "state": "translated",
             "value": "一年后"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "一年後"
+          }
         }
       }
     },
@@ -107,6 +189,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "两周后"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "兩週後"
           }
         }
       }
@@ -136,6 +224,12 @@
             "state": "translated",
             "value": "把 %2$@ 里的 %1$lld 张便签也移到废纸篓"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "把 %2$@ 裡的 %1$lld 張便條也丟到垃圾桶"
+          }
         }
       }
     },
@@ -145,6 +239,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "外观"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "外觀"
           }
         }
       }
@@ -156,12 +256,24 @@
             "state": "translated",
             "value": "后退"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "返回"
+          }
         }
       }
     },
     "Bigger Text": {
       "localizations": {
         "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "放大文字"
+          }
+        },
+        "zh-Hant": {
           "stringUnit": {
             "state": "translated",
             "value": "放大文字"
@@ -176,12 +288,24 @@
             "state": "translated",
             "value": "买牛奶"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "買牛奶"
+          }
         }
       }
     },
     "Cancel": {
       "localizations": {
         "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "取消"
+          }
+        },
+        "zh-Hant": {
           "stringUnit": {
             "state": "translated",
             "value": "取消"
@@ -196,6 +320,12 @@
             "state": "translated",
             "value": "峡谷"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "峽谷"
+          }
         }
       }
     },
@@ -205,6 +335,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "更改…"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更改⋯"
           }
         }
       }
@@ -216,6 +352,12 @@
             "state": "translated",
             "value": "检查更新…"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "檢查更新項目⋯"
+          }
         }
       }
     },
@@ -225,6 +367,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "自动检查更新"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自動檢查更新項目"
           }
         }
       }
@@ -236,6 +384,34 @@
             "state": "translated",
             "value": "选择"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "選擇"
+          }
+        }
+      }
+    },
+    "Choose a key, then press it twice to make a note. (macOS 26)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose a key, then press it twice to make a note. Skywrite will ask for Accessibility permission so it can notice the key in other apps."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "选一个键，按两下就能新建便签。选好后 Skywrite 会请求辅助功能权限，这样在别的 App 里也能察觉到这个键。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "選一個鍵，按兩下就能新增便條。選好後 Skywrite 會要求輔助使用權限，這樣在別的 App 裡也能察覺到這個鍵。"
+          }
         }
       }
     },
@@ -244,7 +420,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "选一个键，按两下就能新建笔记。选好后 Skywrite 会请求辅助功能权限，这样在别的 App 里也能察觉到这个键。"
+            "value": "选一个键，按两下就能新建便签。选好后 Skywrite 会请求无障碍权限，这样在别的 App 里也能察觉到这个键。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "選一個鍵，按兩下就能新增便條。選好後 Skywrite 會要求輔助使用權限，這樣在別的 App 裡也能察覺到這個鍵。"
           }
         }
       }
@@ -252,6 +434,12 @@
     "City": {
       "localizations": {
         "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "城市"
+          }
+        },
+        "zh-Hant": {
           "stringUnit": {
             "state": "translated",
             "value": "城市"
@@ -266,6 +454,12 @@
             "state": "translated",
             "value": "清除快捷键"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "清除快速鍵"
+          }
         }
       }
     },
@@ -274,7 +468,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "点图标：新建、最近的笔记、设置"
+            "value": "点图标：新建、最近的便签、设置"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "按一下圖像：新增、最近的便條、設定"
           }
         }
       }
@@ -284,7 +484,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "点一下放笔记 · 拖一个框定宽高 · esc 取消"
+            "value": "点一下放便签 · 拖一个框定宽高 · esc 取消"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "按一下放便條 · 拖一個框定寬高 · esc 取消"
           }
         }
       }
@@ -296,6 +502,12 @@
             "state": "translated",
             "value": "关闭"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "關閉"
+          }
         }
       }
     },
@@ -306,6 +518,12 @@
             "state": "translated",
             "value": "切到别的 App 时关掉这个窗口"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "切到別的 App 時關掉這個視窗"
+          }
         }
       }
     },
@@ -314,7 +532,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "关掉的笔记"
+            "value": "关掉的便签"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "關掉的便條"
           }
         }
       }
@@ -324,7 +548,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "关闭笔记不会删文件；删除会把文件移到废纸篓。"
+            "value": "关闭便签不会删文件；删除会把文件移到废纸篓。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "關閉便條不會刪除檔案；刪除會把檔案丟到垃圾桶。"
           }
         }
       }
@@ -336,6 +566,12 @@
             "state": "translated",
             "value": "正在收集日志…"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在收集記錄⋯"
+          }
         }
       }
     },
@@ -345,6 +581,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "拷贝"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "拷貝"
           }
         }
       }
@@ -356,6 +598,12 @@
             "state": "translated",
             "value": "从最后一次编辑算起；关掉的时间更晚时，从关掉时算起。"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "從最後一次編輯算起；關掉的時間更晚時，從關掉時算起。"
+          }
         }
       }
     },
@@ -366,12 +614,24 @@
             "state": "translated",
             "value": "剪切"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "剪下"
+          }
         }
       }
     },
     "Dunes": {
       "localizations": {
         "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "沙丘"
+          }
+        },
+        "zh-Hant": {
           "stringUnit": {
             "state": "translated",
             "value": "沙丘"
@@ -386,6 +646,12 @@
             "state": "translated",
             "value": "黄昏"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "黃昏"
+          }
         }
       }
     },
@@ -395,6 +661,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "编辑"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "編輯"
           }
         }
       }
@@ -406,6 +678,12 @@
             "state": "translated",
             "value": "左右 ⌥ 都行"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "左右 ⌥ 都可以"
+          }
         }
       }
     },
@@ -415,6 +693,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "导出日志…"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "輸出記錄⋯"
           }
         }
       }
@@ -426,6 +710,12 @@
             "state": "translated",
             "value": "大小跟着字走"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "大小跟著字走"
+          }
         }
       }
     },
@@ -434,7 +724,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "跟随「系统设置 › 外观」里的 Liquid Glass。"
+            "value": "液态玻璃的样子跟随「系统设置 › 外观」里的 Liquid Glass 选项。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "液態玻璃的樣子跟隨「系統設定 › 外觀」裡的 Liquid Glass 選項。"
           }
         }
       }
@@ -442,6 +738,12 @@
     "Forest": {
       "localizations": {
         "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "森林"
+          }
+        },
+        "zh-Hant": {
           "stringUnit": {
             "state": "translated",
             "value": "森林"
@@ -456,6 +758,12 @@
             "state": "translated",
             "value": "前进"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "往前"
+          }
         }
       }
     },
@@ -465,6 +773,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "通用"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "一般"
           }
         }
       }
@@ -476,6 +790,12 @@
             "state": "translated",
             "value": "全局快捷键"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "全域快速鍵"
+          }
         }
       }
     },
@@ -484,7 +804,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "隐藏全部笔记"
+            "value": "隐藏全部便签"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "隱藏全部便條"
           }
         }
       }
@@ -496,6 +822,12 @@
             "state": "translated",
             "value": "隐藏 Skywrite"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "隱藏 Skywrite"
+          }
         }
       }
     },
@@ -505,6 +837,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "如果听写也设成「按两下右 ⌘」，两个会一起触发。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "如果「聽寫」也設成「按兩下右 ⌘」，兩個會一起啟動。"
           }
         }
       }
@@ -516,6 +854,12 @@
             "state": "translated",
             "value": "Skywrite 出问题时，导出这个文件发给开发者。"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Skywrite 出問題時，輸出這個檔案傳給開發者。"
+          }
         }
       }
     },
@@ -525,6 +869,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "深色模式时"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "深色模式時"
           }
         }
       }
@@ -536,6 +886,12 @@
             "state": "translated",
             "value": "浅色模式时"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "淺色模式時"
+          }
         }
       }
     },
@@ -544,7 +900,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Liquid Glass"
+            "value": "液态玻璃"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "液態玻璃"
           }
         }
       }
@@ -556,12 +918,24 @@
             "state": "translated",
             "value": "日志"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "記錄"
+          }
         }
       }
     },
     "Meadow": {
       "localizations": {
         "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "草地"
+          }
+        },
+        "zh-Hant": {
           "stringUnit": {
             "state": "translated",
             "value": "草地"
@@ -576,6 +950,12 @@
             "state": "translated",
             "value": "菜单栏"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "選單列"
+          }
         }
       }
     },
@@ -585,6 +965,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "薄雾"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "薄霧"
           }
         }
       }
@@ -596,6 +982,12 @@
             "state": "translated",
             "value": "强"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "強"
+          }
         }
       }
     },
@@ -605,6 +997,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "山峦"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "山巒"
           }
         }
       }
@@ -632,7 +1030,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "把 %lld 条关掉的笔记移到废纸篓？"
+            "value": "把 %lld 张关掉的便签移到废纸篓？"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "把 %lld 張關掉的便條丟到垃圾桶？"
           }
         }
       }
@@ -644,6 +1048,12 @@
             "state": "translated",
             "value": "搬过去"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "搬過去"
+          }
         }
       }
     },
@@ -652,7 +1062,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "把屏幕外的笔记移回来"
+            "value": "把屏幕外的便签移回来"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "把螢幕外的便條移回來"
           }
         }
       }
@@ -664,6 +1080,12 @@
             "state": "translated",
             "value": "移到废纸篓"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "丟到垃圾桶"
+          }
         }
       }
     },
@@ -674,6 +1096,12 @@
             "state": "translated",
             "value": "移到废纸篓"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "丟到垃圾桶"
+          }
         }
       }
     },
@@ -682,7 +1110,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "把笔记搬到「%@」？"
+            "value": "把便签搬到「%@」？"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "把便條搬到「%@」？"
           }
         }
       }
@@ -690,6 +1124,12 @@
     "Never": {
       "localizations": {
         "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "永不"
+          }
+        },
+        "zh-Hant": {
           "stringUnit": {
             "state": "translated",
             "value": "永不"
@@ -702,7 +1142,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "新建笔记"
+            "value": "新建便签"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "新增便條"
           }
         }
       }
@@ -712,7 +1158,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "新建笔记"
+            "value": "新建便签"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "新增便條"
           }
         }
       }
@@ -722,7 +1174,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "新建笔记：按两下"
+            "value": "新建便签：按两下"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "新增便條：按兩下"
           }
         }
       }
@@ -734,6 +1192,12 @@
             "state": "translated",
             "value": "无结果"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "沒有結果"
+          }
         }
       }
     },
@@ -742,7 +1206,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "还没有笔记"
+            "value": "还没有便签"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "還沒有便條"
           }
         }
       }
@@ -754,6 +1224,12 @@
             "state": "translated",
             "value": "无"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "無"
+          }
         }
       }
     },
@@ -762,7 +1238,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "笔记背景"
+            "value": "便签背景"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "便條背景"
           }
         }
       }
@@ -772,7 +1254,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "笔记文件夹"
+            "value": "便签文件夹"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "便條檔案夾"
           }
         }
       }
@@ -782,7 +1270,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "写在屏幕上的笔记"
+            "value": "写在屏幕上的便签"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "寫在螢幕上的便條"
           }
         }
       }
@@ -790,6 +1284,12 @@
     "OK": {
       "localizations": {
         "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "好"
+          }
+        },
+        "zh-Hant": {
           "stringUnit": {
             "state": "translated",
             "value": "好"
@@ -804,6 +1304,12 @@
             "state": "translated",
             "value": "海洋"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "海洋"
+          }
         }
       }
     },
@@ -814,6 +1320,12 @@
             "state": "translated",
             "value": "关闭"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "關閉"
+          }
         }
       }
     },
@@ -822,7 +1334,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Skywrite 每天问一次 GitHub 有没有新版本。你的笔记不会离开这台 Mac。"
+            "value": "Skywrite 每天问一次 GitHub 有没有新版本。你的便签不会离开这台 Mac。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Skywrite 每天問一次 GitHub 有沒有新版本。你的便條不會離開這台 Mac。"
           }
         }
       }
@@ -834,6 +1352,12 @@
             "state": "translated",
             "value": "只关窗口，Skywrite 和便签照常运行，改过的设置也已经存好。"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "只關視窗，Skywrite 和便條照常執行，改過的設定也已經儲存。"
+          }
         }
       }
     },
@@ -842,7 +1366,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "打开笔记文件夹"
+            "value": "打开便签文件夹"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "打開便條檔案夾"
           }
         }
       }
@@ -854,6 +1384,12 @@
             "state": "translated",
             "value": "打开系统设置"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "打開「系統設定」"
+          }
         }
       }
     },
@@ -863,6 +1399,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "登录时打开"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在登入時打開"
           }
         }
       }
@@ -874,6 +1416,12 @@
             "state": "translated",
             "value": "登录时打开：到「系统设置 › 通用 › 登录项与扩展」里关掉 Skywrite。"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在登入時打開：到「系統設定 › 一般 › 登入項目與延伸功能」裡關掉 Skywrite。"
+          }
         }
       }
     },
@@ -883,6 +1431,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "纸张"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "紙張"
           }
         }
       }
@@ -894,6 +1448,12 @@
             "state": "translated",
             "value": "粘贴"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "貼上"
+          }
         }
       }
     },
@@ -902,7 +1462,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "置顶笔记"
+            "value": "置顶便签"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "釘選便條"
           }
         }
       }
@@ -914,6 +1480,12 @@
             "state": "translated",
             "value": "已置顶"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已釘選"
+          }
         }
       }
     },
@@ -922,7 +1494,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "置顶的笔记和屏幕上开着的笔记不会被移走。"
+            "value": "置顶的便签和屏幕上开着的便签不会被移走。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "釘選的便條和螢幕上開著的便條不會被移走。"
           }
         }
       }
@@ -934,6 +1512,12 @@
             "state": "translated",
             "value": "预览背景"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "預覽背景"
+          }
         }
       }
     },
@@ -943,6 +1527,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "预览照片来自 Unsplash，摄影师："
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "預覽照片來自 Unsplash，攝影師："
           }
         }
       }
@@ -954,6 +1544,12 @@
             "state": "translated",
             "value": "退出 Skywrite"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "結束 Skywrite"
+          }
         }
       }
     },
@@ -963,6 +1559,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "最近"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最近項目"
           }
         }
       }
@@ -974,12 +1576,24 @@
             "state": "translated",
             "value": "录制快捷键"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "錄製快速鍵"
+          }
         }
       }
     },
     "Redo": {
       "localizations": {
         "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "重做"
+          }
+        },
+        "zh-Hant": {
           "stringUnit": {
             "state": "translated",
             "value": "重做"
@@ -994,6 +1608,12 @@
             "state": "translated",
             "value": "从这台 Mac 上移除 Skywrite 和所有相关数据。"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "從這台 Mac 上移除 Skywrite 和所有相關資料。"
+          }
         }
       }
     },
@@ -1002,7 +1622,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "恢复刚关闭的笔记"
+            "value": "恢复刚关闭的便签"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "回復剛關閉的便條"
           }
         }
       }
@@ -1012,7 +1638,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "恢复刚关闭的笔记"
+            "value": "恢复刚关闭的便签"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "回復剛關閉的便條"
           }
         }
       }
@@ -1024,6 +1656,12 @@
             "state": "translated",
             "value": "恢复原始大小"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "回復原始大小"
+          }
         }
       }
     },
@@ -1034,12 +1672,24 @@
             "state": "translated",
             "value": "恢复默认"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "回復預設值"
+          }
         }
       }
     },
     "Right ⌘": {
       "localizations": {
         "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "右 ⌘"
+          }
+        },
+        "zh-Hant": {
           "stringUnit": {
             "state": "translated",
             "value": "右 ⌘"
@@ -1054,6 +1704,12 @@
             "state": "translated",
             "value": "右 ⌥"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "右 ⌥"
+          }
         }
       }
     },
@@ -1062,7 +1718,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "右键 Dock 图标可以看最近的笔记"
+            "value": "右键 Dock 图标可以看最近的便签"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在 Dock 圖像上按右鍵，可以看最近的便條"
           }
         }
       }
@@ -1070,6 +1732,12 @@
     "Sea": {
       "localizations": {
         "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "海面"
+          }
+        },
+        "zh-Hant": {
           "stringUnit": {
             "state": "translated",
             "value": "海面"
@@ -1084,6 +1752,12 @@
             "state": "translated",
             "value": "搜索"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "搜尋"
+          }
         }
       }
     },
@@ -1093,6 +1767,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "全选"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "全選"
           }
         }
       }
@@ -1104,6 +1784,12 @@
             "state": "translated",
             "value": "设置窗口"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "設定視窗"
+          }
         }
       }
     },
@@ -1113,6 +1799,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "设置：在终端里运行「defaults delete %@」。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "設定：在「終端機」裡執行「defaults delete %@」。"
           }
         }
       }
@@ -1124,6 +1816,12 @@
             "state": "translated",
             "value": "设置…"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "設定⋯"
+          }
         }
       }
     },
@@ -1134,6 +1832,12 @@
             "state": "translated",
             "value": "快捷键"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "快速鍵"
+          }
         }
       }
     },
@@ -1142,7 +1846,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "显示全部笔记"
+            "value": "显示全部便签"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "顯示全部便條"
           }
         }
       }
@@ -1154,6 +1864,12 @@
             "state": "translated",
             "value": "显示位置"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "顯示位置"
+          }
         }
       }
     },
@@ -1164,6 +1880,12 @@
             "state": "translated",
             "value": "在访达中显示"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "顯示於 Finder"
+          }
         }
       }
     },
@@ -1172,7 +1894,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "显示或隐藏全部笔记"
+            "value": "显示或隐藏全部便签"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "顯示或隱藏全部便條"
           }
         }
       }
@@ -1182,7 +1910,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "显示或隐藏全部笔记"
+            "value": "显示或隐藏全部便签"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "顯示或隱藏全部便條"
           }
         }
       }
@@ -1190,6 +1924,12 @@
     "Skywrite has been removed": {
       "localizations": {
         "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Skywrite 已移除"
+          }
+        },
+        "zh-Hant": {
           "stringUnit": {
             "state": "translated",
             "value": "Skywrite 已移除"
@@ -1202,7 +1942,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Skywrite 会把全部 %lld 条笔记搬到新文件夹，之后的新笔记也存在那里。"
+            "value": "Skywrite 会把全部 %lld 张便签搬到新文件夹，之后的新便签也存在那里。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Skywrite 會把全部 %lld 張便條搬到新檔案夾，之後的新便條也存在那裡。"
           }
         }
       }
@@ -1214,6 +1960,12 @@
             "state": "translated",
             "value": "Skywrite 不会出现在 Dock 和菜单栏。要回到这里，在访达或聚焦搜索里再打开一次 Skywrite。"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Skywrite 不會出現在 Dock 和選單列。要回到這裡，請在 Finder 或 Spotlight 裡再打開一次 Skywrite。"
+          }
         }
       }
     },
@@ -1223,6 +1975,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "缩小文字"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "縮小文字"
           }
         }
       }
@@ -1234,6 +1992,12 @@
             "state": "translated",
             "value": "柔边"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "柔邊"
+          }
         }
       }
     },
@@ -1243,6 +2007,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "有些东西没能移除，你可以自己移除："
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "有些項目沒能移除，你可以自己移除："
           }
         }
       }
@@ -1254,6 +2024,12 @@
             "state": "translated",
             "value": "出错了"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "發生錯誤"
+          }
         }
       }
     },
@@ -1263,6 +2039,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "特别感谢"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "特別感謝"
           }
         }
       }
@@ -1274,6 +2056,12 @@
             "state": "translated",
             "value": "启动"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "啟動"
+          }
         }
       }
     },
@@ -1283,6 +2071,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "不用便签时也保持通透"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "不用便條時也保持通透"
           }
         }
       }
@@ -1294,6 +2088,12 @@
             "state": "translated",
             "value": "存储"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "儲存空間"
+          }
         }
       }
     },
@@ -1304,12 +2104,24 @@
             "state": "translated",
             "value": "强度"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "強度"
+          }
         }
       }
     },
     "Text": {
       "localizations": {
         "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "文字"
+          }
+        },
+        "zh-Hant": {
           "stringUnit": {
             "state": "translated",
             "value": "文字"
@@ -1324,6 +2136,12 @@
             "state": "translated",
             "value": "字号"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "文字大小"
+          }
         }
       }
     },
@@ -1333,6 +2151,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "文件里记的是 Skywrite 做了什么，例如便签打开、关闭，以及当时在最前面的是哪个 App（例如 com.google.Chrome）。不会包含便签里写的内容，主文件夹和用户名也已隐去。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "檔案裡記的是 Skywrite 做了什麼，例如便條打開、關閉，以及當時在最前面的是哪個 App（例如 com.google.Chrome）。不會包含便條裡寫的內容，個人專屬檔案夾和使用者名稱也已隱去。"
           }
         }
       }
@@ -1344,6 +2168,12 @@
             "state": "translated",
             "value": "外观页里用来预览便签背景的照片，来自 Unsplash 上的这些摄影师。谢谢他们！"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "外觀頁裡用來預覽便條背景的照片，來自 Unsplash 上的這些攝影師。謝謝他們！"
+          }
         }
       }
     },
@@ -1354,6 +2184,12 @@
             "state": "translated",
             "value": "主题"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "主題"
+          }
         }
       }
     },
@@ -1362,7 +2198,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "按完光标变十字，点哪里笔记就放哪里。"
+            "value": "按完光标变十字，点哪里便签就放哪里。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "按完游標變十字，點哪裡便條就放哪裡。"
           }
         }
       }
@@ -1374,6 +2216,12 @@
             "state": "translated",
             "value": "它们关掉后，超过你选的时间都没改过。之后可以从废纸篓放回。"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "它們關掉後，超過你選的時間都沒改過。之後可以從垃圾桶還原。"
+          }
         }
       }
     },
@@ -1383,6 +2231,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "这会从这台 Mac 上移除 Skywrite 和所有相关数据。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "這會從這台 Mac 上移除 Skywrite 和所有相關資料。"
           }
         }
       }
@@ -1394,6 +2248,12 @@
             "state": "translated",
             "value": "排查问题"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "疑難排解"
+          }
         }
       }
     },
@@ -1402,7 +2262,35 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
+            "value": "请在「隐私与安全 › 无障碍」里打开 Skywrite。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "請在「隱私權與安全性 › 輔助使用」裡打開 Skywrite。"
+          }
+        }
+      }
+    },
+    "Turn on Skywrite in Privacy & Security > Accessibility. (macOS 26)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Turn on Skywrite in Privacy & Security > Accessibility."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
             "value": "请在「隐私与安全性 › 辅助功能」里打开 Skywrite。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "請在「隱私權與安全性 › 輔助使用」裡打開 Skywrite。"
           }
         }
       }
@@ -1414,6 +2302,12 @@
             "state": "translated",
             "value": "请按快捷键…"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "請按快速鍵⋯"
+          }
         }
       }
     },
@@ -1423,6 +2317,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "撤销"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "還原"
           }
         }
       }
@@ -1434,6 +2334,12 @@
             "state": "translated",
             "value": "卸载"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "解除安裝"
+          }
         }
       }
     },
@@ -1443,6 +2349,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "卸载 Skywrite"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "解除安裝 Skywrite"
           }
         }
       }
@@ -1454,6 +2366,12 @@
             "state": "translated",
             "value": "卸载 Skywrite？"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "解除安裝 Skywrite？"
+          }
         }
       }
     },
@@ -1463,6 +2381,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "卸载…"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "解除安裝⋯"
           }
         }
       }
@@ -1474,6 +2398,12 @@
             "state": "translated",
             "value": "取消置顶"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "取消釘選"
+          }
         }
       }
     },
@@ -1483,6 +2413,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "有可用的更新…"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "有可用的更新項目⋯"
           }
         }
       }
@@ -1494,6 +2430,12 @@
             "state": "translated",
             "value": "更新"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更新項目"
+          }
         }
       }
     },
@@ -1504,12 +2446,24 @@
             "state": "translated",
             "value": "按 Unsplash 许可使用"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "依 Unsplash 授權使用"
+          }
         }
       }
     },
     "Version %@ (%@)": {
       "localizations": {
         "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "版本 %1$@（%2$@）"
+          }
+        },
+        "zh-Hant": {
           "stringUnit": {
             "state": "translated",
             "value": "版本 %1$@（%2$@）"
@@ -1524,6 +2478,12 @@
             "state": "translated",
             "value": "显示"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "顯示方式"
+          }
         }
       }
     },
@@ -1532,7 +2492,35 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
+            "value": "正在等待无障碍权限"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在等待輔助使用權限"
+          }
+        }
+      }
+    },
+    "Waiting for Accessibility permission (macOS 26)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Waiting for Accessibility permission"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
             "value": "正在等待辅助功能权限"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在等待輔助使用權限"
           }
         }
       }
@@ -1544,6 +2532,12 @@
             "state": "translated",
             "value": "macOS 平时会把没在用的窗口里的玻璃调暗。"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS 平時會把沒在用的視窗裡的玻璃調暗。"
+          }
         }
       }
     },
@@ -1552,7 +2546,13 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "⌘+ / ⌘− 改的也是这里，所有笔记一起变"
+            "value": "⌘+ / ⌘− 改的也是这里，所有便签一起变"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "⌘+ / ⌘− 改的也是這裡，所有便條一起變"
           }
         }
       }
