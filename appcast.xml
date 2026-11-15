@@ -3,6 +3,25 @@
     <channel>
         <title>Skywrite</title>
         <item>
+            <title>0.1.4</title>
+            <pubDate>Sun, 15 Nov 2026 22:05:23 +0800</pubDate>
+            <link>https://github.com/GooZhenJie/skywrite/releases</link>
+            <sparkle:version>5</sparkle:version>
+            <sparkle:shortVersionString>0.1.4</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description xml:lang="en" sparkle:format="markdown"><![CDATA[- Fixed the settings window coming to the front when you create or close a note while another app is in front.
+- Removed the "Close this window when you switch to another app" setting from General.
+]]></description>
+            <description xml:lang="zh-Hans" sparkle:format="markdown"><![CDATA[- 修复了在别的 App 里新建或关闭便签时，设置窗口跳到前面的问题。
+- 去掉了「通用」里的「切到别的 App 时关掉这个窗口」。
+]]></description>
+            <description xml:lang="zh-Hant" sparkle:format="markdown"><![CDATA[- 修正了在別的 App 裡新增或關閉便條時，設定視窗跳到前面的問題。
+- 移除了「一般」裡的「切到別的 App 時關掉這個視窗」。
+]]></description>
+            <enclosure url="https://github.com/GooZhenJie/skywrite/releases/download/v0.1.4/Skywrite-0.1.4.zip" length="3366382" type="application/octet-stream" sparkle:edSignature="OgNbopfkfN9TxxZmPqplpzJzN6aehlPa8DsElfrA4bf5/LhNT9/NeB6Dw2jlB2x1neekSimsmMH0sFKv7eGMCg=="/>
+        </item>
+        <item>
             <title>0.1.3</title>
             <pubDate>Wed, 11 Nov 2026 23:59:41 +0800</pubDate>
             <link>https://github.com/GooZhenJie/skywrite/releases</link>
