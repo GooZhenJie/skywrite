@@ -38,6 +38,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuItemValidation {
         if Self.isUITesting {
             applyUITestingGlassArguments()
         }
+        PreviousApp.startTracking()
         let manager = NoteManager(store: Self.isUITesting ? Self.uiTestingStore() : standardStore(), style: noteStyle())
         noteManager = manager
         placementController = PlacementController(lineHeight: { [weak manager] in
@@ -122,23 +123,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuItemValidation {
         preferences.$shortcuts.dropFirst().receive(on: DispatchQueue.main).sink { [weak self] _ in
             self?.shortcutsDidChange()
         }.store(in: &subscriptions)
-        preferences.$closesSettingsWhenInactive.dropFirst().removeDuplicates().sink { closes in
-            EventLog.settings.notice("preference closesSettingsWhenInactive=\(closes, privacy: .public)")
-        }.store(in: &subscriptions)
-        NotificationCenter.default.publisher(for: NSApplication.didResignActiveNotification).sink { [weak self] _ in
-            self?.closeSettingsIfAnotherAppCameForward()
-        }.store(in: &subscriptions)
-    }
-
-    /// With "Close this window when you switch to another app" on, the settings window closes as soon as another app comes to the
-    /// front, instead of staying open behind it. Settings apply as you change them, so closing loses nothing; the menu
-    /// bar menu, the Dock icon or opening Skywrite again brings the window back. First tried 2026-11-06, when the
-    /// window kept jumping in front of other apps; that was fixed another way, so this became an option, off by default.
-    /// On by default since 2026-11-08 (see Preferences.closesSettingsWhenInactive).
-    private func closeSettingsIfAnotherAppCameForward() {
-        guard preferences.closesSettingsWhenInactive, let settingsWindow, settingsWindow.window?.isVisible == true else { return }
-        EventLog.settings.notice("settings closed because another app came to the front")
-        settingsWindow.close()
     }
 
     private func startGlobalInput() {

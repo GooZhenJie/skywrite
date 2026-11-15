@@ -40,15 +40,6 @@ struct GeneralSettingsPane: View {
                     Text(AboutSettingsPane.version)
                 }
             }
-            Section("Settings Window") {
-                Toggle(isOn: $preferences.closesSettingsWhenInactive) {
-                    Text("Close this window when you switch to another app")
-                    // Says what the switch prevents, the way macOS words "Close windows when quitting an application":
-                    // "When enabled, open documents and windows will not be restored when you re-open an application."
-                    Text("When enabled, this window won’t come to the front when you create or close a note.").font(.callout)
-                }
-                .accessibilityIdentifier("close-settings-when-inactive")
-            }
         }
         .formStyle(.grouped)
     }

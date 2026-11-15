@@ -473,22 +473,6 @@
         }
       }
     },
-    "Close this window when you switch to another app": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "切到别的 App 时关掉这个窗口"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "切到別的 App 時關掉這個視窗"
-          }
-        }
-      }
-    },
     "Closed Notes": {
       "localizations": {
         "zh-Hans": {
@@ -1697,22 +1681,6 @@
         }
       }
     },
-    "Settings Window": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "设置窗口"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "設定視窗"
-          }
-        }
-      }
-    },
     "Settings: run “defaults delete %@” in Terminal.": {
       "localizations": {
         "zh-Hans": {
@@ -2425,22 +2393,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "正在等待輔助使用權限"
-          }
-        }
-      }
-    },
-    "When enabled, this window won’t come to the front when you create or close a note.": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "启用后，新建或关闭便签时，这个窗口不会跳到最前面。"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "若啟用此選項，新增或關閉便條時，這個視窗不會跳到最前面。"
           }
         }
       }

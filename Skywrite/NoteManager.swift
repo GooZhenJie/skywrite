@@ -103,7 +103,7 @@ final class NoteManager {
         // Closing the note you were typing in goes back to the app you came from, before the note goes away;
         // otherwise AppKit makes the settings window key and brings it forward.
         if controller.panel.isKeyWindow {
-            PreviousApp.handBack()
+            NSApp.leaveClosingNote()
         }
         if controller.isBlank {
             discard(controller)

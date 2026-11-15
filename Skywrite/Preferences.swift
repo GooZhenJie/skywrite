@@ -7,9 +7,6 @@ final class Preferences: ObservableObject {
 
     @Published var showsInDock: Bool { didSet { defaults.set(showsInDock, forKey: Key.showsInDock) } }
     @Published var showsInMenuBar: Bool { didSet { defaults.set(showsInMenuBar, forKey: Key.showsInMenuBar) } }
-    /// Closes the settings window when another app comes to the front. On unless you turn it off: first off by default
-    /// (user decision 2026-11-07), then on, because the Dock icon is on by default too (user decision 2026-11-08).
-    @Published var closesSettingsWhenInactive: Bool { didSet { defaults.set(closesSettingsWhenInactive, forKey: Key.closesSettingsWhenInactive) } }
     @Published var tapKey: TapKey { didSet { defaults.set(tapKey.rawValue, forKey: Key.tapKey) } }
     @Published var fontSize: CGFloat { didSet { defaults.set(Double(fontSize), forKey: Key.fontSize) } }
     @Published var glassStyle: GlassStyle { didSet { defaults.set(glassStyle.rawValue, forKey: Key.glassStyle) } }
@@ -26,7 +23,7 @@ final class Preferences: ObservableObject {
         self.defaults = defaults
         showsInDock = defaults.object(forKey: Key.showsInDock) as? Bool ?? true
         showsInMenuBar = defaults.object(forKey: Key.showsInMenuBar) as? Bool ?? true
-        closesSettingsWhenInactive = defaults.object(forKey: Key.closesSettingsWhenInactive) as? Bool ?? true
+        defaults.removeObject(forKey: Key.removedClosesSettingsWhenInactive)
         defaults.removeObject(forKey: Key.removedNoteSpaces)
         // A Mac that already chose a key keeps it; a new install starts with pressing twice turned off.
         tapKey = defaults.string(forKey: Key.tapKey).flatMap(TapKey.init) ?? .off
@@ -85,7 +82,9 @@ final class Preferences: ObservableObject {
     private enum Key {
         static let showsInDock = "showsInDock"
         static let showsInMenuBar = "showsInMenuBar"
-        static let closesSettingsWhenInactive = "closesSettingsWhenInactive"
+        /// The switch "Close this window when you switch to another app" is gone, so its stored value is cleared. It only
+        /// kept the settings window from jumping in front of other apps, which the window now does on its own.
+        static let removedClosesSettingsWhenInactive = "closesSettingsWhenInactive"
         /// Older versions let you choose which desktops notes appear on; that setting is gone, so its stored value is cleared.
         static let removedNoteSpaces = "noteSpaces"
         static let tapKey = "tapKey"
