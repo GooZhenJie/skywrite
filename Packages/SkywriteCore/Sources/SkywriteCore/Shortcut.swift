@@ -33,6 +33,7 @@ public enum ShortcutAction: String, Codable, CaseIterable, Sendable {
     case newNote
     case toggleAllNotes
     case reopenClosedNote
+    case searchNotes
 
     public var defaultShortcut: Shortcut {
         let modifiers = Shortcut.controlFlag | Shortcut.optionFlag
@@ -40,6 +41,8 @@ public enum ShortcutAction: String, Codable, CaseIterable, Sendable {
         case .newNote: return Shortcut(keyCode: 0x2D, carbonModifiers: modifiers, keyLabel: "N")
         case .toggleAllNotes: return Shortcut(keyCode: 0x04, carbonModifiers: modifiers, keyLabel: "H")
         case .reopenClosedNote: return Shortcut(keyCode: 0x06, carbonModifiers: modifiers, keyLabel: "Z")
+        // ⌃⌥O was the placeholder for "all notes" in the first design round (2026-11-03).
+        case .searchNotes: return Shortcut(keyCode: 0x1F, carbonModifiers: modifiers, keyLabel: "O")
         }
     }
 }

@@ -8,6 +8,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuItemValidation {
     private let preferences = Preferences(defaults: AppDelegate.isUITesting ? AppDelegate.uiTestingDefaults() : .standard)
     private var noteManager: NoteManager?
     private var placementController: PlacementController?
+    private var quickPanel: QuickPanelController?
     private var tapMonitor: ModifierTapMonitor?
     private weak var openStatusMenu: NSMenu?
     private let hotkeys = GlobalHotkeys()
@@ -48,6 +49,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuItemValidation {
         }, onPlace: { [weak manager] placement in
             manager?.createNote(from: placement)
         })
+        quickPanel = QuickPanelController(noteManager: manager, preferences: preferences)
         NSApp.mainMenu = MainMenu.build(appDelegate: self, preferences: preferences, updater: updater)
         let menus = AppMenus(appDelegate: self, noteManager: manager, preferences: preferences, updater: updater)
         self.menus = menus
@@ -198,6 +200,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuItemValidation {
         case .newNote: newNote(nil)
         case .toggleAllNotes: toggleAllNotes(nil)
         case .reopenClosedNote: reopenClosedNote(nil)
+        case .searchNotes: quickPanel?.toggle()
         }
     }
 
@@ -287,6 +290,10 @@ extension AppDelegate {
 
     @objc func moveNotesBackOnScreen(_ sender: Any?) {
         noteManager?.moveNotesBackOnScreen()
+    }
+
+    @objc func searchNotes(_ sender: Any?) {
+        quickPanel?.open()
     }
 
     @objc func showRecentNote(_ sender: NSMenuItem) {

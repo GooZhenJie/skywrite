@@ -268,8 +268,7 @@ extension NoteManager {
 
     func moveNotesBackOnScreen() {
         let screens = NSScreen.screens.map(\.frame)
-        let mouse = NSEvent.mouseLocation
-        guard let target = NSScreen.screens.first(where: { $0.frame.contains(mouse) }) ?? NSScreen.main else { return }
+        guard let target = NSScreen.withPointer else { return }
         for controller in controllers.values where !ScreenPlacement.isVisible(controller.boxInScreen, on: screens) {
             controller.move(toTopLeft: ScreenPlacement.topLeftBringingBack(controller.boxInScreen, into: target.visibleFrame))
         }
@@ -290,6 +289,19 @@ extension NoteManager {
             }
         }
         return (entries(RecentNotes.pinned(records, modifiedAt: { modified[$0.id] })), entries(RecentNotes.pick(records, modifiedAt: { modified[$0.id] })))
+    }
+
+    /// Every saved note with its whole text, for the quick panel to search.
+    func searchableNotes() -> [SearchableNote] {
+        let store = store
+        return records.compactMap { record in
+            guard let fileName = record.fileName else { return nil }
+            let controller = controllers[record.id]
+            let text = controller?.text ?? (try? store.readText(fileName)) ?? ""
+            let modifiedAt = store.modificationDate(of: fileName) ?? record.createdAt
+            let isPinned = controller?.record.isPinned ?? record.isPinned
+            return SearchableNote(id: record.id, text: text, fileName: fileName, modifiedAt: modifiedAt, createdAt: record.createdAt, isOnScreen: controller != nil, isPinned: isPinned)
+        }
     }
 
     func togglePin(_ controller: NoteController) {

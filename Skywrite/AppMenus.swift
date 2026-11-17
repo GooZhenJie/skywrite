@@ -6,12 +6,6 @@ final class AppMenus: NSObject, NSMenuDelegate {
     private let noteManager: NoteManager
     private let preferences: Preferences
     private let updater: SoftwareUpdater
-    private let relativeFormatter: RelativeDateTimeFormatter = {
-        let formatter = RelativeDateTimeFormatter()
-        formatter.unitsStyle = .short
-        formatter.dateTimeStyle = .named
-        return formatter
-    }()
 
     init(appDelegate: AppDelegate, noteManager: NoteManager, preferences: Preferences, updater: SoftwareUpdater) {
         self.appDelegate = appDelegate
@@ -50,6 +44,7 @@ final class AppMenus: NSObject, NSMenuDelegate {
         let toggle = item(toggleTitle, #selector(AppDelegate.toggleAllNotes(_:)), symbol: noteManager.areNotesHidden ? "eye" : "eye.slash", shortcut: preferences.shortcut(for: .toggleAllNotes))
         menu.addItem(toggle)
         menu.addItem(item(String(localized: "Reopen Closed Note"), #selector(AppDelegate.reopenClosedNote(_:)), symbol: "arrow.uturn.backward", shortcut: preferences.shortcut(for: .reopenClosedNote)))
+        menu.addItem(item(String(localized: "Search Notes…"), #selector(AppDelegate.searchNotes(_:)), symbol: "magnifyingglass", shortcut: preferences.shortcut(for: .searchNotes)))
         if noteManager.hasNotesOffScreen {
             menu.addItem(item(String(localized: "Move Notes Back on Screen"), #selector(AppDelegate.moveNotesBackOnScreen(_:)), symbol: "rectangle.portrait.and.arrow.right"))
         }
@@ -92,7 +87,7 @@ final class AppMenus: NSObject, NSMenuDelegate {
         entry.target = appDelegate
         entry.representedObject = note.id
         entry.state = note.isOnScreen ? .on : .off
-        entry.subtitle = relativeFormatter.localizedString(for: min(note.modifiedAt, Date()), relativeTo: Date())
+        entry.subtitle = RelativeTime.text(for: note.modifiedAt)
         return entry
     }
 

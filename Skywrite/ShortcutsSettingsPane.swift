@@ -87,6 +87,7 @@ extension ShortcutAction {
         case .newNote: String(localized: "New note")
         case .toggleAllNotes: String(localized: "Show or hide all notes")
         case .reopenClosedNote: String(localized: "Reopen closed note")
+        case .searchNotes: String(localized: "Search notes")
         }
     }
 }

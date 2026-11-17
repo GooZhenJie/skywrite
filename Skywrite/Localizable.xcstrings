@@ -199,6 +199,22 @@
         }
       }
     },
+    "All": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "全部"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "全部"
+          }
+        }
+      }
+    },
     "Also changes when you press ⌘+ or ⌘− in a note": {
       "localizations": {
         "zh-Hans": {
@@ -293,6 +309,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "放大文字"
+          }
+        }
+      }
+    },
+    "Bring to Front": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "移至最前"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "移至最前"
           }
         }
       }
@@ -457,6 +489,22 @@
         }
       }
     },
+    "Close": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "关闭"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "關閉"
+          }
+        }
+      }
+    },
     "Close Note": {
       "localizations": {
         "zh-Hans": {
@@ -469,6 +517,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "關閉"
+          }
+        }
+      }
+    },
+    "Closed": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已关闭"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已關閉"
           }
         }
       }
@@ -537,6 +601,22 @@
         }
       }
     },
+    "Created": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "创建时间"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "製作時間"
+          }
+        }
+      }
+    },
     "Cut": {
       "localizations": {
         "zh-Hans": {
@@ -585,6 +665,22 @@
         }
       }
     },
+    "Earlier": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更早"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更早"
+          }
+        }
+      }
+    },
     "Edit": {
       "localizations": {
         "zh-Hans": {
@@ -597,6 +693,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "編輯"
+          }
+        }
+      }
+    },
+    "Edited": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "编辑时间"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "編輯時間"
           }
         }
       }
@@ -1243,6 +1355,22 @@
         }
       }
     },
+    "On Screen": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在屏幕上"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在螢幕上"
+          }
+        }
+      }
+    },
     "Open Notes Folder": {
       "localizations": {
         "zh-Hans": {
@@ -1421,6 +1549,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "釘選的便條和螢幕上開著的便條不會被移走。"
+          }
+        }
+      }
+    },
+    "Press %@ to write a new note.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "按 %@ 新建便签。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "按 %@ 新增便條。"
           }
         }
       }
@@ -1665,6 +1809,54 @@
         }
       }
     },
+    "Search Notes": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "搜索便签"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "搜尋便條"
+          }
+        }
+      }
+    },
+    "Search Notes…": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "搜索便签…"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "搜尋便條⋯"
+          }
+        }
+      }
+    },
+    "Search notes": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "搜索便签"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "搜尋便條"
+          }
+        }
+      }
+    },
     "Select All": {
       "localizations": {
         "zh-Hans": {
@@ -1773,6 +1965,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "顯示於 Finder"
+          }
+        }
+      }
+    },
+    "Show on Screen": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "显示在屏幕上"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "顯示在螢幕上"
           }
         }
       }
@@ -1933,6 +2141,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "啟動"
+          }
+        }
+      }
+    },
+    "Status": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "状态"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "狀態"
           }
         }
       }
@@ -2109,6 +2333,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "要回到這裡，請在 Finder 或 Spotlight 裡再打開一次 Skywrite。"
+          }
+        }
+      }
+    },
+    "Today": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今天"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今天"
           }
         }
       }

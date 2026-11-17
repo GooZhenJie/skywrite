@@ -112,7 +112,7 @@ final class SettingsTests: XCTestCase {
         let statusItem = app.statusItems.firstMatch
         XCTAssertTrue(statusItem.waitForExistence(timeout: 5))
         statusItem.click()
-        for title in ["New Note", "Hide All Notes", "Reopen Closed Note", "No notes yet", "Open Notes Folder", "Settings…", "Quit Skywrite"] {
+        for title in ["New Note", "Hide All Notes", "Reopen Closed Note", "Search Notes…", "No notes yet", "Open Notes Folder", "Settings…", "Quit Skywrite"] {
             XCTAssertTrue(statusItem.menuItems[title].waitForExistence(timeout: 2), title)
         }
         attach(XCUIScreen.main.screenshot(), name: "status-menu-empty")
@@ -162,6 +162,29 @@ final class SettingsTests: XCTestCase {
         note.rightClick()
         XCTAssertTrue(app.menuItems["Unpin Note"].waitForExistence(timeout: 2))
         app.typeKey(.escape, modifierFlags: [])
+    }
+
+    func testQuickPanelFindsAWordBelowTheFirstLine() {
+        for appearance in ["light", "dark"] {
+            launch(appearance: appearance, openSettings: false)
+            XCTAssertTrue(app.statusItems.firstMatch.waitForExistence(timeout: 5))
+            _ = createNote(text: "Shopping\nmilk and eggs")
+            let statusItem = app.statusItems.firstMatch
+            statusItem.click()
+            statusItem.menuItems["Search Notes…"].click()
+            let field = app.textFields["quick-panel-search"]
+            XCTAssertTrue(field.waitForExistence(timeout: 3))
+            attach(XCUIScreen.main.screenshot(), name: "quick-panel-\(appearance)")
+            field.typeText("eggs")
+            XCTAssertTrue(app.staticTexts["Shopping"].waitForExistence(timeout: 2))
+            attach(XCUIScreen.main.screenshot(), name: "quick-panel-search-\(appearance)")
+            XCTAssertTrue(app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@", "milk and eggs")).firstMatch.waitForExistence(timeout: 2))
+            field.typeText("x")
+            XCTAssertTrue(app.staticTexts["No Results"].waitForExistence(timeout: 2))
+            field.typeKey(.escape, modifierFlags: [])
+            XCTAssertTrue(field.waitForNonExistence(timeout: 2))
+            app.terminate()
+        }
     }
 
     private func createNote(text: String) -> XCUIElement {

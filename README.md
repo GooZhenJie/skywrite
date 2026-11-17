@@ -48,6 +48,7 @@ Type your note, then press **Esc** or click elsewhere to finish editing. The not
 | Create a note | ⌃⌥N |
 | Hide or show all notes | ⌃⌥H |
 | Reopen the last closed note | ⌃⌥Z, or ⌘Z while Skywrite is active |
+| Search notes | ⌃⌥O |
 | Resize a note | Drag a corner or dashed edge while editing |
 | Zoom a note | Scroll or pinch over it |
 | Change text size across all notes | ⌘+ / ⌘− |

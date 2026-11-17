@@ -39,6 +39,14 @@ public enum NoteMetrics {
     public static let placementHintVerticalPadding: CGFloat = 3
     public static let placementHintCornerRadius: CGFloat = 6
 
+    /// The quick panel's size and corner, from the mock-up approved on 2026-11-17. Placeholders,
+    /// not measured against anything; to be settled on screen.
+    public static let quickPanelWidth: CGFloat = 760
+    public static let quickPanelHeight: CGFloat = 460
+    public static let quickPanelCornerRadius: CGFloat = 26
+    /// How far below the top of the screen the panel sits, as a share of the screen's height. Also a placeholder.
+    public static let quickPanelTopShare: CGFloat = 0.18
+
     public static var windowMargin: CGFloat {
         frameGap + handleHitThickness / 2
     }

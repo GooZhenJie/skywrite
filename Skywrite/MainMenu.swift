@@ -17,6 +17,7 @@ enum MainMenu {
         let newNote = appMenu.addItem(withTitle: String(localized: "New Note"), action: #selector(AppDelegate.newNote(_:)), keyEquivalent: "")
         apply(preferences.shortcut(for: .newNote), to: newNote)
         newNote.target = appDelegate
+        appMenu.addItem(item(String(localized: "Search Notes…"), #selector(AppDelegate.searchNotes(_:)), shortcut: preferences.shortcut(for: .searchNotes), target: appDelegate))
         appMenu.addItem(.separator())
         appMenu.addItem(withTitle: String(localized: "Hide Skywrite"), action: #selector(NSApplication.hide(_:)), keyEquivalent: "h")
         appMenu.addItem(withTitle: String(localized: "Quit Skywrite"), action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
@@ -55,6 +56,13 @@ enum MainMenu {
         mainMenu.addItem(viewItem)
 
         return mainMenu
+    }
+
+    private static func item(_ title: String, _ action: Selector, shortcut: Shortcut?, target: AnyObject?) -> NSMenuItem {
+        let item = NSMenuItem(title: title, action: action, keyEquivalent: "")
+        apply(shortcut, to: item)
+        item.target = target
+        return item
     }
 
     private static func apply(_ shortcut: Shortcut?, to item: NSMenuItem) {
