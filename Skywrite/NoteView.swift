@@ -148,7 +148,8 @@ final class NoteView: NSView {
     private func updateCursor(at point: NSPoint) {
         if let handle = handle(at: point) {
             cursor(for: handle).set()
-        } else if controller?.isEditing == true, controller?.cell(at: point) != nil {
+        } else if controller?.isEditing == true, controller?.cell(at: point) != nil, controller?.taskBox(at: point) == nil {
+            // Over a box the pointer stays an arrow, as it does over Notion's: a click there ticks, it doesn't type.
             NSCursor.iBeam.set()
         } else {
             NSCursor.arrow.set()
@@ -236,6 +237,8 @@ final class NoteView: NSView {
         guard !moved else { return }
         if controller.isSecondClickAfterUnlock(event) {
             controller.close()
+        } else if let box = controller.taskBox(at: convert(event.locationInWindow, from: nil)) {
+            controller.toggleTask(startingAt: box.characterIndex, in: box.cell)
         } else {
             controller.unlock(with: event)
         }

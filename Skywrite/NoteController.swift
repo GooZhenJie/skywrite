@@ -303,6 +303,9 @@ extension NoteController {
             cell.isVerticallyResizable = false
             cell.textContainerInset = style.textPadding(zoom: zoom)
             cell.insertionPointColor = .white
+            // Selected text keeps its own colour. AppKit's default selection recolours the text, which would also show
+            // the list markers drawn clear in `styleLists`, such as a "1." over each item's text.
+            cell.selectedTextAttributes = cell.selectedTextAttributes.filter { $0.key != .foregroundColor }
             cell.wantsLayer = true
             cell.layer?.shadowColor = NSColor.black.cgColor
             cell.layer?.shadowOpacity = 0.35

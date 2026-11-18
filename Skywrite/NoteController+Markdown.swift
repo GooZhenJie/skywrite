@@ -40,7 +40,10 @@ extension NoteController: NSLayoutManagerDelegate {
             let headings = NoteMarkdown.headings(in: cell.string)
             let caretHeading = isTyping ? headings.first { NSLocationInRange(cell.selectedRange().location, $0.lineRange) || cell.selectedRange().location == NSMaxRange($0.lineRange) } : nil
             cell.typingAttributes = caretHeading.map { textAttributes(font: style.headingFont(level: $0.level, zoom: zoom)) } ?? body
-            guard let storage = cell.textStorage, storage.length > 0 else { continue }
+            guard let storage = cell.textStorage, storage.length > 0 else {
+                cell.listMarkers = []
+                continue
+            }
             storage.beginEditing()
             storage.setAttributes(body, range: NSRange(location: 0, length: storage.length))
             for heading in headings {
@@ -53,6 +56,7 @@ extension NoteController: NSLayoutManagerDelegate {
                     storage.addAttribute(.hiddenMarkdown, value: true, range: heading.markerRange)
                 }
             }
+            styleLists(in: cell, storage: storage)
             storage.endEditing()
             cell.layoutManager?.invalidateGlyphs(forCharacterRange: NSRange(location: 0, length: storage.length), changeInLength: 0, actualCharacterRange: nil)
         }

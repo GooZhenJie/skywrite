@@ -17,6 +17,21 @@ public enum NoteMetrics {
     /// text is as far inside its tile as the tile is inside the note. See `NoteCellGeometry.spacing(layout:textPadding:)`.
     public static let cellTileInsetShare: CGFloat = 0.5
     public static let cellTileOpacity: CGFloat = 0.06
+    /// Lists, in multiples of the note's font size, as Notion draws them: measured on a public notion.site page
+    /// (beattech.notion.site "Bullet list item", 2026-11-16) with 16px text, the bullet or number sits centred in a 24px
+    /// column, the text starts 30px in, wrapped lines too, and the bullet is drawn at 24px.
+    public static let listMarkerColumnScale: CGFloat = 1.5
+    public static let listTextIndentScale: CGFloat = 1.875
+    public static let listBulletScale: CGFloat = 1.5
+    /// A task's box, as Notion draws a to-do: measured on a public notion.site page (beattech.notion.site "Todo",
+    /// 2026-11-16) with 16px text, the box is 16px square with a 1px border and 1.5px corners, centred in the same 24px
+    /// column as a bullet and on the middle of the line's text, which starts 30px in like any list item's. A ticked
+    /// item's text is drawn at 70% opacity with a line through it in the text's colour at half opacity.
+    public static let taskBoxScale: CGFloat = 1
+    public static let taskBoxBorderScale: CGFloat = 1.0 / 16
+    public static let taskBoxCornerScale: CGFloat = 1.5 / 16
+    public static let checkedTaskTextOpacity: CGFloat = 0.7
+    public static let checkedTaskLineOpacity: CGFloat = 0.5
     public static let cornerLineWidth: CGFloat = 2
     public static let edgeDashPattern: [CGFloat] = [3, 3]
     public static let handleRestingOpacity: CGFloat = 0.3

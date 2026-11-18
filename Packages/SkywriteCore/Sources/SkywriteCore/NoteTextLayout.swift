@@ -23,7 +23,8 @@ public enum NoteTextLayout {
 
     /// The size the text takes up when lines may be at most `widthLimit` wide, rounded up to whole points.
     ///
-    /// The width is that of the longest line. `usedRect(for:)` can't be used for it: when the text ends with a newline,
+    /// The width is where the longest line ends, counting any indent before it (a list item's text starts indented).
+    /// `usedRect(for:)` can't be used for it: when the text ends with a newline,
     /// the empty line after it (where the caret sits) spans the whole container once a text view is attached, so a note
     /// would jump to the full width as soon as you press Return. The height does count that empty line, so the caret
     /// has room, and is never less than one line.
@@ -34,7 +35,7 @@ public enum NoteTextLayout {
         var widestLine: CGFloat = 0
         let glyphs = NSRange(location: 0, length: layoutManager.numberOfGlyphs)
         layoutManager.enumerateLineFragments(forGlyphRange: glyphs) { _, usedRect, _, _, _ in
-            widestLine = max(widestLine, usedRect.width)
+            widestLine = max(widestLine, usedRect.maxX)
         }
         let usedHeight = layoutManager.usedRect(for: container).height
         let lineHeight = layoutManager.defaultLineHeight(for: font)

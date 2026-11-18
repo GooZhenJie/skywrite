@@ -1,7 +1,8 @@
 import CoreGraphics
 import Foundation
 
-/// The bit of Markdown Skywrite draws: headings made with `#`, `##` and `###` at the start of a line.
+/// The bit of Markdown Skywrite draws: headings made with `#`, `##` and `###` at the start of a line, and lists (see
+/// `listItems(in:)`).
 ///
 /// Everything else is shown as typed. Copying leaves out the `#` marks, so text pasted elsewhere reads the way the note
 /// looked, unlike Raycast Notes, which copies the raw Markdown.
