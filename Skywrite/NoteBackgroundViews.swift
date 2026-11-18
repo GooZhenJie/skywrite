@@ -8,10 +8,11 @@ final class NoteSoftEdgeView: NSVisualEffectView {
     }
 }
 
-/// Holds the glass and cuts it to its own rounded shape. Liquid Glass casts a soft shadow outside itself, and the note's
-/// window is only a few points bigger than the glass, so that shadow used to end in a hard grey rectangle at the window's
-/// edge. With it cut off, the only shadow a note can have is the window's own (the Shadow setting).
-final class NoteGlassClipView: NSView {
+/// Holds Liquid Glass and cuts it to its own rounded shape; set the layer's corner radius to the glass's. Liquid Glass casts
+/// a soft shadow outside itself, and a window only as big as the glass, or a few points bigger, cuts that shadow off along
+/// its square edges: a hard grey rectangle around a note, and dark corners and edges around the quick panel. With it cut
+/// off, the only shadow left is the window's own.
+class GlassClipView: NSView {
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         wantsLayer = true
@@ -23,7 +24,10 @@ final class NoteGlassClipView: NSView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
 
+/// A note's glass, cut to shape (see `GlassClipView`). Clicks fall through to the note, like its other backgrounds.
+final class NoteGlassClipView: GlassClipView {
     override func hitTest(_ point: NSPoint) -> NSView? {
         nil
     }

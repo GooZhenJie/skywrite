@@ -70,7 +70,14 @@ final class QuickPanelController {
         glass.style = .regular
         glass.cornerRadius = NoteMetrics.quickPanelCornerRadius
         glass.contentView = NSHostingView(rootView: QuickPanelView(model: model).environmentObject(preferences))
-        panel.contentView = glass
+        // Cut to its rounded shape, so the glass's own shadow doesn't leave dark corners and edges at the panel's square
+        // edges; see `GlassClipView`.
+        let clip = GlassClipView(frame: NSRect(origin: .zero, size: panel.frame.size))
+        clip.layer?.cornerRadius = NoteMetrics.quickPanelCornerRadius
+        glass.frame = clip.bounds
+        glass.autoresizingMask = [.width, .height]
+        clip.addSubview(glass)
+        panel.contentView = clip
         panel.onResignKey = { [weak self] in
             self?.close(handingFrontBack: false)
         }
