@@ -6,6 +6,7 @@ final class NoteView: NSView {
     private var hoveredHandle: ResizeHandle?
     private var activeHandle: ResizeHandle?
     private var trackingArea: NSTrackingArea?
+    private let inputLog = NoteInputLog()
 
     var showsHandles = false {
         didSet {
@@ -202,10 +203,18 @@ final class NoteView: NSView {
 
     private func trackLockedPress(_ event: NSEvent) {
         guard let window, let controller else { return }
-        let startMouse = NSEvent.mouseLocation
+        // Where the button actually went down, not where the mouse is now: when the click also brings Skywrite to the
+        // front, the press is handled tens of milliseconds late, and by then the mouse may have moved on. Taking the
+        // mouse's current spot left the note dragging along with the pointer outside it.
+        let startMouse = window.convertPoint(toScreen: event.locationInWindow)
         let startOrigin = window.frame.origin
+        inputLog.dragPressed(window: window, box: controller.boxInScreen, zoom: controller.record.zoom, pressedAt: startMouse, pressTime: event.timestamp)
         var moved = false
-        while let next = window.nextEvent(matching: [.leftMouseDragged, .leftMouseUp]), next.type != .leftMouseUp {
+        var last: NSEvent?
+        while let next = window.nextEvent(matching: [.leftMouseDragged, .leftMouseUp]) {
+            last = next
+            guard next.type != .leftMouseUp else { break }
+            inputLog.dragEvent(next, window: window)
             let current = NSEvent.mouseLocation
             let delta = CGVector(dx: current.x - startMouse.x, dy: current.y - startMouse.y)
             if !moved, hypot(delta.dx, delta.dy) > NoteMetrics.dragThreshold {
@@ -214,13 +223,18 @@ final class NoteView: NSView {
             }
             if moved {
                 window.setFrameOrigin(NSPoint(x: startOrigin.x + delta.dx, y: startOrigin.y + delta.dy))
+                inputLog.dragMoved(window: window)
             }
         }
+        let boxBefore = controller.boxInScreen
         if moved {
             NSCursor.pop()
             controller.forgetUnlockClick()
             controller.didMove()
-        } else if controller.isSecondClickAfterUnlock(event) {
+        }
+        inputLog.dragEnded(moved: moved, endedBy: last, boxBefore: boxBefore, boxAfter: controller.boxInScreen)
+        guard !moved else { return }
+        if controller.isSecondClickAfterUnlock(event) {
             controller.close()
         } else {
             controller.unlock(with: event)
@@ -245,11 +259,11 @@ final class NoteView: NSView {
     override func scrollWheel(with event: NSEvent) {
         let physicalDeltaY = event.isDirectionInvertedFromDevice ? -event.scrollingDeltaY : event.scrollingDeltaY
         let factor = NoteGeometry.scrollZoomFactor(deltaY: physicalDeltaY, hasPreciseDeltas: event.hasPreciseScrollingDeltas)
-        controller?.zoom(by: factor, around: NSEvent.mouseLocation)
+        zoom(by: factor, source: event.hasPreciseScrollingDeltas ? "smooth scroll" : "scroll wheel")
     }
 
     override func magnify(with event: NSEvent) {
-        controller?.zoom(by: 1 + event.magnification, around: NSEvent.mouseLocation)
+        zoom(by: 1 + event.magnification, source: "pinch")
     }
 
     override func menu(for event: NSEvent) -> NSMenu? {
@@ -257,5 +271,15 @@ final class NoteView: NSView {
         let menu = NSMenu()
         controller.noteMenuItems().forEach(menu.addItem)
         return menu
+    }
+}
+
+extension NoteView {
+    /// Zooms the note around the mouse and notes the change in the log; see `NoteInputLog`.
+    fileprivate func zoom(by factor: Double, source: String) {
+        guard let controller else { return }
+        let before = controller.record.zoom
+        controller.zoom(by: factor, around: NSEvent.mouseLocation)
+        inputLog.zoomed(note: window?.identifier?.rawValue ?? "note", from: before, to: controller.record.zoom, source: source)
     }
 }
