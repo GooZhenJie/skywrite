@@ -6,8 +6,9 @@ final class NoteController: NSObject, NSWindowDelegate, NSTextViewDelegate {
     let panel = NotePanel()
     let noteView = NoteView(frame: .zero)
     let textView: NoteTextView
-    private let softEdgeView = NoteSoftEdgeView()
-    private let liquidGlassView = NoteLiquidGlassView()
+    let softEdgeView = NoteSoftEdgeView()
+    let liquidGlassView = NoteLiquidGlassView()
+    let liquidGlassClipView = NoteGlassClipView()
     private(set) var style: NoteStyle
     private weak var manager: NoteManager?
     private(set) var isEditing = false
@@ -227,7 +228,8 @@ final class NoteController: NSObject, NSWindowDelegate, NSTextViewDelegate {
         liquidGlassView.style = .regular
         // Note text is always white, so the glass stays dark the way it would in Dark Mode.
         liquidGlassView.appearance = NSAppearance(named: .darkAqua)
-        noteView.addSubview(liquidGlassView)
+        liquidGlassClipView.addSubview(liquidGlassView)
+        noteView.addSubview(liquidGlassClipView)
         noteView.addSubview(textView)
         panel.identifier = NSUserInterfaceItemIdentifier("note-\(record.id.uuidString.prefix(8))")
         panel.contentView = noteView
@@ -291,43 +293,6 @@ extension NoteController {
         style = newStyle
         relayoutKeepingTopLeft()
         updateClickThrough(mouseLocation: NSEvent.mouseLocation)
-    }
-
-    func layoutGlass() {
-        let staysClear = style.glassStyle == .liquidGlass && style.liquidGlassStaysClear
-        if panel.keepsActiveAppearance != staysClear {
-            panel.keepsActiveAppearance = staysClear
-            // The glass picks up the window's look when it joins the window, so put it back in to apply the change now.
-            liquidGlassView.removeFromSuperview()
-            noteView.addSubview(liquidGlassView, positioned: .below, relativeTo: textView)
-        }
-        let showsSoftEdge = style.glassStyle == .softEdge && style.showsBackground
-        softEdgeView.isHidden = !showsSoftEdge
-        liquidGlassView.isHidden = style.glassStyle != .liquidGlass
-        switch style.glassStyle {
-        case .softEdge:
-            guard showsSoftEdge else { return }
-            softEdgeView.alphaValue = style.glassStrength
-            softEdgeView.frame = textView.frame.insetBy(dx: -NoteMetrics.frameGap, dy: -NoteMetrics.frameGap)
-            softEdgeView.maskImage = Self.featheredMask(size: softEdgeView.frame.size, feather: NoteMetrics.softEdgeFeather)
-        case .liquidGlass:
-            liquidGlassView.frame = textView.frame
-            liquidGlassView.cornerRadius = NoteMetrics.liquidGlassCornerRadius * zoom
-        }
-    }
-
-    static func featheredMask(size: CGSize, feather: CGFloat) -> NSImage? {
-        let width = max(1, Int(size.width.rounded(.up)))
-        let height = max(1, Int(size.height.rounded(.up)))
-        guard let context = CGContext(data: nil, width: width, height: height, bitsPerComponent: 8, bytesPerRow: 0, space: CGColorSpaceCreateDeviceRGB(), bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else { return nil }
-        let inner = CGRect(x: 0, y: 0, width: width, height: height).insetBy(dx: feather, dy: feather)
-        guard inner.width > 0, inner.height > 0 else { return nil }
-        let offset = CGFloat(height) * 2
-        context.setShadow(offset: CGSize(width: 0, height: -offset), blur: feather, color: CGColor(gray: 0, alpha: 1))
-        context.addPath(CGPath(roundedRect: inner.offsetBy(dx: 0, dy: offset), cornerWidth: min(feather, inner.width / 2), cornerHeight: min(feather, inner.height / 2), transform: nil))
-        context.fillPath()
-        guard let image = context.makeImage() else { return nil }
-        return NSImage(cgImage: image, size: size)
     }
 
     /// Once a note has been locked, only the user changes its width (by resizing it); see `NoteGeometry.widthAfterLocking`.

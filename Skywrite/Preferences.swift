@@ -12,6 +12,7 @@ final class Preferences: ObservableObject {
     @Published var glassStyle: GlassStyle { didSet { defaults.set(glassStyle.rawValue, forKey: Key.glassStyle) } }
     @Published var glassStrength: Double { didSet { defaults.set(glassStrength, forKey: Key.glassStrength) } }
     @Published var liquidGlassStaysClear: Bool { didSet { defaults.set(liquidGlassStaysClear, forKey: Key.liquidGlassStaysClear) } }
+    @Published var liquidGlassShadow: Bool { didSet { defaults.set(liquidGlassShadow, forKey: Key.liquidGlassShadow) } }
     @Published var darkTheme: Theme { didSet { defaults.set(darkTheme.rawValue, forKey: Key.darkTheme) } }
     @Published var lightTheme: Theme { didSet { defaults.set(lightTheme.rawValue, forKey: Key.lightTheme) } }
     @Published var notesFolderPath: String? { didSet { defaults.set(notesFolderPath, forKey: Key.notesFolderPath) } }
@@ -34,6 +35,8 @@ final class Preferences: ObservableObject {
         defaults.set(glass.style.rawValue, forKey: Key.glassStyle)
         defaults.set(glass.strength, forKey: Key.glassStrength)
         liquidGlassStaysClear = defaults.object(forKey: Key.liquidGlassStaysClear) as? Bool ?? true
+        // Off to start with.
+        liquidGlassShadow = defaults.object(forKey: Key.liquidGlassShadow) as? Bool ?? false
         // Starts on Ocean in Dark Mode (user decision 2026-11-11). Nothing is stored until a theme is picked, so a Mac
         // that never picked one moves from Skywrite to Ocean too.
         darkTheme = Theme.stored(defaults.string(forKey: Key.darkTheme)) ?? .ocean
@@ -92,6 +95,7 @@ final class Preferences: ObservableObject {
         static let glassStyle = "glassStyle"
         static let glassStrength = "glassStrength"
         static let liquidGlassStaysClear = "liquidGlassStaysClear"
+        static let liquidGlassShadow = "liquidGlassShadow"
         static let darkTheme = "darkTheme"
         static let lightTheme = "lightTheme"
         static let notesFolderPath = "notesFolderPath"

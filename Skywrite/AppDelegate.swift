@@ -98,7 +98,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuItemValidation {
     }
 
     private func noteStyle() -> NoteStyle {
-        NoteStyle(fontSize: preferences.fontSize, glassStyle: preferences.glassStyle, glassStrength: preferences.glassStrength, liquidGlassStaysClear: preferences.liquidGlassStaysClear)
+        NoteStyle(fontSize: preferences.fontSize, glassStyle: preferences.glassStyle, glassStrength: preferences.glassStrength, liquidGlassStaysClear: preferences.liquidGlassStaysClear, liquidGlassShadow: preferences.liquidGlassShadow)
     }
 
     private func observePreferences() {
@@ -109,9 +109,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuItemValidation {
         preferences.$showsInMenuBar.removeDuplicates().sink { [weak self] shows in
             self?.statusItem?.setVisible(shows)
         }.store(in: &subscriptions)
-        Publishers.CombineLatest4(preferences.$fontSize, preferences.$glassStyle, preferences.$glassStrength, preferences.$liquidGlassStaysClear)
-            .sink { [weak self] fontSize, glassStyle, glassStrength, staysClear in
-                self?.noteManager?.style = NoteStyle(fontSize: fontSize, glassStyle: glassStyle, glassStrength: glassStrength, liquidGlassStaysClear: staysClear)
+        Publishers.CombineLatest(Publishers.CombineLatest4(preferences.$fontSize, preferences.$glassStyle, preferences.$glassStrength, preferences.$liquidGlassStaysClear), preferences.$liquidGlassShadow)
+            .sink { [weak self] values, shadow in
+                let (fontSize, glassStyle, glassStrength, staysClear) = values
+                self?.noteManager?.style = NoteStyle(fontSize: fontSize, glassStyle: glassStyle, glassStrength: glassStrength, liquidGlassStaysClear: staysClear, liquidGlassShadow: shadow)
             }.store(in: &subscriptions)
         preferences.$noteRetention.dropFirst().removeDuplicates().sink { [weak self] retention in
             EventLog.settings.notice("preference noteRetentionDays=\(retention.rawValue, privacy: .public)")

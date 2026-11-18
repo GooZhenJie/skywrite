@@ -6,6 +6,8 @@ struct NoteStyle: Equatable {
     var glassStyle: GlassStyle
     var glassStrength: Double
     var liquidGlassStaysClear: Bool
+    /// Liquid Glass notes cast the shadow macOS gives windows and menus.
+    var liquidGlassShadow: Bool
 
     func font(zoom: CGFloat) -> NSFont {
         NSFont.systemFont(ofSize: fontSize * zoom, weight: .medium)

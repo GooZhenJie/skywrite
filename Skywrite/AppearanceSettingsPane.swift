@@ -46,6 +46,8 @@ struct AppearanceSettingsPane: View {
                 } else {
                     Toggle("Stay clear when you’re not using the note", isOn: $preferences.liquidGlassStaysClear)
                         .accessibilityIdentifier("liquid-glass-stays-clear")
+                    Toggle("Shadow", isOn: $preferences.liquidGlassShadow)
+                        .accessibilityIdentifier("liquid-glass-shadow")
                     Text("Follows Liquid Glass in System Settings › Appearance.")
                         .font(.callout)
                         .foregroundStyle(.secondary)

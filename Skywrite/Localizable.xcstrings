@@ -1905,6 +1905,22 @@
         }
       }
     },
+    "Shadow": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "阴影"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "陰影"
+          }
+        }
+      }
+    },
     "Shortcuts": {
       "localizations": {
         "zh-Hans": {
