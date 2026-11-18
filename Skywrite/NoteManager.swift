@@ -51,8 +51,9 @@ final class NoteManager {
         }
     }
 
-    func createNote(from placement: NotePlacement) {
-        EventLog.notes.notice("create note")
+    /// A new note with `layout`: a plain note, or one split into cells.
+    func createNote(from placement: NotePlacement, layout: NoteLayout = .single) {
+        EventLog.notes.notice("create note layout=\(layout.description, privacy: .public)")
         showAllNotes()
         lockAll()
         let record = NoteRecord(
@@ -62,7 +63,7 @@ final class NoteManager {
             minimumHeight: placement.minimumHeight.map(Double.init)
         )
         records.append(record)
-        show(record, text: "", editing: true)
+        show(record, document: NoteDocument(layout: layout), editing: true)
     }
 
     func lockAll() {
@@ -199,7 +200,11 @@ final class NoteManager {
     }
 
     private func show(_ record: NoteRecord, text: String, editing: Bool) {
-        let controller = NoteController(record: record, text: text, style: style, manager: self)
+        show(record, document: NoteDocument.parse(text), editing: editing)
+    }
+
+    private func show(_ record: NoteRecord, document: NoteDocument, editing: Bool) {
+        let controller = NoteController(record: record, document: document, style: style, manager: self)
         controllers[record.id] = controller
         controller.show(editing: editing)
     }

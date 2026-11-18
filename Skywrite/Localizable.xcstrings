@@ -1163,6 +1163,22 @@
         }
       }
     },
+    "New Grid Note": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "新建分格便签"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "新增分格便條"
+          }
+        }
+      }
+    },
     "New Note": {
       "localizations": {
         "zh-Hans": {

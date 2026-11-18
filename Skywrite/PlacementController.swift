@@ -5,11 +5,13 @@ final class PlacementController {
     private var panels: [PlacementPanel] = []
     /// The app that was in front when placement began, or nil when that was Skywrite itself.
     private var previousApp: NSRunningApplication?
-    private let onPlace: (NotePlacement) -> Void
+    private let onPlace: (NotePlacement, NoteLayout) -> Void
     private let lineHeight: () -> CGFloat
     private let padding: () -> CGSize
+    /// The layout of the note being placed: a plain note, or one split into cells.
+    private var layout = NoteLayout.single
 
-    init(lineHeight: @escaping () -> CGFloat, padding: @escaping () -> CGSize, onPlace: @escaping (NotePlacement) -> Void) {
+    init(lineHeight: @escaping () -> CGFloat, padding: @escaping () -> CGSize, onPlace: @escaping (NotePlacement, NoteLayout) -> Void) {
         self.lineHeight = lineHeight
         self.padding = padding
         self.onPlace = onPlace
@@ -19,15 +21,16 @@ final class PlacementController {
         !panels.isEmpty
     }
 
-    func toggle() {
+    func toggle(layout: NoteLayout = .single) {
         if isActive {
             cancel()
         } else {
-            begin()
+            begin(layout: layout)
         }
     }
 
-    func begin() {
+    func begin(layout: NoteLayout = .single) {
+        self.layout = layout
         EventLog.input.notice("placement begin, activating app, active=\(NSApp.isActive, privacy: .public) keyWindow before=\(EventLog.describe(NSApp.keyWindow), privacy: .public)")
         let frontmost = NSWorkspace.shared.frontmostApplication
         previousApp = frontmost == .current ? nil : frontmost
@@ -60,9 +63,9 @@ final class PlacementController {
     func finish(from start: CGPoint, to end: CGPoint) {
         let lineHeight = lineHeight()
         if NoteGeometry.isDrag(from: start, to: end) {
-            onPlace(NoteGeometry.draggedBox(from: start, to: end, lineHeight: lineHeight, verticalPadding: padding().height))
+            onPlace(NoteGeometry.draggedBox(from: start, to: end, lineHeight: lineHeight, verticalPadding: padding().height), layout)
         } else {
-            onPlace(NotePlacement(topLeft: NoteGeometry.placedBox(clickPoint: start, lineHeight: lineHeight, padding: padding())))
+            onPlace(NotePlacement(topLeft: NoteGeometry.placedBox(clickPoint: start, lineHeight: lineHeight, padding: padding())), layout)
         }
         removePanels()
     }

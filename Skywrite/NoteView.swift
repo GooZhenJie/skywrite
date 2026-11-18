@@ -148,7 +148,7 @@ final class NoteView: NSView {
     private func updateCursor(at point: NSPoint) {
         if let handle = handle(at: point) {
             cursor(for: handle).set()
-        } else if controller?.isEditing == true, let textView = controller?.textView, textView.frame.contains(point) {
+        } else if controller?.isEditing == true, controller?.cell(at: point) != nil {
             NSCursor.iBeam.set()
         } else {
             NSCursor.arrow.set()
@@ -191,8 +191,8 @@ final class NoteView: NSView {
         } else if controller.isEditing {
             if controller.isSecondClickAfterUnlock(event) {
                 controller.close()
-            } else if controller.textView.frame.contains(point) {
-                controller.textView.mouseDown(with: event)
+            } else if let cell = controller.cell(at: point) {
+                cell.mouseDown(with: event)
             } else {
                 controller.moveCaretToEnd()
             }

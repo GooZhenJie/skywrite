@@ -12,6 +12,11 @@ public enum NoteMetrics {
     public static let cornerToEdgeGap: CGFloat = 6
     public static let handleHitThickness: CGFloat = 14
     public static let edgeLineWidth: CGFloat = 1.5
+    /// The lighter rounded tile behind each cell of a note with cells. The text stays where a plain note puts it, so the
+    /// note is no bigger than its text needs, and each tile's edge sits halfway between the note's edge and the text: the
+    /// text is as far inside its tile as the tile is inside the note. See `NoteCellGeometry.spacing(layout:textPadding:)`.
+    public static let cellTileInsetShare: CGFloat = 0.5
+    public static let cellTileOpacity: CGFloat = 0.06
     public static let cornerLineWidth: CGFloat = 2
     public static let edgeDashPattern: [CGFloat] = [3, 3]
     public static let handleRestingOpacity: CGFloat = 0.3
@@ -46,6 +51,11 @@ public enum NoteMetrics {
     public static let quickPanelCornerRadius: CGFloat = 26
     /// How far below the top of the screen the panel sits, as a share of the screen's height. Also a placeholder.
     public static let quickPanelTopShare: CGFloat = 0.18
+
+    /// The glass's corner radius minus how far in the tile sits, the concentric rule used for `liquidGlassPadding`: 12 - 6.
+    public static var cellTileCornerRadius: CGFloat {
+        liquidGlassCornerRadius - liquidGlassPadding * cellTileInsetShare
+    }
 
     public static var windowMargin: CGFloat {
         frameGap + handleHitThickness / 2

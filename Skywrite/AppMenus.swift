@@ -40,6 +40,9 @@ final class AppMenus: NSObject, NSMenuDelegate {
     func menuNeedsUpdate(_ menu: NSMenu) {
         menu.removeAllItems()
         menu.addItem(item(String(localized: "New Note"), #selector(AppDelegate.newNote(_:)), symbol: "square.and.pencil", shortcut: preferences.shortcut(for: .newNote)))
+        if preferences.showsNewGridNote {
+            menu.addItem(item(String(localized: "New Grid Note"), #selector(AppDelegate.newGridNote(_:)), symbol: "square.grid.2x2"))
+        }
         let toggleTitle = noteManager.areNotesHidden ? String(localized: "Show All Notes") : String(localized: "Hide All Notes")
         let toggle = item(toggleTitle, #selector(AppDelegate.toggleAllNotes(_:)), symbol: noteManager.areNotesHidden ? "eye" : "eye.slash", shortcut: preferences.shortcut(for: .toggleAllNotes))
         menu.addItem(toggle)

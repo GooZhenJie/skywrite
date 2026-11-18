@@ -5,21 +5,29 @@ final class NoteController: NSObject, NSWindowDelegate, NSTextViewDelegate {
     var record: NoteRecord
     let panel = NotePanel()
     let noteView = NoteView(frame: .zero)
-    let textView: NoteTextView
+    /// How the note is split into cells, and front matter to keep when saving. A plain note has one cell.
+    private var document: NoteDocument
+    /// One text view per cell, in reading order.
+    let cellViews: [NoteTextView]
     let softEdgeView = NoteSoftEdgeView()
     let liquidGlassView = NoteLiquidGlassView()
     let liquidGlassClipView = NoteGlassClipView()
+    private let cellTileView = NoteCellTileView()
     private(set) var style: NoteStyle
     private weak var manager: NoteManager?
     private(set) var isEditing = false
-    private var textContentHeight: CGFloat = 0
+    /// How tall the text is, without any extra height the note was stretched to; set by `measuredBoxSize()`.
+    var textContentHeight: CGFloat = 0
+    /// Where each cell sits in the box, from the last time the note measured its text; see `NoteCellGeometry`.
+    var cellFrames: [CGRect] = []
     private var unlockClick: (timestamp: TimeInterval, location: CGPoint)?
 
-    init(record: NoteRecord, text: String, style: NoteStyle, manager: NoteManager) {
+    init(record: NoteRecord, document: NoteDocument, style: NoteStyle, manager: NoteManager) {
         self.record = record
+        self.document = document
         self.style = style
         self.manager = manager
-        textView = NoteTextLayout.makeTextView(text: text) { NoteTextView(frame: .zero, textContainer: $0) }
+        cellViews = document.cells.map { cell in NoteTextLayout.makeTextView(text: cell) { NoteTextView(frame: .zero, textContainer: $0) } }
         super.init()
         configure()
     }
@@ -28,12 +36,39 @@ final class NoteController: NSObject, NSWindowDelegate, NSTextViewDelegate {
         record.id
     }
 
+    var layout: NoteLayout {
+        document.layout
+    }
+
+    /// What goes in the note's file. A note with cells and nothing typed in them has no text, so it leaves no file behind,
+    /// the way an empty plain note doesn't.
     var text: String {
-        textView.string
+        var current = document
+        current.setCells(cellViews.map(\.string))
+        if layout.isGrid, current.isBlank {
+            return ""
+        }
+        return current.text
     }
 
     var isBlank: Bool {
-        text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        cellViews.allSatisfy { $0.string.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
+    }
+
+    /// The cell being typed in, or the first cell.
+    var activeCell: NoteTextView {
+        cellViews.first { panel.firstResponder === $0 } ?? cellViews[0]
+    }
+
+    /// The cell under a point in the note view's coordinates.
+    func cell(at point: NSPoint) -> NoteTextView? {
+        cellViews.first { $0.frame.contains(point) }
+    }
+
+    /// Covers every cell: the area the background is drawn behind.
+    var contentFrame: NSRect {
+        let margin = NoteMetrics.windowMargin
+        return NSRect(x: margin, y: margin, width: boxInScreen.width, height: boxInScreen.height)
     }
 
     var zoom: CGFloat {
@@ -73,27 +108,32 @@ final class NoteController: NSObject, NSWindowDelegate, NSTextViewDelegate {
         panel.orderOut(nil)
     }
 
-    func beginEditing(caretAt point: NSPoint?) {
+    /// Starts typing in `cell` (the first cell when nil), with the caret at `point` in that cell's coordinates or at its end.
+    func beginEditing(in cell: NoteTextView? = nil, caretAt point: NSPoint?) {
+        let cell = cell ?? cellViews[0]
         isEditing = true
-        textView.isEditable = true
-        textView.isSelectable = true
+        cellViews.forEach {
+            $0.isEditable = true
+            $0.isSelectable = true
+        }
         panel.ignoresMouseEvents = false
         noteView.showsHandles = true
         EventLog.notes.notice("begin editing \(self.panel.identifier?.rawValue ?? "", privacy: .public) activating app, keyWindow before=\(EventLog.describe(NSApp.keyWindow), privacy: .public)")
         NSApp.activateLeavingWindowsBehind()
         panel.makeKeyAndOrderFront(nil)
-        panel.makeFirstResponder(textView)
+        panel.makeFirstResponder(cell)
         if let point {
-            let index = textView.characterIndexForInsertion(at: point)
-            textView.setSelectedRange(NSRange(location: index, length: 0))
+            let index = cell.characterIndexForInsertion(at: point)
+            cell.setSelectedRange(NSRange(location: index, length: 0))
         } else {
-            moveCaretToEnd()
+            moveCaretToEnd(of: cell)
         }
         manager?.bringToFront(self)
     }
 
     func unlock(with event: NSEvent) {
-        beginEditing(caretAt: textView.convert(event.locationInWindow, from: nil))
+        let cell = cell(at: noteView.convert(event.locationInWindow, from: nil)) ?? cellViews[0]
+        beginEditing(in: cell, caretAt: cell.convert(event.locationInWindow, from: nil))
         unlockClick = (event.timestamp, screenLocation(of: event))
     }
 
@@ -124,9 +164,11 @@ final class NoteController: NSObject, NSWindowDelegate, NSTextViewDelegate {
         guard isEditing else { return }
         EventLog.notes.notice("lock \(self.panel.identifier?.rawValue ?? "", privacy: .public)")
         isEditing = false
-        textView.setSelectedRange(NSRange(location: (text as NSString).length, length: 0))
-        textView.isEditable = false
-        textView.isSelectable = false
+        cellViews.forEach {
+            $0.setSelectedRange(NSRange(location: ($0.string as NSString).length, length: 0))
+            $0.isEditable = false
+            $0.isSelectable = false
+        }
         noteView.showsHandles = false
         panel.makeFirstResponder(nil)
         if !isBlank {
@@ -136,9 +178,11 @@ final class NoteController: NSObject, NSWindowDelegate, NSTextViewDelegate {
         updateClickThrough(mouseLocation: NSEvent.mouseLocation)
     }
 
-    func moveCaretToEnd() {
-        panel.makeFirstResponder(textView)
-        textView.setSelectedRange(NSRange(location: (text as NSString).length, length: 0))
+    /// Puts the caret at the end of `cell`, or of the cell being typed in.
+    func moveCaretToEnd(of cell: NoteTextView? = nil) {
+        let cell = cell ?? activeCell
+        panel.makeFirstResponder(cell)
+        cell.setSelectedRange(NSRange(location: (cell.string as NSString).length, length: 0))
     }
 
     func close() {
@@ -201,25 +245,49 @@ final class NoteController: NSObject, NSWindowDelegate, NSTextViewDelegate {
         manager?.textDidChange(self)
     }
 
+    func relayoutKeepingTopLeft() {
+        let size = measuredBoxSize()
+        place(CGRect(x: topLeft.x, y: topLeft.y - size.height, width: size.width, height: size.height))
+    }
+
+    private func place(_ box: CGRect) {
+        let margin = NoteMetrics.windowMargin
+        panel.setFrame(box.insetBy(dx: -margin, dy: -margin), display: true)
+        noteView.frame = NSRect(origin: .zero, size: panel.frame.size)
+        for (cell, frame) in zip(cellViews, cellFrames) {
+            cell.frame = frame.offsetBy(dx: margin, dy: margin)
+        }
+        layoutGlass()
+        cellTileView.frame = noteView.bounds
+        cellTileView.needsDisplay = true
+        record.topLeftX = box.minX
+        record.topLeftY = box.maxY
+        noteView.needsDisplay = true
+    }
+}
+
+extension NoteController {
     private func configure() {
-        textView.controller = self
-        textView.setAccessibilityIdentifier("note-text")
-        textView.delegate = self
-        textView.drawsBackground = false
-        textView.isRichText = false
-        textView.importsGraphics = false
-        textView.allowsUndo = true
-        textView.isEditable = false
-        textView.isSelectable = false
-        textView.isHorizontallyResizable = false
-        textView.isVerticallyResizable = false
-        textView.textContainerInset = style.textPadding(zoom: zoom)
-        textView.insertionPointColor = .white
-        textView.wantsLayer = true
-        textView.layer?.shadowColor = NSColor.black.cgColor
-        textView.layer?.shadowOpacity = 0.35
-        textView.layer?.shadowRadius = 5
-        textView.layer?.shadowOffset = .zero
+        for (index, cell) in cellViews.enumerated() {
+            cell.controller = self
+            cell.setAccessibilityIdentifier(index == 0 ? "note-text" : "note-text-\(index + 1)")
+            cell.delegate = self
+            cell.drawsBackground = false
+            cell.isRichText = false
+            cell.importsGraphics = false
+            cell.allowsUndo = true
+            cell.isEditable = false
+            cell.isSelectable = false
+            cell.isHorizontallyResizable = false
+            cell.isVerticallyResizable = false
+            cell.textContainerInset = style.textPadding(zoom: zoom)
+            cell.insertionPointColor = .white
+            cell.wantsLayer = true
+            cell.layer?.shadowColor = NSColor.black.cgColor
+            cell.layer?.shadowOpacity = 0.35
+            cell.layer?.shadowRadius = 5
+            cell.layer?.shadowOffset = .zero
+        }
         noteView.controller = self
         softEdgeView.material = .hudWindow
         softEdgeView.blendingMode = .behindWindow
@@ -230,65 +298,16 @@ final class NoteController: NSObject, NSWindowDelegate, NSTextViewDelegate {
         liquidGlassView.appearance = NSAppearance(named: .darkAqua)
         liquidGlassClipView.addSubview(liquidGlassView)
         noteView.addSubview(liquidGlassClipView)
-        noteView.addSubview(textView)
+        // Above the glass and below the text; see `NoteCellTileView`.
+        cellTileView.controller = self
+        cellTileView.isHidden = !layout.isGrid
+        noteView.addSubview(cellTileView)
+        cellViews.forEach(noteView.addSubview)
         panel.identifier = NSUserInterfaceItemIdentifier("note-\(record.id.uuidString.prefix(8))")
         panel.contentView = noteView
         panel.delegate = self
     }
 
-    private var textAttributes: [NSAttributedString.Key: Any] {
-        let shadow = NSShadow()
-        shadow.shadowColor = NSColor.black.withAlphaComponent(0.55)
-        shadow.shadowOffset = NSSize(width: 0, height: -1)
-        shadow.shadowBlurRadius = 2
-        return [.font: style.font(zoom: zoom), .foregroundColor: NSColor.white, .shadow: shadow]
-    }
-
-    private func applyTextAttributes() {
-        let attributes = textAttributes
-        textView.typingAttributes = attributes
-        guard let storage = textView.textStorage, storage.length > 0 else { return }
-        storage.setAttributes(attributes, range: NSRange(location: 0, length: storage.length))
-    }
-
-    private var screenFrame: CGRect {
-        let screen = NSScreen.screens.first { $0.frame.contains(topLeft) } ?? NSScreen.main ?? NSScreen.screens.first
-        return screen?.visibleFrame ?? .zero
-    }
-
-    private func measuredBoxSize() -> CGSize {
-        applyTextAttributes()
-        let padding = style.textPadding(zoom: zoom)
-        textView.textContainerInset = padding
-        let horizontalPadding = padding.width * 2
-        let verticalPadding = padding.height * 2
-        let widthLimit = record.fixedWidth.map { CGFloat($0) * zoom }
-            ?? NoteGeometry.autoWidthLimit(boxMinX: topLeft.x, screenMaxX: screenFrame.maxX)
-        let textSize = NoteTextLayout.textSize(of: textView, widthLimit: widthLimit - horizontalPadding, font: style.font(zoom: zoom))
-        let width = record.fixedWidth == nil ? max(NoteMetrics.minimumTextWidth, textSize.width + horizontalPadding) : widthLimit
-        textContentHeight = textSize.height + verticalPadding
-        let minimumHeight = record.minimumHeight.map { CGFloat($0) * zoom } ?? 0
-        return CGSize(width: width, height: max(textContentHeight, minimumHeight))
-    }
-
-    private func relayoutKeepingTopLeft() {
-        let size = measuredBoxSize()
-        place(CGRect(x: topLeft.x, y: topLeft.y - size.height, width: size.width, height: size.height))
-    }
-
-    private func place(_ box: CGRect) {
-        let margin = NoteMetrics.windowMargin
-        panel.setFrame(box.insetBy(dx: -margin, dy: -margin), display: true)
-        noteView.frame = NSRect(origin: .zero, size: panel.frame.size)
-        textView.frame = NSRect(x: margin, y: margin, width: box.width, height: box.height)
-        layoutGlass()
-        record.topLeftX = box.minX
-        record.topLeftY = box.maxY
-        noteView.needsDisplay = true
-    }
-}
-
-extension NoteController {
     func apply(_ newStyle: NoteStyle) {
         style = newStyle
         relayoutKeepingTopLeft()

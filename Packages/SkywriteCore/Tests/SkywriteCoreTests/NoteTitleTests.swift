@@ -18,3 +18,10 @@ struct NoteTitleTests {
         #expect(NoteTitle.title(from: "abcdefghij", maximumLength: 4) == "abcd…")
     }
 }
+
+struct GridNoteTitleTests {
+    @Test func gridNoteTitleComesFromItsCells() {
+        let text = NoteDocument(layout: .twoByTwo, cells: ["", "P1 (by this week)", "", ""]).text
+        #expect(NoteTitle.title(from: text) == "P1 (by this week)")
+    }
+}

@@ -46,8 +46,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuItemValidation {
             manager?.style.lineHeight(zoom: 1) ?? 0
         }, padding: { [weak manager] in
             manager?.style.textPadding(zoom: 1) ?? .zero
-        }, onPlace: { [weak manager] placement in
-            manager?.createNote(from: placement)
+        }, onPlace: { [weak manager] placement, layout in
+            manager?.createNote(from: placement, layout: layout)
         })
         quickPanel = QuickPanelController(noteManager: manager, preferences: preferences)
         NSApp.mainMenu = MainMenu.build(appDelegate: self, preferences: preferences, updater: updater)
@@ -275,6 +275,13 @@ extension AppDelegate {
         EventLog.input.notice("new note requested sender=\(sender.map { String(describing: type(of: $0)) } ?? "shortcut", privacy: .public)")
         noteManager?.lockAll()
         placementController?.toggle()
+    }
+
+    /// A note split into four cells, two by two, placed the same way as a new note.
+    @objc func newGridNote(_ sender: Any?) {
+        EventLog.input.notice("new grid note requested sender=\(sender.map { String(describing: type(of: $0)) } ?? "none", privacy: .public)")
+        noteManager?.lockAll()
+        placementController?.toggle(layout: .twoByTwo)
     }
 
     @objc func reopenClosedNote(_ sender: Any?) {

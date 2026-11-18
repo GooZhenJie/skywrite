@@ -19,11 +19,11 @@ extension NoteController {
         case .softEdge:
             guard showsSoftEdge else { return }
             softEdgeView.alphaValue = style.glassStrength
-            softEdgeView.frame = textView.frame.insetBy(dx: -NoteMetrics.frameGap, dy: -NoteMetrics.frameGap)
+            softEdgeView.frame = contentFrame.insetBy(dx: -NoteMetrics.frameGap, dy: -NoteMetrics.frameGap)
             softEdgeView.maskImage = Self.featheredMask(size: softEdgeView.frame.size, feather: NoteMetrics.softEdgeFeather)
         case .liquidGlass:
             let radius = NoteMetrics.liquidGlassCornerRadius * zoom
-            liquidGlassClipView.frame = textView.frame
+            liquidGlassClipView.frame = contentFrame
             liquidGlassClipView.layer?.cornerRadius = radius
             liquidGlassView.frame = liquidGlassClipView.bounds
             liquidGlassView.cornerRadius = radius
