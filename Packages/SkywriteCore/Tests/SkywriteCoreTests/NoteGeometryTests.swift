@@ -58,6 +58,39 @@ struct NoteGeometryTests {
         #expect(NoteGeometry.clampedZoom(1.5) == 1.5)
     }
 
+    /// A note 718 × 186 at 1×, on a 1920-wide screen whose free area is 973 tall. Its width
+    /// reaches the screen's at 1920 / 718 ≈ 2.67×, well before the 5× limit it used to get to.
+    @Test func zoomingInStopsWhenTheNoteFillsItsScreen() {
+        let box = CGSize(width: 718, height: 186)
+        let screen = CGSize(width: 1920, height: 973)
+        #expect(NoteGeometry.zoomFitting(5, currentZoom: 1, box: box, in: screen) == 1920.0 / 718.0)
+        #expect(NoteGeometry.zoomFitting(2, currentZoom: 1, box: box, in: screen) == 2)
+        // A tall note stops at the screen's height.
+        #expect(NoteGeometry.zoomFitting(5, currentZoom: 1, box: CGSize(width: 300, height: 600), in: screen) == 973.0 / 600.0)
+    }
+
+    @Test func zoomingOutIsNeverHeldBack() {
+        let box = CGSize(width: 3590, height: 893)
+        #expect(NoteGeometry.zoomFitting(4, currentZoom: 5, box: box, in: CGSize(width: 1920, height: 973)) == 4)
+    }
+
+    @Test func aNoteAlreadyBiggerThanItsScreenNeitherGrowsNorShrinks() {
+        let box = CGSize(width: 3590, height: 893)
+        #expect(NoteGeometry.zoomFitting(4.5, currentZoom: 4, box: box, in: CGSize(width: 1920, height: 973)) == 4)
+    }
+
+    @Test func aNoteIsMovedBackInsideItsScreen() {
+        let screen = CGRect(x: 0, y: 77, width: 1920, height: 973)
+        let inside = CGRect(x: 100, y: 300, width: 500, height: 200)
+        #expect(NoteGeometry.moved(inside, inside: screen) == inside)
+        // Past the right and top edges: pulled left and down.
+        #expect(NoteGeometry.moved(CGRect(x: 1600, y: 900, width: 500, height: 200), inside: screen) == CGRect(x: 1420, y: 850, width: 500, height: 200))
+        // Past the left and bottom edges, onto the display on the left: pushed right and up.
+        #expect(NoteGeometry.moved(CGRect(x: -300, y: 20, width: 500, height: 200), inside: screen) == CGRect(x: 0, y: 77, width: 500, height: 200))
+        // Bigger than the screen: the top-left corner lines up with the screen's.
+        #expect(NoteGeometry.moved(CGRect(x: -266, y: 144, width: 3590, height: 1200), inside: screen) == CGRect(x: 0, y: 1050 - 1200, width: 3590, height: 1200))
+    }
+
     @Test func scrollUpZoomsIn() {
         #expect(NoteGeometry.scrollZoomFactor(deltaY: 10, hasPreciseDeltas: true) > 1)
         #expect(NoteGeometry.scrollZoomFactor(deltaY: -1, hasPreciseDeltas: false) < 1)

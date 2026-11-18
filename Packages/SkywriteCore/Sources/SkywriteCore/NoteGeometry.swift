@@ -26,6 +26,26 @@ public enum NoteGeometry {
         min(NoteMetrics.maximumZoom, max(NoteMetrics.minimumZoom, zoom))
     }
 
+    /// The zoom a note can grow to without getting bigger than its screen. Past that, part of the note is always out of
+    /// sight: nothing shows beyond a screen's edge, and with "Displays have separate Spaces" on, macOS draws a window on
+    /// one display only, so a note zoomed too far loses part or all of itself. Zooming out is never
+    /// held back, and a note that's already bigger than its screen stays as it is rather than shrinking.
+    ///
+    /// `box` is the note's size at `currentZoom`; a note grows in proportion to its zoom.
+    public static func zoomFitting(_ requested: Double, currentZoom: Double, box: CGSize, in screen: CGSize) -> Double {
+        guard requested > currentZoom, box.width > 0, box.height > 0 else { return requested }
+        let fit = currentZoom * Double(min(screen.width / box.width, screen.height / box.height))
+        return max(currentZoom, min(requested, fit))
+    }
+
+    /// `box` moved as little as it takes to be inside `bounds`. When it's wider or taller than `bounds`, its left or top
+    /// edge lines up with the edge of `bounds`, so the start of its text stays in sight.
+    public static func moved(_ box: CGRect, inside bounds: CGRect) -> CGRect {
+        let x = max(bounds.minX, min(box.minX, bounds.maxX - box.width))
+        let top = min(bounds.maxY, max(box.maxY, bounds.minY + box.height))
+        return CGRect(x: x, y: top - box.height, width: box.width, height: box.height)
+    }
+
     public static func scrollZoomFactor(deltaY: Double, hasPreciseDeltas: Bool) -> Double {
         let sensitivity = hasPreciseDeltas ? NoteMetrics.preciseScrollZoomSensitivity : NoteMetrics.lineScrollZoomSensitivity
         return exp(deltaY * sensitivity)

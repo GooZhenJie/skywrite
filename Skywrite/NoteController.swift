@@ -214,8 +214,16 @@ final class NoteController: NSObject, NSWindowDelegate, NSTextViewDelegate {
         manager?.layoutDidChange(self)
     }
 
+    /// Zooms around `anchor`, the mouse. Zooming in stops when the note is as big as the screen the mouse is on, and moves
+    /// the note in from any edge of that screen it would cross, so all of it stays in sight; zooming out leaves it where
+    /// it shrinks to. See `NoteGeometry.zoomFitting`.
     func zoom(by factor: Double, around anchor: CGPoint) {
-        let newZoom = NoteGeometry.clampedZoom(record.zoom * factor)
+        let screen = (NSScreen.screens.first { $0.frame.contains(anchor) } ?? panel.screen)?.visibleFrame
+        let box = boxInScreen
+        var newZoom = NoteGeometry.clampedZoom(record.zoom * factor)
+        if let screen {
+            newZoom = NoteGeometry.zoomFitting(newZoom, currentZoom: record.zoom, box: box.size, in: screen.size)
+        }
         let change = CGFloat(newZoom / record.zoom)
         guard change != 1 else { return }
         let newTopLeft = NoteGeometry.zoomedPoint(topLeft, around: anchor, factor: change)
@@ -223,6 +231,14 @@ final class NoteController: NSObject, NSWindowDelegate, NSTextViewDelegate {
         record.topLeftX = newTopLeft.x
         record.topLeftY = newTopLeft.y
         relayoutKeepingTopLeft()
+        if let screen, change > 1 {
+            let inside = NoteGeometry.moved(boxInScreen, inside: screen)
+            if inside.origin != boxInScreen.origin {
+                record.topLeftX = inside.minX
+                record.topLeftY = inside.maxY
+                relayoutKeepingTopLeft()
+            }
+        }
         manager?.layoutDidChange(self)
     }
 
