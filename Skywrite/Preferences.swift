@@ -37,7 +37,7 @@ final class Preferences: ObservableObject {
         liquidGlassStaysClear = defaults.object(forKey: Key.liquidGlassStaysClear) as? Bool ?? true
         // Off to start with.
         liquidGlassShadow = defaults.object(forKey: Key.liquidGlassShadow) as? Bool ?? false
-        // Starts on Ocean in Dark Mode (user decision 2026-11-11). Nothing is stored until a theme is picked, so a Mac
+        // Starts on Ocean in Dark Mode. Nothing is stored until a theme is picked, so a Mac
         // that never picked one moves from Skywrite to Ocean too.
         darkTheme = Theme.stored(defaults.string(forKey: Key.darkTheme)) ?? .ocean
         let light = Theme.stored(defaults.string(forKey: Key.lightTheme)) ?? .skywriteLight
@@ -45,7 +45,7 @@ final class Preferences: ObservableObject {
         defaults.set(light.rawValue, forKey: Key.lightTheme)
         notesFolderPath = defaults.string(forKey: Key.notesFolderPath)
         noteRetention = (defaults.object(forKey: Key.noteRetention) as? Int).flatMap(NoteRetention.init) ?? .never
-        // Starts on the blue sea photo (user decision 2026-11-08). A Mac that chose "Your desktop picture", which is
+        // Starts on the blue sea photo. A Mac that chose "Your desktop picture", which is
         // gone now, reads nothing it knows and starts on the sea as well.
         previewBackdrop = defaults.string(forKey: Key.previewBackdrop).flatMap(PreviewBackdrop.init) ?? .sea
         shortcuts = Self.loadShortcuts(from: defaults)

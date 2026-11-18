@@ -4,9 +4,9 @@ import Foundation
 /// the previous file and a new one starts. Writes happen in order on a queue of their own, so logging never waits for the
 /// disk. The app keeps one in ~/Library/Logs/Skywrite (see `LogFile.shared` in the app).
 public final class LogFile: @unchecked Sendable {
-    /// Chosen by the user on 2026-11-07, following the Claude desktop app on the developer's Mac, which starts a new log
-    /// file at 10 MiB (main1.log to main4.log were each 10,486,xxx bytes). At the developer's rate that day, about 530 KB
-    /// in 19 hours of heavy testing, one file holds about two weeks, so an export keeps whatever went wrong days ago.
+    /// The size the Claude desktop app starts a new log file at (its main1.log to main4.log were each 10,486,xxx bytes).
+    /// At the rate seen in testing, about 530 KB in 19 hours of heavy use, one file holds about two weeks, so an export
+    /// keeps whatever went wrong days ago.
     public static let standardMaximumSize: UInt64 = 10 * 1024 * 1024
 
     public let currentURL: URL

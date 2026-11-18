@@ -9,8 +9,8 @@ enum Theme: String, CaseIterable, Identifiable {
     case skywriteLight
     case paper
     case mist
-    /// A light green theme that goes with the dark Forest. It replaced Blossom, a pink theme, on 2026-11-07
-    /// (user decision: pink was unlikely to be picked).
+    /// A light green theme that goes with the dark Forest. It replaced Blossom, a pink theme, on 2026-11-07, since pink
+    /// was unlikely to be picked.
     case meadow
 
     var id: String { rawValue }
@@ -48,7 +48,7 @@ enum Theme: String, CaseIterable, Identifiable {
         case .skywriteLight: [Color(red: 244 / 255, green: 244 / 255, blue: 247 / 255), Color(red: 244 / 255, green: 244 / 255, blue: 247 / 255)]
         // Paper and Meadow keep their own hue and lightness but are only as colorful as Mist: OKLCH chroma 0.011 to 0.012
         // at the top and 0.019 at the bottom, against Mist's 0.012 and 0.020 (whole RGB values can't match it exactly).
-        // Their first colors looked too saturated next to Mist (user, 2026-11-07).
+        // Their first colors looked too saturated next to Mist.
         case .paper: [Color(red: 251 / 255, green: 247 / 255, blue: 239 / 255), Color(red: 242 / 255, green: 234 / 255, blue: 221 / 255)]
         case .mist: [Color(red: 237 / 255, green: 244 / 255, blue: 251 / 255), Color(red: 222 / 255, green: 231 / 255, blue: 244 / 255)]
         // Forest's hues (153° and 169° in HSL), as light as Mist.

@@ -14,7 +14,7 @@ final class NotePanel: NSPanel {
         acceptsMouseMovedEvents = true
         isMovable = false
         animationBehavior = .none
-        // Notes follow you to every desktop and over full-screen apps, the way Snipaste pins do (user decision 2026-11-06).
+        // Notes follow you to every desktop and over full-screen apps, the way Snipaste pins do.
         collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
     }
 

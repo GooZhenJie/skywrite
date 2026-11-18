@@ -49,7 +49,7 @@ public struct LogScrubber: Sendable {
     /// a one-letter name doesn't blank out every word with that letter on its own.
     public init(homeDirectory: String, names: [String]) {
         self.homeDirectory = homeDirectory.hasSuffix("/") ? String(homeDirectory.dropLast()) : homeDirectory
-        // Longest first, so "Simon Goo" is replaced as a whole before "Simon" is.
+        // Longest first, so "Jane Appleseed" is replaced as a whole before "Jane" is.
         self.names = Array(Set(names.map { $0.trimmingCharacters(in: .whitespaces) }.filter { $0.count >= 2 })).sorted { $0.count > $1.count }
     }
 
@@ -59,7 +59,7 @@ public struct LogScrubber: Sendable {
             result = result.replacingOccurrences(of: homeDirectory, with: "~")
         }
         for name in names {
-            // Whole words only, ignoring case: "goo" hides "Goo" in a path but leaves "google" alone.
+            // Whole words only, ignoring case: "max" hides "Max" but leaves "maximized" alone.
             let pattern = "(?<![\\p{L}\\p{N}_])" + NSRegularExpression.escapedPattern(for: name) + "(?![\\p{L}\\p{N}_])"
             guard let expression = try? NSRegularExpression(pattern: pattern, options: [.caseInsensitive]) else { continue }
             result = expression.stringByReplacingMatches(in: result, range: NSRange(result.startIndex..., in: result), withTemplate: NSRegularExpression.escapedTemplate(for: Self.placeholder))

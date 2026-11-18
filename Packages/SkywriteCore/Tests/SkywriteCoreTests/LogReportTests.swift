@@ -3,17 +3,17 @@ import SkywriteCore
 import Testing
 
 @Suite struct LogReportTests {
-    private let scrubber = LogScrubber(homeDirectory: "/Users/simon", names: ["simon", "Simon Goo"])
+    private let scrubber = LogScrubber(homeDirectory: "/Users/jane", names: ["jane", "Jane Appleseed"])
     private let utc8 = TimeZone(secondsFromGMT: 8 * 3600)!
 
     @Test func hidesTheHomeFolderAndTheUserNames() {
-        let text = "notes folder=/Users/simon/Documents/Notes owner=Simon Goo user=simon"
+        let text = "notes folder=/Users/jane/Documents/Notes owner=Jane Appleseed user=jane"
         #expect(scrubber.scrub(text) == "notes folder=~/Documents/Notes owner=<user> user=<user>")
     }
 
     @Test func leavesWordsThatOnlyContainTheNameAlone() {
-        let scrubber = LogScrubber(homeDirectory: "/Users/goo", names: ["goo"])
-        #expect(scrubber.scrub("activate from com.google.Chrome by Goo") == "activate from com.google.Chrome by <user>")
+        let scrubber = LogScrubber(homeDirectory: "/Users/max", names: ["max"])
+        #expect(scrubber.scrub("window maximized by Max") == "window maximized by <user>")
     }
 
     @Test func ignoresOneLetterNames() {
@@ -39,9 +39,9 @@ import Testing
     }
 
     @Test func scrubsTheLog() {
-        let report = LogReport(log: "app: folder /Users/simon/Notes\n", appVersion: "0.1.0 (1)", systemVersion: "27.2", exportedAt: Date())
+        let report = LogReport(log: "app: folder /Users/jane/Notes\n", appVersion: "0.1.0 (1)", systemVersion: "27.2", exportedAt: Date())
         let text = report.text(scrubber: scrubber)
         #expect(text.contains("app: folder ~/Notes"))
-        #expect(!text.contains("simon"))
+        #expect(!text.contains("jane"))
     }
 }

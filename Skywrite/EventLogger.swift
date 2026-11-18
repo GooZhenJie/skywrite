@@ -3,7 +3,7 @@ import os
 import SkywriteCore
 
 /// Writes each event both to the system log (for Console and `log show`) and to Skywrite's own log file, which is what
-/// Export Logs… copies. Reading Skywrite's lines back out of the system log took 7 to 14 s on the developer's Mac and
+/// Export Logs… copies. Reading Skywrite's lines back out of the system log took 7 to 14 s in testing and
 /// only worked on administrator accounts; the file is read at once on any account.
 ///
 /// Messages are written the same way as with `os.Logger` (`"moved \(count, privacy: .public)"`), so the call sites
@@ -77,7 +77,7 @@ nonisolated struct LogMessage: ExpressibleByStringInterpolation, Sendable {
 
 extension LogFile {
     /// Skywrite's own log file in ~/Library/Logs/Skywrite, where Mac apps keep their logs (Claude, Raycast and Notion all
-    /// have a folder there on the developer's Mac). See `LogFile` in SkywriteCore for how much of it is kept.
+    /// have a folder there). See `LogFile` in SkywriteCore for how much of it is kept.
     nonisolated static let shared = LogFile(folder: standardFolder())
 
     /// UI tests write to a folder of their own, so test runs never end up in the log you'd send.

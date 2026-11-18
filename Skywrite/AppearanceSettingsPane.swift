@@ -142,7 +142,7 @@ extension GlassStyle {
 /// free to use, change and ship in an app, no credit required. Skywrite thanks the photographers anyway, by name, in
 /// each swatch's tooltip, on the About pane, in the About Skywrite window, in the README and in each photo's metadata.
 ///
-/// The sea photo comes first and is where the previews start (user decision 2026-11-08).
+/// The sea photo comes first and is where the previews start.
 ///
 /// Special thanks to Ishan @seefromthesky (sea), Francesco Ungaro (canyon, dunes), Arindam Saha (mountains) and
 /// Nathan Dumlao (city).

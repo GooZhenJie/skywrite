@@ -9,7 +9,7 @@ import SwiftUI
 /// slip in someone else's app.
 ///
 /// Checks start turned off: on the second launch Sparkle asks whether to check automatically, its default when
-/// SUEnableAutomaticChecks isn't set (user decision 2026-11-07). The answer can be changed in General settings. Once
+/// SUEnableAutomaticChecks isn't set. The answer can be changed in General settings. Once
 /// turned on, Sparkle checks once a day, its default SUScheduledCheckInterval of 86400 seconds.
 ///
 /// Skywrite lives in the menu bar, so an update found in the background doesn't pop up over what you're doing. As in

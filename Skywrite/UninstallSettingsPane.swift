@@ -1,7 +1,7 @@
 import SwiftUI
 
 /// Uninstalling gets a page of its own, as on Karabiner-Elements' settings, so it doesn't sit among the everyday
-/// settings on General (user decision 2026-11-11).
+/// settings on General.
 struct UninstallSettingsPane: View {
     @EnvironmentObject private var model: SettingsModel
 

@@ -25,7 +25,7 @@ struct AboutSettingsPane: View {
                         Text("Notes on your screen").font(.callout).foregroundStyle(.secondary)
                     }
                     Spacer()
-                    // Next to the version, as Chrome's About page checks for a newer one (user decision 2026-11-08).
+                    // Next to the version, as Chrome's About page checks for a newer one.
                     CheckForUpdatesButton(updater: updater)
                 }
                 .padding(.vertical, 6)

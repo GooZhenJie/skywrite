@@ -1,6 +1,6 @@
 public enum TapKey: String, Codable, CaseIterable, Sendable {
     /// Pressing a key twice doesn't make a note. New installs start here, so Skywrite asks for no Accessibility permission
-    /// until you choose a key (user decision, 2026-11-07).
+    /// until you choose a key.
     case off
     case eitherOption
     case rightOption
