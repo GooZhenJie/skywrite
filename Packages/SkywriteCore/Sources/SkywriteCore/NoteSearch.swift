@@ -1,30 +1,32 @@
 import Foundation
 
-/// A note as the quick panel lists it: its whole text and what the list shows next to it.
+/// A note as the quick panel lists it: the note as it shows on screen and what the list shows next to it.
 public struct SearchableNote: Equatable, Identifiable, Sendable {
     public var id: UUID
-    public var text: String
-    /// Shown as the title when the note has no line with text in it, the way the menu bar menu does.
+    /// The note as it shows on screen, which the preview draws; see `NoteDisplay`.
+    public let display: NoteDisplay
+    /// What the search looks through: the text the note shows, without the file's Markdown marks or cell comments.
+    public let text: String
+    /// The first line with text in it, the same title the menus show, not shortened; the file's name when there's none,
+    /// the way the menu bar menu does.
+    public let title: String
     public var fileName: String
     public var modifiedAt: Date
     public var createdAt: Date
     public var isOnScreen: Bool
     public var isPinned: Bool
 
-    public init(id: UUID, text: String, fileName: String, modifiedAt: Date, createdAt: Date, isOnScreen: Bool, isPinned: Bool) {
+    /// `fileText` is what's saved in the note's file.
+    public init(id: UUID, fileText: String, fileName: String, modifiedAt: Date, createdAt: Date, isOnScreen: Bool, isPinned: Bool) {
         self.id = id
-        self.text = text
+        display = NoteDisplay(fileText: fileText)
+        text = display.text
+        title = display.title.isEmpty ? fileName : display.title
         self.fileName = fileName
         self.modifiedAt = modifiedAt
         self.createdAt = createdAt
         self.isOnScreen = isOnScreen
         self.isPinned = isPinned
-    }
-
-    /// The first line with text in it, without Markdown heading marks: the same title the menus show, not shortened.
-    public var title: String {
-        let title = NoteTitle.title(from: text, maximumLength: .max)
-        return title.isEmpty ? fileName : title
     }
 }
 

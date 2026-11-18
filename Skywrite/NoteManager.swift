@@ -305,7 +305,7 @@ extension NoteManager {
             let text = controller?.text ?? (try? store.readText(fileName)) ?? ""
             let modifiedAt = store.modificationDate(of: fileName) ?? record.createdAt
             let isPinned = controller?.record.isPinned ?? record.isPinned
-            return SearchableNote(id: record.id, text: text, fileName: fileName, modifiedAt: modifiedAt, createdAt: record.createdAt, isOnScreen: controller != nil, isPinned: isPinned)
+            return SearchableNote(id: record.id, fileText: text, fileName: fileName, modifiedAt: modifiedAt, createdAt: record.createdAt, isOnScreen: controller != nil, isPinned: isPinned)
         }
     }
 

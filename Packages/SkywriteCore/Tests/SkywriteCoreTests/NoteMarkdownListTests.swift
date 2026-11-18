@@ -53,6 +53,12 @@ struct NoteMarkdownListTests {
         let numbered = NoteMarkdown.listItems(in: "10. ten\n    more\n  not enough")
         #expect(numbered[0].continuationLines == [NSRange(location: 8, length: 8)])
     }
+
+    @Test func titlesLeaveOutBulletsButKeepNumbers() {
+        #expect(NoteTitle.title(from: "- buy milk\n- eggs") == "buy milk")
+        #expect(NoteTitle.title(from: "1. step one") == "1. step one")
+        #expect(NoteTitle.title(from: "-x") == "-x")
+    }
 }
 
 struct NoteMarkdownTaskTests {
@@ -100,5 +106,10 @@ struct NoteMarkdownTaskTests {
         for typed in ["", "[", "[x]", "[ ]", "【重要】", "a[]", " []", "- [ ] []", "# []"] {
             #expect(NoteMarkdown.taskMarker(replacing: typed) == nil, "\(typed)")
         }
+    }
+
+    @Test func titlesLeaveOutTheBox() {
+        #expect(NoteTitle.title(from: "- [x] buy milk") == "buy milk")
+        #expect(NoteTitle.title(from: "- [ ] buy milk\n- eggs") == "buy milk")
     }
 }

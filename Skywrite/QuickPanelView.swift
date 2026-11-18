@@ -227,7 +227,7 @@ private struct QuickPanelRow: View {
     }
 }
 
-/// The picked note's whole text, read only, with when it was edited and made and whether it's on screen below.
+/// The picked note the way it shows on screen, read only, with when it was edited and made and whether it's on screen below.
 private struct QuickPanelPreview: View {
     let match: NoteMatch
     let terms: [String]
@@ -238,12 +238,10 @@ private struct QuickPanelPreview: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             ScrollView {
-                Text(QuickPanelText.highlighted(match.note.text, terms: terms, color: accent.opacity(0.22)))
-                    .font(.system(size: 15))
+                QuickPanelNoteText(display: match.note.display, terms: terms, highlight: accent.opacity(0.22))
+                    .font(.system(size: QuickPanelNoteText.fontSize))
                     .lineSpacing(3)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal, 18)
-                    .padding(.vertical, 16)
             }
             .id(match.id)
             .background(RoundedRectangle(cornerRadius: 14).fill(fill))

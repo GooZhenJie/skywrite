@@ -12,7 +12,17 @@ struct NoteSearchTests {
 
     private func note(_ text: String, hoursAgo: Double, onScreen: Bool = false, pinned: Bool = false) -> SearchableNote {
         let modified = now.addingTimeInterval(-hoursAgo * 3600)
-        return SearchableNote(id: UUID(), text: text, fileName: "x.md", modifiedAt: modified, createdAt: modified, isOnScreen: onScreen, isPinned: pinned)
+        return SearchableNote(id: UUID(), fileText: text, fileName: "x.md", modifiedAt: modified, createdAt: modified, isOnScreen: onScreen, isPinned: pinned)
+    }
+
+    @Test func searchLooksAtWhatTheNoteShowsNotItsFile() {
+        let grid = note(NoteDocument(layout: .twoByTwo, cells: ["## P0\n- [ ] ship the fix", "", "", ""]).text, hoursAgo: 1)
+        for query in ["skywrite", "cell", "layout", "##", "[ ]", "-"] {
+            #expect(NoteSearch.sections(for: [grid], query: query, filter: .all, now: now, calendar: calendar).isEmpty, "\(query)")
+        }
+        let match = NoteSearch.sections(for: [grid], query: "fix", filter: .all, now: now, calendar: calendar).first?.matches.first
+        #expect(match?.title == "P0")
+        #expect(match?.excerpt == "ship the fix")
     }
 
     @Test func withoutQueryGroupsPinnedTodayAndEarlier() {
@@ -80,7 +90,7 @@ struct NoteSearchTests {
     }
 
     @Test func blankNoteFallsBackToItsFileName() {
-        let blank = SearchableNote(id: UUID(), text: "  \n ", fileName: "2026-11-17 09.00.00.md", modifiedAt: now, createdAt: now, isOnScreen: false, isPinned: false)
+        let blank = SearchableNote(id: UUID(), fileText: "  \n ", fileName: "2026-11-17 09.00.00.md", modifiedAt: now, createdAt: now, isOnScreen: false, isPinned: false)
         #expect(blank.title == "2026-11-17 09.00.00.md")
     }
 
