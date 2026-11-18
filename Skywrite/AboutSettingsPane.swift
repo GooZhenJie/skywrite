@@ -12,6 +12,8 @@ struct AboutSettingsPane: View {
         return String(localized: "Version \(short) (\(build))")
     }
 
+    static let repository = URL(string: "https://github.com/GooZhenJie/skywrite")!
+
     var body: some View {
         Form {
             Section {
@@ -25,6 +27,17 @@ struct AboutSettingsPane: View {
                         Text("Notes on your screen").font(.callout).foregroundStyle(.secondary)
                     }
                     Spacer()
+                    // The GitHub mark links to the source code. GitHub's brand guidelines allow the mark as a link to a
+                    // project on GitHub, in black or white only, so it is a template image drawn in the label color.
+                    Link(destination: Self.repository) {
+                        Image("GitHubMark")
+                            .resizable()
+                            .frame(width: 18, height: 18)
+                            .foregroundStyle(.primary)
+                    }
+                    .buttonStyle(.plain)
+                    .help(Text(verbatim: "GitHub"))
+                    .accessibilityLabel(Text(verbatim: "GitHub"))
                     // Next to the version, as Chrome's About page checks for a newer one.
                     CheckForUpdatesButton(updater: updater)
                 }

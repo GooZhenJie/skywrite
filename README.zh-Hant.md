@@ -70,6 +70,8 @@ Skywrite 沒有帳號，不收集使用資料，也不回報當機。便條只�
 
 自動更新用的是 [Sparkle](https://sparkle-project.org)，採用 [MIT 授權](https://github.com/sparkle-project/Sparkle/blob/2.x/LICENSE)。
 
+「關於」頁上的 GitHub 標誌取自 [Octicons](https://github.com/primer/octicons)，採用 [MIT 授權](https://github.com/primer/octicons/blob/main/LICENSE)。
+
 ## 參與貢獻
 
 歡迎提交問題、想法和 pull request，見 [CONTRIBUTING.md](CONTRIBUTING.md)（英文）。

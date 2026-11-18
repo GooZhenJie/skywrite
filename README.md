@@ -72,6 +72,8 @@ The Appearance preview uses photos from [Unsplash](https://unsplash.com):
 
 Automatic updates use [Sparkle](https://sparkle-project.org), available under the [MIT License](https://github.com/sparkle-project/Sparkle/blob/2.x/LICENSE).
 
+The GitHub mark on the About pane comes from [Octicons](https://github.com/primer/octicons), available under the [MIT License](https://github.com/primer/octicons/blob/main/LICENSE).
+
 ## Contributing
 
 Bug reports, ideas and pull requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
