@@ -13,6 +13,12 @@ struct NoteStyle: Equatable {
         NSFont.systemFont(ofSize: fontSize * zoom, weight: .medium)
     }
 
+    /// A Markdown heading (`#`, `##`, `###`): larger and semibold, the way GitHub draws one; see `NoteMarkdown.headingScales`.
+    func headingFont(level: Int, zoom: CGFloat) -> NSFont {
+        let scale = NoteMarkdown.headingScales[min(max(level, 1), NoteMarkdown.headingScales.count) - 1]
+        return NSFont.systemFont(ofSize: fontSize * scale * zoom, weight: .semibold)
+    }
+
     func lineHeight(zoom: CGFloat) -> CGFloat {
         NSLayoutManager().defaultLineHeight(for: font(zoom: zoom))
     }

@@ -1,7 +1,18 @@
 import AppKit
+import SkywriteCore
 
 final class NoteTextView: NSTextView {
     weak var controller: NoteController?
+    /// The lines whose heading marks are showing because the caret or selection is on them; nil when none are.
+    var revealedLines: NSRange?
+
+    /// Copying (and dragging text out) gives only the text you see: no `#` in front of headings, and no fonts or colours,
+    /// since the note's white text would vanish on a white page.
+    override func writeSelection(to pboard: NSPasteboard, types: [NSPasteboard.PasteboardType]) -> Bool {
+        let text = selectedRanges.map { NoteMarkdown.plainText(of: string, in: $0.rangeValue) }.joined(separator: "\n")
+        pboard.declareTypes([.string], owner: nil)
+        return pboard.setString(text, forType: .string)
+    }
 
     override func hitTest(_ point: NSPoint) -> NSView? {
         guard controller?.isEditing == true else { return nil }

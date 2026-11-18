@@ -128,6 +128,8 @@ final class NoteController: NSObject, NSWindowDelegate, NSTextViewDelegate {
         } else {
             moveCaretToEnd(of: cell)
         }
+        // Shows the heading marks on the caret's line.
+        relayoutKeepingTopLeft()
         manager?.bringToFront(self)
     }
 
@@ -171,6 +173,8 @@ final class NoteController: NSObject, NSWindowDelegate, NSTextViewDelegate {
         }
         noteView.showsHandles = false
         panel.makeFirstResponder(nil)
+        // Hides every heading mark before the width is kept.
+        relayoutKeepingTopLeft()
         if !isBlank {
             keepWidthAfterLocking()
         }
@@ -288,6 +292,7 @@ extension NoteController {
             cell.controller = self
             cell.setAccessibilityIdentifier(index == 0 ? "note-text" : "note-text-\(index + 1)")
             cell.delegate = self
+            cell.layoutManager?.delegate = self
             cell.drawsBackground = false
             cell.isRichText = false
             cell.importsGraphics = false

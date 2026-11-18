@@ -3,23 +3,6 @@ import SkywriteCore
 
 /// Measuring a note's text to size its box and place its cells.
 extension NoteController {
-    private var textAttributes: [NSAttributedString.Key: Any] {
-        let shadow = NSShadow()
-        shadow.shadowColor = NSColor.black.withAlphaComponent(0.55)
-        shadow.shadowOffset = NSSize(width: 0, height: -1)
-        shadow.shadowBlurRadius = 2
-        return [.font: style.font(zoom: zoom), .foregroundColor: NSColor.white, .shadow: shadow]
-    }
-
-    private func applyTextAttributes() {
-        let attributes = textAttributes
-        for cell in cellViews {
-            cell.typingAttributes = attributes
-            guard let storage = cell.textStorage, storage.length > 0 else { continue }
-            storage.setAttributes(attributes, range: NSRange(location: 0, length: storage.length))
-        }
-    }
-
     private var screenFrame: CGRect {
         let screen = NSScreen.screens.first { $0.frame.contains(topLeft) } ?? NSScreen.main ?? NSScreen.screens.first
         return screen?.visibleFrame ?? .zero
