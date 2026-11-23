@@ -5,12 +5,6 @@ import Testing
 struct ScreenPlacementTests {
     let screen = CGRect(x: 0, y: 0, width: 1440, height: 900)
 
-    @Test func boxOnUnpluggedScreenIsNotVisible() {
-        let box = CGRect(x: 2000, y: 300, width: 200, height: 40)
-        #expect(!ScreenPlacement.isVisible(box, on: [screen]))
-        #expect(ScreenPlacement.isVisible(box, on: [screen, CGRect(x: 1440, y: 0, width: 1920, height: 1080)]))
-    }
-
     @Test func bringsBoxBackInsideTheEdges() {
         let topLeft = ScreenPlacement.topLeftBringingBack(CGRect(x: 2000, y: 300, width: 200, height: 40), into: screen)
         #expect(topLeft == CGPoint(x: 1440 - NoteMetrics.screenEdgeMargin - 200, y: 340))
@@ -57,5 +51,16 @@ struct ScreenPlacementTests {
         let box = CGRect(x: -1300, y: 600, width: 20, height: 16)
         let kept = ScreenPlacement.keepingVisible(box, in: areas)
         #expect(kept.origin == CGPoint(x: -1280, y: 600))
+    }
+
+    @Test func shrinksOnlyABoxTooBigForTheScreen() {
+        #expect(ScreenPlacement.zoomFitting(CGSize(width: 700, height: 300), zoom: 1, in: builtIn) == 1)
+        let fitting = ScreenPlacement.zoomFitting(CGSize(width: 2560, height: 600), zoom: 1, in: builtIn)
+        #expect(abs(fitting - (1280 - 24) / 2560) < 0.0001)
+    }
+
+    @Test func tellsWhetherAllOfABoxIsInSight() {
+        #expect(ScreenPlacement.isWhollyVisible(CGRect(x: 10, y: 100, width: 100, height: 100), in: [external, builtIn]))
+        #expect(!ScreenPlacement.isWhollyVisible(CGRect(x: -50, y: 300, width: 100, height: 100), in: [external, builtIn]))
     }
 }

@@ -36,3 +36,16 @@ extension NoteController {
         return CGSize(width: width, height: max(textContentHeight, minimumHeight))
     }
 }
+
+extension NoteController {
+    /// Shrinks the note if it's bigger than `visibleFrame` and moves it all the way inside, `NoteMetrics.screenEdgeMargin`
+    /// from the edges.
+    func bringWhollyOnScreen(_ visibleFrame: CGRect) {
+        let fitting = ScreenPlacement.zoomFitting(boxInScreen.size, zoom: record.zoom, in: visibleFrame)
+        if fitting < record.zoom {
+            record.zoom = fitting
+            relayoutKeepingTopLeft()
+        }
+        move(toTopLeft: ScreenPlacement.topLeftBringingBack(boxInScreen, into: visibleFrame))
+    }
+}

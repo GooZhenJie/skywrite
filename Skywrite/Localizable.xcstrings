@@ -1083,22 +1083,6 @@
         }
       }
     },
-    "Move Notes Back on Screen": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "把屏幕外的便签移回来"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "把螢幕外的便條移回來"
-          }
-        }
-      }
-    },
     "Move to Trash": {
       "localizations": {
         "zh-Hans": {
@@ -1725,6 +1709,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "回復剛關閉的便條"
+          }
+        }
+      }
+    },
+    "Reset Note Positions": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "恢复便签位置"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "回復便條位置"
           }
         }
       }

@@ -48,9 +48,7 @@ final class AppMenus: NSObject, NSMenuDelegate {
         menu.addItem(toggle)
         menu.addItem(item(String(localized: "Reopen Closed Note"), #selector(AppDelegate.reopenClosedNote(_:)), symbol: "arrow.uturn.backward", shortcut: preferences.shortcut(for: .reopenClosedNote)))
         menu.addItem(item(String(localized: "Search Notes…"), #selector(AppDelegate.searchNotes(_:)), symbol: "magnifyingglass", shortcut: preferences.shortcut(for: .searchNotes)))
-        if noteManager.hasNotesOffScreen {
-            menu.addItem(item(String(localized: "Move Notes Back on Screen"), #selector(AppDelegate.moveNotesBackOnScreen(_:)), symbol: "rectangle.portrait.and.arrow.right"))
-        }
+        menu.addItem(item(String(localized: "Reset Note Positions"), #selector(AppDelegate.moveNotesBackOnScreen(_:)), symbol: "rectangle.portrait.and.arrow.right"))
         menu.addItem(.separator())
         addRecent(to: menu)
         menu.addItem(.separator())

@@ -266,18 +266,27 @@ final class NoteManager {
 }
 
 extension NoteManager {
-    var hasNotesOffScreen: Bool {
-        let screens = NSScreen.screens.map(\.frame)
-        return controllers.values.contains { !ScreenPlacement.isVisible($0.boxInScreen, on: screens) }
+    /// Brings every note that isn't wholly in sight all the way onto a screen, shrinking any that's too big for it: onto
+    /// the screen it overlaps most, or the one with the pointer when it's on none. For a note lost behind the menu bar,
+    /// past an edge, or on a screen that's gone.
+    func moveNotesBackOnScreen() {
+        let screens = NSScreen.screens
+        let visibleFrames = screens.map(\.visibleFrame)
+        var moved = 0
+        for controller in controllers.values where !ScreenPlacement.isWhollyVisible(controller.boxInScreen, in: visibleFrames) {
+            let box = controller.boxInScreen
+            let overlapping = screens.max { overlap($0.visibleFrame, box) < overlap($1.visibleFrame, box) }
+            guard let target = overlapping.flatMap({ overlap($0.visibleFrame, box) > 0 ? $0 : nil }) ?? NSScreen.withPointer else { continue }
+            controller.bringWhollyOnScreen(target.visibleFrame)
+            moved += 1
+        }
+        EventLog.app.notice("move notes back on screen moved=\(moved, privacy: .public) of \(self.controllers.count, privacy: .public)")
+        showAllNotes()
     }
 
-    func moveNotesBackOnScreen() {
-        let screens = NSScreen.screens.map(\.frame)
-        guard let target = NSScreen.withPointer else { return }
-        for controller in controllers.values where !ScreenPlacement.isVisible(controller.boxInScreen, on: screens) {
-            controller.move(toTopLeft: ScreenPlacement.topLeftBringingBack(controller.boxInScreen, into: target.visibleFrame))
-        }
-        showAllNotes()
+    private func overlap(_ frame: CGRect, _ box: CGRect) -> CGFloat {
+        let shared = frame.intersection(box)
+        return shared.isNull ? 0 : shared.width * shared.height
     }
 
     func menuNotes() -> (pinned: [RecentNote], recent: [RecentNote]) {

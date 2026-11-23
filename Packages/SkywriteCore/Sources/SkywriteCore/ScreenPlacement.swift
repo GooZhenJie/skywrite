@@ -1,10 +1,6 @@
 import CoreGraphics
 
 public enum ScreenPlacement {
-    public static func isVisible(_ box: CGRect, on screenFrames: [CGRect]) -> Bool {
-        screenFrames.contains { $0.intersects(box) }
-    }
-
     public static func topLeftBringingBack(_ box: CGRect, into visibleFrame: CGRect) -> CGPoint {
         let margin = NoteMetrics.screenEdgeMargin
         let width = min(box.width, visibleFrame.width - margin * 2)
@@ -40,5 +36,19 @@ public enum ScreenPlacement {
         let dx = max(frame.minX - box.maxX, box.minX - frame.maxX, 0)
         let dy = max(frame.minY - box.maxY, box.minY - frame.maxY, 0)
         return -hypot(dx, dy)
+    }
+
+    /// True when all of `box` is inside one of `visibleFrames`.
+    public static func isWhollyVisible(_ box: CGRect, in visibleFrames: [CGRect]) -> Bool {
+        visibleFrames.contains { $0.contains(box) }
+    }
+
+    /// The zoom at which a note of `box` at `zoom` fits inside `visibleFrame` with `NoteMetrics.screenEdgeMargin` on
+    /// every side: `zoom` itself when it already fits, smaller when it doesn't.
+    public static func zoomFitting(_ box: CGSize, zoom: Double, in visibleFrame: CGRect) -> Double {
+        let margin = NoteMetrics.screenEdgeMargin * 2
+        guard box.width > 0, box.height > 0 else { return zoom }
+        let scale = min(1, (visibleFrame.width - margin) / box.width, (visibleFrame.height - margin) / box.height)
+        return NoteGeometry.clampedZoom(zoom * Double(scale))
     }
 }
