@@ -57,9 +57,9 @@ struct NoteDocumentTests {
     }
 
     @Test func layoutsNoMenuOffersOpenAsPlainText() throws {
-        let layout = try #require(NoteLayout(cellsPerRow: [2, 1]))
-        let document = NoteDocument(layout: layout, cells: ["a", "b", "c"])
-        #expect(document.text.hasPrefix("---\nskywrite-layout: 2, 1\n---\n"))
+        let layout = try #require(NoteLayout(cellsPerRow: [3, 1]))
+        let document = NoteDocument(layout: layout, cells: ["a", "b", "c", "d"])
+        #expect(document.text.hasPrefix("---\nskywrite-layout: 3, 1\n---\n"))
         #expect(NoteDocument.parse(document.text) == .plain(document.text))
     }
 
@@ -95,6 +95,13 @@ struct NoteDocumentTests {
         let document = NoteDocument.parse(text)
         #expect(document.layout == .single)
         #expect(document.text == text)
+    }
+
+    @Test(arguments: NoteLayout.offered.filter(\.isGrid))
+    func everyOfferedLayoutOpensWithItsCells(layout: NoteLayout) {
+        let cells = (0..<layout.cellCount).map { "## Cell \($0 + 1)\nnotes" }
+        let document = NoteDocument(layout: layout, cells: cells)
+        #expect(NoteDocument.parse(document.text) == document)
     }
 
     @Test func blankWhenEveryCellIsBlank() {

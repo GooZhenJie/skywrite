@@ -34,6 +34,18 @@ struct NoteCellGeometryTests {
         #expect(result.frames[2] == CGRect(x: 0, y: 36, width: 212, height: 20))
     }
 
+    @Test func stackedCellsEachSpanTheWidth() {
+        let result = NoteCellGeometry.cellFrames(layout: .stacked, boxWidth: 212, cellHeights: [20, 40], minimumBoxHeight: 0, spacing: spacing)
+        #expect(result.frames == [CGRect(x: 0, y: 0, width: 212, height: 20), CGRect(x: 0, y: 36, width: 212, height: 40)])
+    }
+
+    @Test func threeColumnsShareTheWidth() {
+        let result = NoteCellGeometry.cellFrames(layout: .threeColumns, boxWidth: 324, cellHeights: [20, 60, 10], minimumBoxHeight: 0, spacing: spacing)
+        #expect(result.frames.map(\.minX) == [0, 112, 224])
+        #expect(result.frames.map(\.width) == [100, 100, 100])
+        #expect(result.frames.map(\.height) == [60, 60, 60])
+    }
+
     @Test func boxIsWideEnoughForTheWidestCell() throws {
         #expect(NoteCellGeometry.boxWidth(layout: .single, cellWidths: [80], spacing: spacing) == 80)
         #expect(NoteCellGeometry.boxWidth(layout: .twoByTwo, cellWidths: [30, 80, 50, 20], spacing: spacing) == 172)

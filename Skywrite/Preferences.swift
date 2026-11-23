@@ -51,18 +51,6 @@ final class Preferences: ObservableObject {
         shortcuts = Self.loadShortcuts(from: defaults)
     }
 
-    /// Whether the menu bar menu has "New Grid Note". Grid notes are still being tried out, so the item is hidden unless
-    /// it's turned on in Terminal, the way Rectangle and Maccy keep some settings out of their
-    /// settings windows:
-    ///
-    ///     defaults write io.github.goozhenjie.skywrite showsNewGridNote -bool true
-    ///
-    /// Notes that already have cells open with them either way. Read each time the menu opens, so a change takes effect
-    /// without restarting Skywrite.
-    var showsNewGridNote: Bool {
-        defaults.bool(forKey: Key.showsNewGridNote)
-    }
-
     func shortcut(for action: ShortcutAction) -> Shortcut? {
         if let stored = shortcuts[action] {
             return stored
@@ -114,6 +102,5 @@ final class Preferences: ObservableObject {
         static let noteRetention = "noteRetentionDays"
         static let previewBackdrop = "previewBackdrop"
         static let shortcuts = "shortcuts"
-        static let showsNewGridNote = "showsNewGridNote"
     }
 }

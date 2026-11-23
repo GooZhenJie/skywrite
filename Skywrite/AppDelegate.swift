@@ -279,9 +279,10 @@ extension AppDelegate {
 
     /// A note split into four cells, two by two, placed the same way as a new note.
     @objc func newGridNote(_ sender: Any?) {
-        EventLog.input.notice("new grid note requested sender=\(sender.map { String(describing: type(of: $0)) } ?? "none", privacy: .public)")
+        EventLog.input.notice("new grid note requested sender=\(sender.map { String(describing: type(of: $0)) } ?? "none", privacy: .public) layout=\(((sender as? NSMenuItem)?.representedObject as? NoteLayout)?.description ?? "default", privacy: .public)")
         noteManager?.lockAll()
-        placementController?.toggle(layout: .twoByTwo)
+        let layout = ((sender as? NSMenuItem)?.representedObject as? NoteLayout) ?? .twoByTwo
+        placementController?.toggle(layout: layout)
     }
 
     @objc func reopenClosedNote(_ sender: Any?) {

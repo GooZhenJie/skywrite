@@ -313,6 +313,22 @@
         }
       }
     },
+    "Bottom & Quarters": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "底部与四等分"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "底部與四等分"
+          }
+        }
+      }
+    },
     "Bring to Front": {
       "localizations": {
         "zh-Hans": {
@@ -917,6 +933,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "淺色模式時"
+          }
+        }
+      }
+    },
+    "Left & Right": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "左侧与右侧"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "左側與右側"
           }
         }
       }
@@ -1597,6 +1629,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "預覽照片來自 Unsplash，攝影師："
+          }
+        }
+      }
+    },
+    "Quarters": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "四等分"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "四等分"
           }
         }
       }
@@ -2337,6 +2385,22 @@
         }
       }
     },
+    "Thirds": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "三等分"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "三等分"
+          }
+        }
+      }
+    },
     "This removes Skywrite and all associated data from this Mac.": {
       "localizations": {
         "zh-Hans": {
@@ -2381,6 +2445,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "今天"
+          }
+        }
+      }
+    },
+    "Top & Bottom": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "顶部与底部"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "頂部與底部"
           }
         }
       }

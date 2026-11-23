@@ -2,7 +2,7 @@
 ///
 /// A plain note is one row with one cell. Every other arrangement (2 × 2, two side by side, two on top and one below)
 /// is just another list of numbers, so adding one doesn't touch the code that draws or saves cells; it takes a menu item
-/// and an entry in `offered`. Rows with different numbers of cells haven't been tried on screen yet.
+/// and an entry in `offered`.
 public struct NoteLayout: Equatable, Hashable, Sendable {
     public let cellsPerRow: [Int]
 
@@ -17,13 +17,21 @@ public struct NoteLayout: Equatable, Hashable, Sendable {
     }
 
     public static let single = NoteLayout(validated: [1])
+    /// Two cells side by side.
+    public static let sideBySide = NoteLayout(validated: [2])
+    /// Two cells, one above the other.
+    public static let stacked = NoteLayout(validated: [1, 1])
+    /// Three cells side by side.
+    public static let threeColumns = NoteLayout(validated: [3])
+    /// Two cells side by side over one as wide as both.
+    public static let twoOverOne = NoteLayout(validated: [2, 1])
     public static let twoByTwo = NoteLayout(validated: [2, 2])
 
     /// The layouts a new note can be made with, and so the only ones a note's file opens with. A file that asks for any
-    /// other layout opens as a plain note showing its whole text: Skywrite never writes one,
-    /// none has been tried on screen, and a file edited to ask for 100000 cells would otherwise build 100000 text views
-    /// at launch. Add a layout here when a menu starts offering it.
-    public static let offered: [NoteLayout] = [.single, .twoByTwo]
+    /// other layout opens as a plain note showing its whole text: Skywrite never writes one, and a file edited to ask
+    /// for 100000 cells would otherwise build 100000 text views at launch. Add a layout here when a menu starts offering
+    /// it.
+    public static let offered: [NoteLayout] = [.single, .sideBySide, .stacked, .threeColumns, .twoOverOne, .twoByTwo]
 
     public var cellCount: Int {
         cellsPerRow.reduce(0, +)

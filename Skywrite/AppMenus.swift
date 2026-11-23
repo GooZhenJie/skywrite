@@ -40,9 +40,7 @@ final class AppMenus: NSObject, NSMenuDelegate {
     func menuNeedsUpdate(_ menu: NSMenu) {
         menu.removeAllItems()
         menu.addItem(item(String(localized: "New Note"), #selector(AppDelegate.newNote(_:)), symbol: "square.and.pencil", shortcut: preferences.shortcut(for: .newNote)))
-        if preferences.showsNewGridNote {
-            menu.addItem(item(String(localized: "New Grid Note"), #selector(AppDelegate.newGridNote(_:)), symbol: "square.grid.2x2"))
-        }
+        menu.addItem(gridNoteItem())
         let toggleTitle = noteManager.areNotesHidden ? String(localized: "Show All Notes") : String(localized: "Hide All Notes")
         let toggle = item(toggleTitle, #selector(AppDelegate.toggleAllNotes(_:)), symbol: noteManager.areNotesHidden ? "eye" : "eye.slash", shortcut: preferences.shortcut(for: .toggleAllNotes))
         menu.addItem(toggle)
@@ -90,6 +88,39 @@ final class AppMenus: NSObject, NSMenuDelegate {
         entry.state = note.isOnScreen ? .on : .off
         entry.subtitle = RelativeTime.text(for: note.modifiedAt)
         return entry
+    }
+
+    private struct GridLayoutItem {
+        let layout: NoteLayout
+        let title: String
+        let symbol: String
+    }
+
+    /// The layouts "New Grid Note" offers, named and drawn the way macOS names and draws window arrangements in
+    /// Window > Move & Resize ("Left & Right", "Top & Bottom", "Bottom & Quarters", "Quarters"), so each item's icon
+    /// shows the cells it makes. macOS has no thirds there; "Thirds" follows its "Quarters".
+    private static let gridLayouts = [
+        GridLayoutItem(layout: .sideBySide, title: String(localized: "Left & Right"), symbol: "inset.filled.lefthalf.righthalf.rectangle"),
+        GridLayoutItem(layout: .stacked, title: String(localized: "Top & Bottom"), symbol: "inset.filled.tophalf.bottomhalf.rectangle"),
+        GridLayoutItem(layout: .threeColumns, title: String(localized: "Thirds"), symbol: "inset.filled.leftthird.middlethird.rightthird.rectangle"),
+        GridLayoutItem(layout: .twoOverOne, title: String(localized: "Bottom & Quarters"), symbol: "inset.filled.topleft.topright.bottomhalf.rectangle"),
+        GridLayoutItem(layout: .twoByTwo, title: String(localized: "Quarters"), symbol: "inset.filled.topleft.topright.bottomleft.bottomright.rectangle")
+    ]
+
+    private func gridNoteItem() -> NSMenuItem {
+        let parent = NSMenuItem(title: String(localized: "New Grid Note"), action: nil, keyEquivalent: "")
+        parent.image = NSImage(systemSymbolName: "square.grid.2x2", accessibilityDescription: nil)
+        let submenu = NSMenu(title: parent.title)
+        for entry in Self.gridLayouts {
+            let layoutItem = item(entry.title, #selector(AppDelegate.newGridNote(_:)), symbol: entry.symbol)
+            // In one colour: these symbols draw one cell lighter, which in Window > Move & Resize marks the window
+            // being moved, but here every cell is the same.
+            layoutItem.image = layoutItem.image?.withSymbolConfiguration(.preferringMonochrome())
+            layoutItem.representedObject = entry.layout
+            submenu.addItem(layoutItem)
+        }
+        parent.submenu = submenu
+        return parent
     }
 
     private func item(_ title: String, _ action: Selector, symbol: String, shortcut: Shortcut? = nil) -> NSMenuItem {
