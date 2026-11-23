@@ -194,7 +194,10 @@ final class NoteController: NSObject, NSWindowDelegate, NSTextViewDelegate {
     }
 
     func didMove() {
-        let box = boxInScreen
+        let box = ScreenPlacement.keepingVisible(boxInScreen, in: NSScreen.screens.map(\.visibleFrame))
+        if box.origin != boxInScreen.origin {
+            EventLog.input.notice("drag kept note \(self.panel.identifier?.rawValue ?? "note", privacy: .public) in sight: moved from \(String(describing: self.boxInScreen.origin), privacy: .public) to \(String(describing: box.origin), privacy: .public)")
+        }
         record.topLeftX = box.minX
         record.topLeftY = box.maxY
         relayoutKeepingTopLeft()

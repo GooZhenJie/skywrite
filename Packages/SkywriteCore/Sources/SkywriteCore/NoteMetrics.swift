@@ -7,6 +7,9 @@ public enum NoteMetrics {
     public static let minimumTextWidth: CGFloat = 24
     public static let minimumFixedWidth: CGFloat = 60
     public static let screenEdgeMargin: CGFloat = 12
+    /// How much of a dropped note stays on screen each way, below the menu bar and above the Dock, so it can still be
+    /// grabbed: a note may hang past any edge, but not further.
+    public static let keptInSight: CGFloat = 50
     public static let frameGap: CGFloat = 6
     public static let cornerArmLength: CGFloat = 12
     public static let cornerToEdgeGap: CGFloat = 6

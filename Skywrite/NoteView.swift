@@ -212,6 +212,8 @@ final class NoteView: NSView {
         inputLog.dragPressed(window: window, box: controller.boxInScreen, zoom: controller.record.zoom, pressedAt: startMouse, pressTime: event.timestamp)
         var moved = false
         var last: NSEvent?
+        (window as? NotePanel)?.isBeingDragged = true
+        defer { (window as? NotePanel)?.isBeingDragged = false }
         while let next = window.nextEvent(matching: [.leftMouseDragged, .leftMouseUp]) {
             last = next
             guard next.type != .leftMouseUp else { break }
@@ -231,6 +233,7 @@ final class NoteView: NSView {
         if moved {
             NSCursor.pop()
             controller.forgetUnlockClick()
+            (window as? NotePanel)?.dragDidEnd()
             controller.didMove()
         }
         inputLog.dragEnded(moved: moved, endedBy: last, boxBefore: boxBefore, boxAfter: controller.boxInScreen)
