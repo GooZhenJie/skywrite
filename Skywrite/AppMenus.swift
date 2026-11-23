@@ -110,6 +110,7 @@ final class AppMenus: NSObject, NSMenuDelegate {
     private func gridNoteItem() -> NSMenuItem {
         let parent = NSMenuItem(title: String(localized: "New Grid Note"), action: nil, keyEquivalent: "")
         parent.image = NSImage(systemSymbolName: "square.grid.2x2", accessibilityDescription: nil)
+        Self.showImage(of: parent)
         let submenu = NSMenu(title: parent.title)
         for entry in Self.gridLayouts {
             let layoutItem = item(entry.title, #selector(AppDelegate.newGridNote(_:)), symbol: entry.symbol)
@@ -127,11 +128,20 @@ final class AppMenus: NSObject, NSMenuDelegate {
         let entry = NSMenuItem(title: title, action: action, keyEquivalent: "")
         entry.target = appDelegate
         entry.image = NSImage(systemSymbolName: symbol, accessibilityDescription: nil)
+        Self.showImage(of: entry)
         if let shortcut {
             entry.keyEquivalent = shortcut.keyLabel.lowercased()
             entry.keyEquivalentModifierMask = Self.modifierFlags(shortcut.carbonModifiers)
         }
         return entry
+    }
+
+    /// macOS 27 hides the images of an app's menu items unless the app asks for them, and a grid layout's title alone
+    /// doesn't say which cells it makes.
+    private static func showImage(of entry: NSMenuItem) {
+        if #available(macOS 27, *) {
+            entry.preferredImageVisibility = .visible
+        }
     }
 
     static func modifierFlags(_ carbonModifiers: UInt32) -> NSEvent.ModifierFlags {
