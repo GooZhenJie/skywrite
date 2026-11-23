@@ -6,7 +6,7 @@ Skywrite puts notes on your screen, above your other windows. A note has no wind
 
 ![A note placed with ⌃⌥N over VS Code, typed, then dragged under another note](.github/screenshots/demo.gif)
 
-Each note is saved as a Markdown file in a folder you choose. You can move, resize, zoom and pin notes, or hide them all with ⌃⌥H. The menu bar and Dock menus list your pinned notes and the ones you edited most recently, closed or not.
+Each note is saved as a Markdown file in a folder you choose. Notes display Markdown headings, lists and clickable checkboxes. You can move, resize, zoom and pin notes, or hide them all with ⌃⌥H. The menu bar and Dock menus list your pinned notes and the ones you edited most recently, closed or not.
 
 Notes have no background by default. Settings › Appearance offers Soft Edge and Liquid Glass backgrounds; the notes above use Liquid Glass.
 
@@ -46,9 +46,11 @@ Type your note, then press **Esc** or click elsewhere to finish editing. The not
 | Action | Control |
 | --- | --- |
 | Create a note | ⌃⌥N |
+| Create a grid note | Menu bar › **New Grid Note** |
 | Hide or show all notes | ⌃⌥H |
 | Reopen the last closed note | ⌃⌥Z, or ⌘Z while Skywrite is active |
 | Search notes | ⌃⌥O |
+| Bring notes back on screen | Menu bar › **Reset Note Positions** |
 | Resize a note | Drag a corner or dashed edge while editing |
 | Zoom a note | Scroll or pinch over it |
 | Change text size across all notes | ⌘+ / ⌘− |
