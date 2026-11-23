@@ -137,11 +137,14 @@ final class AppMenus: NSObject, NSMenuDelegate {
     }
 
     /// macOS 27 hides the images of an app's menu items unless the app asks for them, and a grid layout's title alone
-    /// doesn't say which cells it makes.
+    /// doesn't say which cells it makes. Only apps built with the macOS 27 SDK (Swift 6.4, Xcode 27) get them hidden,
+    /// and older SDKs don't have the property, so builds with an older Xcode leave it out.
     private static func showImage(of entry: NSMenuItem) {
+        #if compiler(>=6.4)
         if #available(macOS 27, *) {
             entry.preferredImageVisibility = .visible
         }
+        #endif
     }
 
     static func modifierFlags(_ carbonModifiers: UInt32) -> NSEvent.ModifierFlags {
