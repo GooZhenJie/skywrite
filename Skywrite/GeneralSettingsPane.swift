@@ -11,12 +11,12 @@ struct GeneralSettingsPane: View {
             Section {
                 // No second line under these two, as on Rectangle's and Ice's menu bar icon switches: they only say how
                 // to get back once the icon is gone, which the footer below does.
+                Toggle("Menu bar", isOn: $preferences.showsInMenuBar)
+                    .accessibilityIdentifier("show-in-menu-bar")
                 Toggle(isOn: $preferences.showsInDock) {
                     Text(verbatim: "Dock")
                 }
                 .accessibilityIdentifier("show-in-dock")
-                Toggle("Menu bar", isOn: $preferences.showsInMenuBar)
-                    .accessibilityIdentifier("show-in-menu-bar")
             } header: {
                 Text("Show Skywrite In")
             } footer: {
