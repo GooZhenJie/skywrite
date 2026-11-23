@@ -3,6 +3,58 @@
     <channel>
         <title>Skywrite</title>
         <item>
+            <title>0.2.0</title>
+            <pubDate>Mon, 23 Nov 2026 14:21:45 +0800</pubDate>
+            <link>https://github.com/GooZhenJie/skywrite/releases</link>
+            <sparkle:version>6</sparkle:version>
+            <sparkle:shortVersionString>0.2.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description xml:lang="en" sparkle:format="markdown"><![CDATA[- Added Search Notes… (⌃⌥O) to find notes and reopen closed ones where they were.
+- Added grid notes with five layouts.
+- Added three levels of Markdown headings, with `#` visible only while editing that line.
+- Added bulleted, numbered and task lists, with checkboxes that work even in locked notes.
+- Added a Shadow toggle for Liquid Glass notes, off by default.
+- Added Reset Note Positions to bring notes fully back on screen and shrink oversized notes.
+- Allowed notes to be dropped past screen edges with a small part still visible.
+- Fixed notes jumping when dropped where two displays meet.
+- Fixed notes landing behind the pointer when dragged while Skywrite was in the background.
+- Fixed notes zooming beyond the edges of the screen.
+- Fixed missing icons in the menu bar menu on macOS 27.
+- Changed the menu bar icon to use the same stroke as the app icon.
+- Added a link to the GitHub repository in Settings › About.
+]]></description>
+            <description xml:lang="zh-Hans" sparkle:format="markdown"><![CDATA[- 新增「搜索便签…」（⌃⌥O），可以搜索所有便签，关掉的也能在原来的位置重新打开。
+- 新增分格便签，有五种布局可选。
+- 新增三个级别的 Markdown 标题，只有正在编辑的那一行会显示 `#`。
+- 新增圆点列表、编号列表和任务列表，便签锁定时也能点勾选框。
+- 新增液态玻璃便签的「阴影」开关，默认关闭。
+- 新增「恢复便签位置」，把便签完整移回屏幕内，太大的会缩小。
+- 允许把便签拖出屏幕边缘，松手后仍会露出一小截。
+- 修复了便签在两块屏幕的交界处放下时会跳动的问题。
+- 修复了 Skywrite 在后台时，拖动便签会让它落在鼠标指针后面的问题。
+- 修复了便签放大后超出屏幕的问题。
+- 修复了 macOS 27 上菜单栏菜单里的图标不显示的问题。
+- 把菜单栏图标改成和 App 图标一样的笔迹。
+- 在「设置 › 关于」里新增了 GitHub 仓库链接。
+]]></description>
+            <description xml:lang="zh-Hant" sparkle:format="markdown"><![CDATA[- 新增「搜尋便條⋯」（⌃⌥O），可搜尋所有便條，也能在原本的位置重新打開已關閉的便條。
+- 新增分格便條，有五種排列方式可選。
+- 新增三個層級的 Markdown 標題，只有正在編輯的那一行會顯示 `#`。
+- 新增項目符號列表、編號列表和待辦事項列表，便條鎖定時也能勾選待辦事項。
+- 新增液態玻璃便條的「陰影」開關，預設關閉。
+- 新增「回復便條位置」，將便條完整移回螢幕內，過大的便條會縮小。
+- 允許將便條拖出螢幕邊緣，放開後仍會露出一小截。
+- 修正了便條在兩個螢幕的交界處放下時會跳動的問題。
+- 修正了 Skywrite 在背景時，拖移便條會讓它落在游標後方的問題。
+- 修正了便條放大後超出螢幕的問題。
+- 修正了 macOS 27 上選單列的選單未顯示圖像的問題。
+- 將選單列圖像改成和 App 圖像一樣的筆跡。
+- 在「設定 › 關於」中加入 GitHub 儲存庫連結。
+]]></description>
+            <enclosure url="https://github.com/GooZhenJie/skywrite/releases/download/v0.2.0/Skywrite-0.2.0.zip" length="3585543" type="application/octet-stream" sparkle:edSignature="/x6WR1wSadEqVzToRvEwoKCiDkS1zz4mKYwQ2830S3JnDnQQCTRxB6caGtnIGVLSup37eVTF2wTV60E4Aa4uAw=="/>
+        </item>
+        <item>
             <title>0.1.4</title>
             <pubDate>Sun, 15 Nov 2026 22:05:23 +0800</pubDate>
             <link>https://github.com/GooZhenJie/skywrite/releases</link>
